@@ -18,7 +18,7 @@ var map = L.map('map', {
 }).setView([41.016596, 28.975677], 17);
 
 // basemap ekleyici
-L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/streets-v12/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1Ijoic2Fyc2FyaG9zIiwiYSI6ImNsZ3hzaGRodTAyajgzZXBlN2Z6bHR2eDkifQ._0BlgCaVYO1SCuriJa8Rig', {
+L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/streets-v12/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1Ijoic2Fyc2FyaG9zIiwiYSI6ImNtNTNxa2s4dTJhMDEyanNkNG0wODFzYTgifQ.-fITMwABFFCOan5-3LrYtg', {
     maxZoom: 20,
     minZoom: 17,
     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
