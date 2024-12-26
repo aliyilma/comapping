@@ -631,7 +631,7 @@ document.addEventListener("keydown", function (event) {
 // Emin misin sorusu
 function areYouSure() {
     if (window.confirm("Gerçekten mi?")) {
-        uploadZipFile();
+        uploadCombinedGeoJSON();
     }
 }
 
