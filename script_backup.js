@@ -635,67 +635,74 @@ function areYouSure() {
     }
 }
 
-// Tüm türlerle tek bir GeoJSON oluşturup Dropbox'a yüklüyoruz
-function uploadCombinedGeoJSON() {
-    var combinedGeoJSON = {
-        type: "FeatureCollection",
-        features: []
-    };
+// geojsonları zipleyip dropboxa yüklüyoruz
+function uploadZipFile() {
+    var zip = new JSZip();
+    zip.file("agac.geojson", JSON.stringify(agacGroup.toGeoJSON()));
+    zip.file("bank.geojson", JSON.stringify(bankGroup.toGeoJSON()));
+    zip.file("heykel.geojson", JSON.stringify(heykelGroup.toGeoJSON()));
+    zip.file("yol.geojson", JSON.stringify(yolGroup.toGeoJSON()));
+    zip.file("yesil.geojson", JSON.stringify(yesilGroup.toGeoJSON()));
+    zip.file("wc.geojson", JSON.stringify(wcGroup.toGeoJSON()));
+    zip.file("sport.geojson", JSON.stringify(sportGroup.toGeoJSON()));
+    zip.file("kultur.geojson", JSON.stringify(kulturGroup.toGeoJSON()));
+    zip.file("cafe.geojson", JSON.stringify(cafeGroup.toGeoJSON()));
+    zip.file("meydan.geojson", JSON.stringify(meydanGroup.toGeoJSON()));
 
-    // Tüm katmanlardan özellikleri topluyoruz
-    Object.values(layers).forEach(layer => {
-        var geojson = layer.toGeoJSON();
-        if (geojson.features) {
-            combinedGeoJSON.features.push(...geojson.features);
-        }
-    });
-
-    // GeoJSON dosyasını oluşturuyoruz
-    var geoBlob = new Blob([JSON.stringify(combinedGeoJSON)], { type: "application/json" });
-    var fileName = getFileName() + ".geojson";
-    var file = new File([geoBlob], fileName);
-
-    // Dropbox API v2 ile dosya yükleme
-    var dbx = new Dropbox.Dropbox({
-        clientId: '3srgf2zk9ehxjuo',
-        clientSecret: "sox2f4bp0rora92",
-        refreshToken: "tS2SLNlfrDYAAAAAAAAAAdnWBjf2gdtW8RgC_2lGL30fBqX_gp-otnyQnVkGzY9f"
-    });
-
-    dbx.filesUpload({ path: "/" + file.name, contents: file })
-        .then(function (response) {
-            console.log("Dosya başarıyla yüklendi.");
-            alert("Oldu! Sayenizde Matrix'i güncelledik.");
-        })
-        .catch(function (error) {
-            console.error(error);
-            // Dosyayı indir
-            var downloadUrl = URL.createObjectURL(file);
-            var link = document.createElement("a");
-            link.href = downloadUrl;
-            link.download = file.name;
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-
-            if (window.confirm('Matrix\'te bir hata ile karşılaştık fakat çalışmalarını kurtardık.\n\nTamam\'ı seçersen kodu düzeltmek için bir şans verip bize tasarımını mail atabilirsin. Vazgeç\'i seçersen her şey sona erer ve hayatına geri dönersin.')) {
-                window.location.href = 'mailto:yilmazali13@itu.edu.tr';
-            };
+    zip.generateAsync({ type: "blob" }).then(function (content) {
+        // Dosya adını oluşturmak için getFileName fonksiyonunu kullanıyoruz
+        var file = new File([content], getFileName() + ".zip");
+        // Dropbox API v2 ile dosya yükleme
+        var ACCESS_TOKEN = "sl.BdQKaAg5knST8pTetRKp09GETRyYCf6rEkgZPktO4x8569ypP5WjOxXRFwrOQRtVbIqk4r2KXZQLd0EEbP1Ybt_UwzTk9dN3vEHe6evqJuhx4RDb1mo_HuQDMe5bw5ZetCSNAp0";
+        var dbx = new Dropbox.Dropbox({
+            clientId: '3srgf2zk9ehxjuo',
+            clientSecret: "sox2f4bp0rora92",
+            refreshToken: "tS2SLNlfrDYAAAAAAAAAAdnWBjf2gdtW8RgC_2lGL30fBqX_gp-otnyQnVkGzY9f"
         });
 
-    clearAllLayers();
+        dbx.filesUpload({ path: "/" + file.name, contents: file })
+            .then(function (response) {
+                console.log("Dosya başarıyla yüklendi.");
+                alert("Oldu! Sayenizde Matrix'i güncelledik.");
+            })
+            .catch(function (error) {
+                console.error(error);
+                // download file instead of uploading
+                var downloadUrl = URL.createObjectURL(file);
+                var link = document.createElement("a");
+                link.href = downloadUrl;
+                link.download = file.name;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+
+                if (window.confirm('Matrix\'te bir hata ile karşılaştık fakat çalışmalarını kurtardık.\n\nTamam\'ı seçersen kodu düzeltmek için bir şans verip bize tasarımını mail atabilirsin. Vazgeç\'i seçersen her şey sona erer ve hayatına geri dönersin.')) {
+                    window.location.href = 'mailto:yilmazali13@itu.edu.tr';
+                };
+            });
+    });
+    bankGroup.clearLayers();
+    agacGroup.clearLayers();
+    heykelGroup.clearLayers();
+    yolGroup.clearLayers();
+    yesilGroup.clearLayers();
+    wcGroup.clearLayers();
+    sportGroup.clearLayers();
+    kulturGroup.clearLayers();
+    cafeGroup.clearLayers();
+    meydanGroup.clearLayers();
 }
 
-// Dosya adı oluşturucu
+// dosya adı oluşturucu
 function getFileName() {
     var date = new Date();
     var year = date.getFullYear();
-    var month = String(date.getMonth() + 1).padStart(2, '0');
-    var day = String(date.getDate()).padStart(2, '0');
-    var hour = String(date.getHours()).padStart(2, '0');
-    var minute = String(date.getMinutes()).padStart(2, '0');
-    var second = String(date.getSeconds()).padStart(2, '0');
-    return `map_${kullaniciadi}_${year}${month}${day}_${hour}${minute}${second}`;
+    var month = date.getMonth() + 1;
+    var day = date.getDate();
+    var hour = date.getHours();
+    var minute = date.getMinutes();
+    var second = date.getSeconds();
+    return "map_" + kullaniciadi + "-" + month + "-" + day + "_" + hour + "-" + minute + "-" + second;
 }
 
 // geri alıcı
