@@ -1,16 +1,107 @@
-// ekrana mesaj çak ve nick iste
-setTimeout(function () {
-    kullaniciadi = prompt(
-        "Şu anda Sirkeci Garı'ndan Eminönü'ne kadar olan hattı keyfinize göre tasarlamak üzeresiniz. Bunu katılımcı planlama ve tasarım anlayışı ile harmanlanan bir mekânsal anket çalışması olarak düşünebilirsiniz.\n\nHarita üzerinde bulunan yardımcı butonlar vasıtası ile fikirlerinizi haritaya ekleyebilir ve hayallerinizin gerçekleşmesini umabilirsiniz. Sizin gibi diğer ziyaretçiler de bu mekânsal anketi hayalleri ile dolduruyor ve sonuçları Matrix'te yer alan çok güvenli bir sunucuya PTT ile gönderiliyor.\n\nAnkete güvenle devam edebilmeniz için annenizin evlenmeden önceki soyadı?\n\Şaka. Olmak istediğiniz kişiyi giriniz.", "white rabbit"
-    );
+// Stil ekle
+const style = document.createElement('style');
+style.textContent = `
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4);
+}
+.modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 5px;
+}
+`;
+document.head.appendChild(style);
+
+// Modal HTML
+const modal = document.createElement('div');
+modal.className = 'modal';
+modal.innerHTML = `
+    <div class="modal-content">
+        <h2>Hoş Geldiniz!</h2>
+        <p>Sirkeci Garı'ndan Eminönü'ne kadar olan hattı tasarlamak üzeresiniz.</p>
+        
+        <form id="userForm">
+            <div style="margin-bottom: 15px;">
+                <label>Kullanıcı Adı:</label><br>
+                <input type="text" id="username" required>
+            </div>
+
+            <div style="margin-bottom: 15px;">
+                <label>Yaş:</label><br>
+                <input type="number" id="age" min="0" max="120" required>
+            </div>
+
+            <div style="margin-bottom: 15px;">
+                <label>Kullanıcı Grubu:</label><br>
+                <select id="userGroup" required>
+                    <option value="">Seçiniz...</option>
+                    <option value="burada yaşıyor">Burada yaşıyor</option>
+                    <option value="ziyaretçi">Ziyaretçi</option>
+                    <option value="turist">Turist</option>
+                </select>
+            </div>
+
+            <div style="margin-bottom: 15px;">
+                <label>Kullanım Sıklığı:</label><br>
+                <select id="frequency" required>
+                    <option value="">Seçiniz...</option>
+                    <option value="her gün">Her gün</option>
+                    <option value="haftada bir">Haftada bir</option>
+                    <option value="ayda bir">Ayda bir</option>
+                    <option value="yılda bir">Yılda bir</option>
+                </select>
+            </div>
+
+            <button type="submit">Başla</button>
+        </form>
+    </div>
+`;
+
+document.body.appendChild(modal);
+
+// Formu göster
+setTimeout(() => {
+    modal.style.display = 'block';
 }, 1000);
 
+// Form gönderimini yakala
+document.getElementById('userForm').onsubmit = function(e) {
+    e.preventDefault();
+    
+    // Global değişkenlere ata
+    kullaniciadi = document.getElementById('username').value;
+    kullaniciYas = parseInt(document.getElementById('age').value);
+    kullaniciGrubu = document.getElementById('userGroup').value;
+    kullanimSikligi = document.getElementById('frequency').value;
+
+    // Modalı kapat
+    modal.style.display = 'none';
+
+    console.log({
+        kullaniciadi,
+        kullaniciYas,
+        kullaniciGrubu,
+        kullanimSikligi
+    });
+};
+
 // Get user device information, and location and print to the console
+/*
 navigator.geolocation.getCurrentPosition(function (position) {
     console.log(position);
 });
-
-
+*/
 
 // harita oluşturucu
 var map = L.map('map', {
@@ -640,45 +731,85 @@ function uploadCombinedGeoJSON() {
     const combinedFeatures = {
         "type": "FeatureCollection",
         "features": [
-            ...agacGroup.toGeoJSON().features.map(f => ({
+            ...agacGroup.toGeoJSON().features.map((f, i) => ({
                 ...f,
-                properties: { ...f.properties, type: 'agac' }
+                properties: { 
+                    ...f.properties, 
+                    tur: 'agac',
+                    isim: `Ağaç ${i+1}`
+                }
             })),
-            ...bankGroup.toGeoJSON().features.map(f => ({
+            ...bankGroup.toGeoJSON().features.map((f, i) => ({
                 ...f,
-                properties: { ...f.properties, type: 'bank' }
+                properties: { 
+                    ...f.properties, 
+                    tur: 'bank',
+                    isim: `Bank ${i+1}`
+                }
             })),
-            ...heykelGroup.toGeoJSON().features.map(f => ({
+            ...heykelGroup.toGeoJSON().features.map((f, i) => ({
                 ...f,
-                properties: { ...f.properties, type: 'heykel' }
+                properties: { 
+                    ...f.properties, 
+                    tur: 'heykel',
+                    isim: `Heykel ${i+1}`
+                }
             })),
-            ...yolGroup.toGeoJSON().features.map(f => ({
+            ...yolGroup.toGeoJSON().features.map((f, i) => ({
                 ...f,
-                properties: { ...f.properties, type: 'yol' }
+                properties: { 
+                    ...f.properties, 
+                    tur: 'yol',
+                    isim: `Yol ${i+1}`
+                }
             })),
-            ...yesilGroup.toGeoJSON().features.map(f => ({
+            ...yesilGroup.toGeoJSON().features.map((f, i) => ({
                 ...f,
-                properties: { ...f.properties, type: 'yesil' }
+                properties: { 
+                    ...f.properties, 
+                    tur: 'yesil',
+                    isim: `Yeşil Alan ${i+1}`
+                }
             })),
-            ...wcGroup.toGeoJSON().features.map(f => ({
+            ...wcGroup.toGeoJSON().features.map((f, i) => ({
                 ...f,
-                properties: { ...f.properties, type: 'wc' }
+                properties: { 
+                    ...f.properties, 
+                    tur: 'wc',
+                    isim: `WC ${i+1}`
+                }
             })),
-            ...sportGroup.toGeoJSON().features.map(f => ({
+            ...sportGroup.toGeoJSON().features.map((f, i) => ({
                 ...f,
-                properties: { ...f.properties, type: 'spor' }
+                properties: { 
+                    ...f.properties, 
+                    tur: 'spor',
+                    isim: `Spor Alanı ${i+1}`
+                }
             })),
-            ...kulturGroup.toGeoJSON().features.map(f => ({
+            ...kulturGroup.toGeoJSON().features.map((f, i) => ({
                 ...f,
-                properties: { ...f.properties, type: 'kultur' }
+                properties: { 
+                    ...f.properties, 
+                    tur: 'kultur',
+                    isim: `Kültürel Alan ${i+1}`
+                }
             })),
-            ...cafeGroup.toGeoJSON().features.map(f => ({
+            ...cafeGroup.toGeoJSON().features.map((f, i) => ({
                 ...f,
-                properties: { ...f.properties, type: 'cafe' }
+                properties: { 
+                    ...f.properties, 
+                    tur: 'cafe',
+                    isim: `Kafe ${i+1}`
+                }
             })),
-            ...meydanGroup.toGeoJSON().features.map(f => ({
+            ...meydanGroup.toGeoJSON().features.map((f, i) => ({
                 ...f,
-                properties: { ...f.properties, type: 'meydan' }
+                properties: { 
+                    ...f.properties, 
+                    tur: 'meydan',
+                    isim: `Meydan ${i+1}`
+                }
             }))
         ]
     };
