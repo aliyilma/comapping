@@ -6,10 +6,11 @@ setTimeout(function () {
 }, 1000);
 
 // Get user device information, and location and print to the console
+/*
 navigator.geolocation.getCurrentPosition(function (position) {
     console.log(position);
 });
-
+*/
 
 
 // harita oluşturucu
@@ -25,8 +26,6 @@ L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/streets-v12/tiles/256/{z}/{
         '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
         'Imagery © <a href="http://mapbox.com">Mapbox</a>',
 }).addTo(map);
-
-
 
 // add scale bar to map
 L.control.scale().addTo(map);
@@ -45,24 +44,24 @@ var type;
 
 // çizim katmanlarını oluşturuyoruz
 var agacGroup = new L.FeatureGroup();
-map.addLayer(agacGroup);
 var bankGroup = new L.FeatureGroup();
-map.addLayer(bankGroup);
 var heykelGroup = new L.FeatureGroup();
-map.addLayer(heykelGroup);
 var yolGroup = new L.FeatureGroup();
-map.addLayer(yolGroup);
 var cafeGroup = new L.FeatureGroup();
-map.addLayer(cafeGroup);
 var wcGroup = new L.FeatureGroup();
-map.addLayer(wcGroup);
 var sportGroup = new L.FeatureGroup();
-map.addLayer(sportGroup);
 var kulturGroup = new L.FeatureGroup();
-map.addLayer(kulturGroup);
 var yesilGroup = new L.FeatureGroup();
-map.addLayer(yesilGroup);
 var meydanGroup = new L.FeatureGroup();
+map.addLayer(agacGroup);
+map.addLayer(bankGroup);
+map.addLayer(heykelGroup);
+map.addLayer(yolGroup);
+map.addLayer(cafeGroup);
+map.addLayer(wcGroup);
+map.addLayer(sportGroup);
+map.addLayer(kulturGroup);
+map.addLayer(yesilGroup);
 map.addLayer(meydanGroup);
 
 // agac çizici
