@@ -640,16 +640,46 @@ function uploadCombinedGeoJSON() {
     const combinedFeatures = {
         "type": "FeatureCollection",
         "features": [
-            ...agacGroup.toGeoJSON().features,
-            ...bankGroup.toGeoJSON().features,
-            ...heykelGroup.toGeoJSON().features,
-            ...yolGroup.toGeoJSON().features,
-            ...yesilGroup.toGeoJSON().features,
-            ...wcGroup.toGeoJSON().features,
-            ...sportGroup.toGeoJSON().features,
-            ...kulturGroup.toGeoJSON().features,
-            ...cafeGroup.toGeoJSON().features,
-            ...meydanGroup.toGeoJSON().features
+            ...agacGroup.toGeoJSON().features.map(f => ({
+                ...f,
+                properties: { ...f.properties, type: 'agac' }
+            })),
+            ...bankGroup.toGeoJSON().features.map(f => ({
+                ...f,
+                properties: { ...f.properties, type: 'bank' }
+            })),
+            ...heykelGroup.toGeoJSON().features.map(f => ({
+                ...f,
+                properties: { ...f.properties, type: 'heykel' }
+            })),
+            ...yolGroup.toGeoJSON().features.map(f => ({
+                ...f,
+                properties: { ...f.properties, type: 'yol' }
+            })),
+            ...yesilGroup.toGeoJSON().features.map(f => ({
+                ...f,
+                properties: { ...f.properties, type: 'yesil' }
+            })),
+            ...wcGroup.toGeoJSON().features.map(f => ({
+                ...f,
+                properties: { ...f.properties, type: 'wc' }
+            })),
+            ...sportGroup.toGeoJSON().features.map(f => ({
+                ...f,
+                properties: { ...f.properties, type: 'spor' }
+            })),
+            ...kulturGroup.toGeoJSON().features.map(f => ({
+                ...f,
+                properties: { ...f.properties, type: 'kultur' }
+            })),
+            ...cafeGroup.toGeoJSON().features.map(f => ({
+                ...f,
+                properties: { ...f.properties, type: 'cafe' }
+            })),
+            ...meydanGroup.toGeoJSON().features.map(f => ({
+                ...f,
+                properties: { ...f.properties, type: 'meydan' }
+            }))
         ]
     };
 
