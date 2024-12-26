@@ -1,4 +1,4 @@
-// Stil ekle
+// Stil güncelleme
 const style = document.createElement('style');
 style.textContent = `
 .modal {
@@ -9,53 +9,103 @@ style.textContent = `
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0,0,0,0.6);
 }
 .modal-content {
     background-color: white;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
+    margin: 10% auto;
+    padding: 30px;
+    border: none;
+    width: 90%;
     max-width: 500px;
-    border-radius: 5px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+.form-group {
+    margin-bottom: 20px;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #333;
+}
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+.form-control:focus {
+    outline: none;
+    border-color: #4A90E2;
+    box-shadow: 0 0 0 2px rgba(74,144,226,0.2);
+}
+select.form-control {
+    background-color: white;
+    cursor: pointer;
+}
+.btn {
+    background-color: #4A90E2;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.2s;
+}
+.btn:hover {
+    background-color: #357ABD;
+}
+h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+p {
+    color: #666;
+    margin-bottom: 25px;
+    line-height: 1.5;
 }
 `;
-document.head.appendChild(style);
 
-// Modal HTML
-const modal = document.createElement('div');
-modal.className = 'modal';
+// Modal HTML güncelleme
 modal.innerHTML = `
     <div class="modal-content">
         <h2>Hoş Geldiniz!</h2>
-        <p>Sirkeci Garı'ndan Eminönü'ne kadar olan hattı tasarlamak üzeresiniz.</p>
+        <p>Sirkeci Garı'ndan Eminönü'ne kadar olan hattı tasarlamak üzeresiniz. Lütfen başlamadan önce bilgilerinizi giriniz.</p>
         
         <form id="userForm">
-            <div style="margin-bottom: 15px;">
-                <label>Kullanıcı Adı:</label><br>
-                <input type="text" id="username" required>
+            <div class="form-group">
+                <label for="username">Kullanıcı Adı</label>
+                <input type="text" id="username" class="form-control" required 
+                       pattern="[A-Za-z0-9üğışçöÜĞİŞÇÖ\s]+" 
+                       title="Lütfen geçerli bir kullanıcı adı giriniz">
             </div>
 
-            <div style="margin-bottom: 15px;">
-                <label>Yaş:</label><br>
-                <input type="number" id="age" min="0" max="120" required>
+            <div class="form-group">
+                <label for="age">Yaşınız</label>
+                <input type="number" id="age" class="form-control" 
+                       min="0" max="120" required>
             </div>
 
-            <div style="margin-bottom: 15px;">
-                <label>Kullanıcı Grubu:</label><br>
-                <select id="userGroup" required>
-                    <option value="">Seçiniz...</option>
+            <div class="form-group">
+                <label for="userGroup">Kullanıcı Grubu</label>
+                <select id="userGroup" class="form-control" required>
+                    <option value="">Lütfen seçiniz...</option>
                     <option value="burada yaşıyor">Burada yaşıyor</option>
                     <option value="ziyaretçi">Ziyaretçi</option>
                     <option value="turist">Turist</option>
                 </select>
             </div>
 
-            <div style="margin-bottom: 15px;">
-                <label>Kullanım Sıklığı:</label><br>
-                <select id="frequency" required>
-                    <option value="">Seçiniz...</option>
+            <div class="form-group">
+                <label for="frequency">Kullanım Sıklığı</label>
+                <select id="frequency" class="form-control" required>
+                    <option value="">Lütfen seçiniz...</option>
                     <option value="her gün">Her gün</option>
                     <option value="haftada bir">Haftada bir</option>
                     <option value="ayda bir">Ayda bir</option>
@@ -63,38 +113,10 @@ modal.innerHTML = `
                 </select>
             </div>
 
-            <button type="submit">Başla</button>
+            <button type="submit" class="btn">Başla</button>
         </form>
     </div>
 `;
-
-document.body.appendChild(modal);
-
-// Formu göster
-setTimeout(() => {
-    modal.style.display = 'block';
-}, 1000);
-
-// Form gönderimini yakala
-document.getElementById('userForm').onsubmit = function(e) {
-    e.preventDefault();
-    
-    // Global değişkenlere ata
-    kullaniciadi = document.getElementById('username').value;
-    kullaniciYas = parseInt(document.getElementById('age').value);
-    kullaniciGrubu = document.getElementById('userGroup').value;
-    kullanimSikligi = document.getElementById('frequency').value;
-
-    // Modalı kapat
-    modal.style.display = 'none';
-
-    console.log({
-        kullaniciadi,
-        kullaniciYas,
-        kullaniciGrubu,
-        kullanimSikligi
-    });
-};
 
 // Get user device information, and location and print to the console
 /*
@@ -109,7 +131,7 @@ var map = L.map('map', {
 }).setView([41.016596, 28.975677], 17);
 
 // basemap ekleyici
-L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/standard/tiles/512/{z}/{x}/{y}@2x?access_token=pk.eyJ1Ijoic2Fyc2FyaG9zIiwiYSI6ImNtNTNxa2s4dTJhMDEyanNkNG0wODFzYTgifQ.-fITMwABFFCOan5-3LrYtg', {
+L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/streets-v12/tiles/512/{z}/{x}/{y}@2x?access_token=pk.eyJ1Ijoic2Fyc2FyaG9zIiwiYSI6ImNtNTNxa2s4dTJhMDEyanNkNG0wODFzYTgifQ.-fITMwABFFCOan5-3LrYtg', {
     maxZoom: 20,
     minZoom: 17,
     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
