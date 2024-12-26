@@ -118,6 +118,34 @@ modal.innerHTML = `
     </div>
 `;
 
+document.body.appendChild(modal);
+
+// Formu göster
+setTimeout(() => {
+    modal.style.display = 'block';
+}, 1000);
+
+// Form gönderimini yakala
+document.getElementById('userForm').onsubmit = function(e) {
+    e.preventDefault();
+    
+    // Global değişkenlere ata
+    kullaniciadi = document.getElementById('username').value;
+    kullaniciYas = parseInt(document.getElementById('age').value);
+    kullaniciGrubu = document.getElementById('userGroup').value;
+    kullanimSikligi = document.getElementById('frequency').value;
+
+    // Modalı kapat
+    modal.style.display = 'none';
+
+    console.log({
+        kullaniciadi,
+        kullaniciYas,
+        kullaniciGrubu,
+        kullanimSikligi
+    });
+};
+
 // Get user device information, and location and print to the console
 /*
 navigator.geolocation.getCurrentPosition(function (position) {
