@@ -631,67 +631,59 @@ document.addEventListener("keydown", function (event) {
 // Emin misin sorusu
 function areYouSure() {
     if (window.confirm("Gerçekten mi?")) {
-        uploadCombinedGeoJSON();
+        uploadZipFile();
     }
 }
 
-function uploadCombinedGeoJSON() {
-    // Tüm grupları tek bir FeatureCollection'da birleştir
-    const combinedFeatures = {
-        "type": "FeatureCollection",
-        "features": [
-            ...agacGroup.toGeoJSON().features,
-            ...bankGroup.toGeoJSON().features,
-            ...heykelGroup.toGeoJSON().features,
-            ...yolGroup.toGeoJSON().features,
-            ...yesilGroup.toGeoJSON().features,
-            ...wcGroup.toGeoJSON().features,
-            ...sportGroup.toGeoJSON().features,
-            ...kulturGroup.toGeoJSON().features,
-            ...cafeGroup.toGeoJSON().features,
-            ...meydanGroup.toGeoJSON().features
-        ]
-    };
+// geojsonları zipleyip dropboxa yüklüyoruz
+function uploadZipFile() {
+    var zip = new JSZip();
+    zip.file("agac.geojson", JSON.stringify(agacGroup.toGeoJSON()));
+    zip.file("bank.geojson", JSON.stringify(bankGroup.toGeoJSON()));
+    zip.file("heykel.geojson", JSON.stringify(heykelGroup.toGeoJSON()));
+    zip.file("yol.geojson", JSON.stringify(yolGroup.toGeoJSON()));
+    zip.file("yesil.geojson", JSON.stringify(yesilGroup.toGeoJSON()));
+    zip.file("wc.geojson", JSON.stringify(wcGroup.toGeoJSON()));
+    zip.file("sport.geojson", JSON.stringify(sportGroup.toGeoJSON()));
+    zip.file("kultur.geojson", JSON.stringify(kulturGroup.toGeoJSON()));
+    zip.file("cafe.geojson", JSON.stringify(cafeGroup.toGeoJSON()));
+    zip.file("meydan.geojson", JSON.stringify(meydanGroup.toGeoJSON()));
 
-    // GeoJSON dosyası oluştur
-    const file = new File([JSON.stringify(combinedFeatures)], getFileName() + ".geojson");
-
-    // Dropbox API v2 ile yükle
-    const dbx = new Dropbox.Dropbox({
-        clientId: '3srgf2zk9ehxjuo',
-        clientSecret: "sox2f4bp0rora92",
-        refreshToken: "tS2SLNlfrDYAAAAAAAAAAdnWBjf2gdtW8RgC_2lGL30fBqX_gp-otnyQnVkGzY9f"
-    });
-
-    dbx.filesUpload({ path: "/" + file.name, contents: file })
-        .then(function (response) {
-            console.log("Dosya başarıyla yüklendi.");
-            alert("Oldu! Sayenizde Matrix'i güncelledik.");
-            // Grupları temizle
-            clearAllGroups();
-        })
-        .catch(function (error) {
-            console.error(error);
-            // Yükleme başarısız olursa indir
-            const downloadUrl = URL.createObjectURL(file);
-            const link = document.createElement("a");
-            link.href = downloadUrl;
-            link.download = file.name;
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-
-            if (window.confirm('Matrix\'te bir hata ile karşılaştık fakat çalışmalarını kurtardık.\n\nTamam\'ı seçersen kodu düzeltmek için bir şans verip bize tasarımını mail atabilirsin. Vazgeç\'i seçersen her şey sona erer ve hayatına geri dönersin.')) {
-                window.location.href = 'mailto:yilmazali13@itu.edu.tr';
-            }
+    zip.generateAsync({ type: "blob" }).then(function (content) {
+        // Dosya adını oluşturmak için getFileName fonksiyonunu kullanıyoruz
+        var file = new File([content], getFileName() + ".zip");
+        // Dropbox API v2 ile dosya yükleme
+        var ACCESS_TOKEN = "sl.BdQKaAg5knST8pTetRKp09GETRyYCf6rEkgZPktO4x8569ypP5WjOxXRFwrOQRtVbIqk4r2KXZQLd0EEbP1Ybt_UwzTk9dN3vEHe6evqJuhx4RDb1mo_HuQDMe5bw5ZetCSNAp0";
+        var dbx = new Dropbox.Dropbox({
+            clientId: '3srgf2zk9ehxjuo',
+            clientSecret: "sox2f4bp0rora92",
+            refreshToken: "tS2SLNlfrDYAAAAAAAAAAdnWBjf2gdtW8RgC_2lGL30fBqX_gp-otnyQnVkGzY9f"
         });
-}
 
-// Yardımcı fonksiyon - tüm grupları temizle
-function clearAllGroups() {
+        dbx.filesUpload({ path: "/" + file.name, contents: file })
+            .then(function (response) {
+                console.log("Dosya başarıyla yüklendi.");
+                alert("Oldu! Sayenizde Matrix'i güncelledik.");
+            })
+            .catch(function (error) {
+                console.error(error);
+                // download file instead of uploading
+                var downloadUrl = URL.createObjectURL(file);
+                var link = document.createElement("a");
+                link.href = downloadUrl;
+                link.download = file.name;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+
+                if (window.confirm('Matrix\'te bir hata ile karşılaştık fakat çalışmalarını kurtardık.\n\nTamam\'ı seçersen kodu düzeltmek için bir şans verip bize tasarımını mail atabilirsin. Vazgeç\'i seçersen her şey sona erer ve hayatına geri dönersin.')) {
+                    window.location.href = 'mailto:yilmazali13@itu.edu.tr';
+                };
+            });
+    });
     bankGroup.clearLayers();
     agacGroup.clearLayers();
-    heykelGroup.clearLayers(); 
+    heykelGroup.clearLayers();
     yolGroup.clearLayers();
     yesilGroup.clearLayers();
     wcGroup.clearLayers();
