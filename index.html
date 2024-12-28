@@ -1,38 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="tr">
 
 <head>
     <title>comapping</title>
-    <meta charset="utf-8" />
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.3/leaflet.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css" />
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.3/leaflet.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div class="image-txt-container">
-        <p>&emsp;&emsp; Ağaç<br>&emsp;&emsp; Bank<br>&emsp;&emsp; Anıt<br>&emsp;&emsp; Cafe</p>
-        <p>&emsp;&emsp;: A<br>&emsp;&emsp;: B<br>&emsp;&emsp;: T<br>&emsp;&emsp;: C</p>
-        <p>&emsp;&emsp;&emsp;&emsp; </p>
-        <p>&emsp;&emsp; WC<br>&emsp;&emsp; Spor<br>&emsp;&emsp; Kültür/Sergi<br>&emsp;&emsp; </p>
-        <p>&emsp;&emsp;: W<br>&emsp;&emsp;: S<br>&emsp;&emsp;: K<br>&emsp;&emsp; </p>
-        <p>&emsp;&emsp;&emsp;&emsp; </p>
-        <p>&emsp;&emsp; Yaya Yolu<br>&emsp;&emsp; Yeşil Alan<br>&emsp;&emsp; Meydan<br>&emsp;&emsp; </p>
-        <p>&emsp;&emsp;: Y<br>&emsp;&emsp;: L<br>&emsp;&emsp;: M<br>&emsp;&emsp; </p>
-        <p>&emsp;&emsp;&emsp;&emsp; </p>
-        <p>&emsp;&emsp; Geri al<br>&emsp;&emsp; Temizle<br>&emsp;&emsp; Bitir ve yükle<br>&emsp;&emsp; </p>
-        <p>&emsp;&emsp;: Ctrl-Z<br>&emsp;&emsp;: Ctrl-R<br>&emsp;&emsp;: Ctrl-S<br>&emsp;&emsp; </p>
-    </div>
-
-    <div class="buttongroup">
-        <button id="draw-agac">🌳 Ağaç</button>
-        <button id="draw-bench">🪑 Bank</button>
-        <button id="draw-statue">🗽 Anıt</button>
-        <button id="draw-cafe">☕️ Cafe</button>
-        <button id="draw-wc">🚽 WC</button>
-        <button id="draw-sport">🏀 Spor</button>
-        <button id="draw-culture">🎭 Kültür/Sergi</button>
+    <!-- Control Buttons -->
+    <nav class="buttongroup">
+        <div>
+            <button id="draw-agac">🌳 Ağaç</button>
+            <button id="draw-bench">🪑 Bank</button>
+            <button id="draw-statue">🗽 Anıt</button>
+            <button id="draw-cafe">☕️ Cafe</button>
+            <button id="draw-wc">🚽 WC</button>
+            <button id="draw-sport">🏀 Spor</button>
+            <button id="draw-culture">🎭 Kültür/Sergi</button>
+        </div>
 
         <div>
             <button id="draw-path">🚶🏻‍♂️ Yaya yolu</button>
@@ -40,25 +31,76 @@
             <button id="draw-square">🟨 Meydan</button>
         </div>
 
-        <button id="undo" class="bitir">❮❮ Geri al</button>
-        <button id="reset" class="bitir">💫 Temizle</button>
-        <button id="upload" class="bitir">📤 Bitir ve yükle</button>
+        <div>
+            <button id="undo" class="bitir">❮❮ Geri al</button>
+            <button id="reset" class="bitir">💫 Temizle</button>
+            <button id="upload" class="bitir">📤 Bitir ve yükle</button>
+        </div>
+    </nav>
+
+    <!-- User Modal -->
+    <div id="user-modal" class="modal">
+        <div class="modal-content">
+            <h2>Katılımcı</h2>
+            <p>
+            Şu anda Sirkeci Garı'ndan Eminönü'ne kadar olan hattı keyfinize göre tasarlamak üzeresiniz. 
+            Bunu katılımcı planlama ve tasarım anlayışı ile harmanlanan bir mekânsal anket çalışması olarak düşünebilirsiniz.
+            </p>
+            <p>
+            Harita üzerinde bulunan yardımcı butonlar vasıtası ile fikirlerinizi haritaya ekleyebilir ve hayallerinizin gerçekleşmesini umabilirsiniz. 
+            Sizin gibi diğer ziyaretçiler de bu mekânsal anketi hayalleri ile dolduruyor ve sonuçları Matrix'te yer alan çok güvenli bir sunucuya PTT ile gönderiliyor.
+            </p>
+            <p></p>
+            <form id="user-form">
+                <div>
+                    <label for="username">Rumuz (Anonim kalacak, söz)</label>
+                    <input type="text" id="username" name="username" placeholder="Adınızı giriniz" value="white_rabbit" required>
+                </div>
+                <div>
+                    <label for="age">Yaş</label>
+                    <input type="number" id="age" name="age" placeholder="Yaşınızı giriniz" value="25" required>
+                </div>
+                <div>
+                    <label for="group">Kullanıcı grubu</label>
+                    <select id="group" name="group">
+                        <option value="ziyaretçiyim">Ziyaretçiyim</option>
+                        <option value="yaşıyorum">Yaşıyorum</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="frequency">Kullanım sıklığı</label>
+                    <select id="frequency" name="frequency">
+                        <option value="her gün">Her gün</option>
+                        <option value="haftalık">Haftada bir veya birkaç kez</option>
+                        <option value="aylık">Ayda bir veya birkaç kez</option>
+                        <option value="yıllık" selected>Yılda bir veya birkaç kez</option>
+                        <option value="nadiren">Nadiren</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="tech">Teknoloji ile aranız</label>
+                    <select id="tech" name="tech">
+                        <option value="yok">Yok</option>
+                        <option value="eh">Eh</option>
+                        <option value="bazen" selected>Bazen</option>
+                        <option value="sıklıkla">Sıklıkla</option>
+                        <option value="tam">Tam</option>
+                    </select>
+                </div>
+                <button id="continue-btn" type="button" onclick="saveAndContinue()">Devam</button>
+            </form>
+        </div>
     </div>
 
-    <div id="map"></div>
+    <!-- Map Container -->
+    <main id="map"></main>
 
+    <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-    <script src=https://raw.githubusercontent.com/calvinmetcalf/leaflet-ajax/master/dist/leaflet.ajax.min.js></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dropbox.js/10.34.0/Dropbox-sdk.min.js"></script>
-    <script type="text/javascript" src="https://www.dropbox.com/static/api/2/dropins.js" 
-        id="dropboxjs"
-        data-app-key="3srgf2zk9ehxjuo"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.3/leaflet.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.3/leaflet-src.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.toolbar.js/0.3.0/leaflet.toolbar.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tooltip.js/1.3.3/tooltip.js"></script>

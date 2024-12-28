@@ -1,87 +1,178 @@
+/* Import fonts */
 @import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
 
-        #map {
-            width: 100%;
-        }
+/* Base styles */
+:root {
+    --font-family: "Quicksand";
+    --button-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px;
+    --primary-color: #36395A;
+    --button-bg: #FCFCFD;
+}
 
-        .leaflet-draw-toolbar {
-            display: none;
-        }
+/* Map container */
+#map {
+    width: 100%;
+    z-index: 400;
+}
 
-        .leaflet-control-container {
-            position: absolute;
-            top: 96px;
-        }
+/* Leaflet controls */
+.leaflet-draw-toolbar {
+    display: none;
+}
 
+.leaflet-control-container {
+    position: absolute;
+    top: 96px;
+}
 
-        button {
-            align-items: center;
-            appearance: none;
-            background-color: #FCFCFD;
-            border-radius: 4px;
-            border-width: 0;
-            box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
-            box-sizing: border-box;
-            color: #36395A;
-            cursor: pointer;
-            display: inline-flex;
-            font-family: "Quicksand";
-            height: 24px;
-            justify-content: center;
-            line-height: 1;
-            list-style: none;
-            overflow: hidden;
-            padding-left: 8px;
-            padding-right: 8px;
-            position: relative;
-            text-align: left;
-            text-decoration: none;
-            transition: box-shadow .15s, transform .15s;
-            user-select: none;
-            -webkit-user-select: none;
-            touch-action: manipulation;
-            white-space: nowrap;
-            will-change: box-shadow, transform;
-            font-size: 12px;
-            left: 10px;
-            top: 10px;
-            z-index: 40000;
-            margin-bottom: 5px;
-        }
+/* Button styles */
+button {
+    align-items: center;
+    appearance: none;
+    background-color: var(--button-bg);
+    border-radius: 4px;
+    border-width: 0;
+    box-shadow: var(--button-shadow), #D6D6E7 0 -3px 0 inset;
+    box-sizing: border-box;
+    color: var(--primary-color);
+    cursor: pointer;
+    display: inline-flex;
+    font-family: var(--font-family);
+    height: 24px;
+    justify-content: center;
+    line-height: 1;
+    list-style: none;
+    overflow: hidden;
+    padding: 0 8px;
+    position: relative;
+    text-align: left;
+    text-decoration: none;
+    transition: box-shadow .15s, transform .15s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    will-change: box-shadow, transform;
+    font-size: 12px;
+    left: 10px;
+    top: 10px;
+    z-index: 500;
+    margin-bottom: 5px;
+}
 
-        .bitir {
-            background-color: #565151;
-            color: #ffffff;
-            box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #000000 0 -3px 0 inset;
-        }
+button:focus {
+    box-shadow: #D6D6E7 0 0 0 1.5px inset, var(--button-shadow), #D6D6E7 0 -3px 0 inset;
+}
 
-        .bitir:hover {
-            box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #000000 0 -3px 0 inset;
-            transform: translateY(-2px);
-        }
+button:hover {
+    box-shadow: var(--button-shadow), #D6D6E7 0 -3px 0 inset;
+    transform: translateY(-2px);
+}
 
-        button:focus {
-            box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
-        }
+button:active {
+    box-shadow: #D6D6E7 0 3px 7px inset;
+    transform: translateY(2px);
+}
 
-        button:hover {
-            box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
-            transform: translateY(-2px);
-        }
+/* Special button styles */
+.bitir {
+    background-color: #565151;
+    color: #ffffff;
+    box-shadow: var(--button-shadow), #000000 0 -3px 0 inset;
+}
 
-        button:active {
-            box-shadow: #D6D6E7 0 3px 7px inset;
-            transform: translateY(2px);
-        }
+.bitir:hover {
+    box-shadow: var(--button-shadow), #000000 0 -3px 0 inset;
+    transform: translateY(-2px);
+}
 
-        .image-txt-container {
-            display: flex;
-            align-items: center;
-            flex-direction: row;
-            font-family: "Quicksand";
-            font-size: 12px;
-        }
+/* Container styles */
+.image-txt-container {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    font-family: var(--font-family);
+    font-size: 12px;
+}
 
-        .buttongroup {
-            height: 0px;
-        }
+.buttongroup {
+    height: 0;
+}
+
+/* Modal styles */
+.modal {
+    display: flex;
+    position: fixed;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15px auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+    font-family: var(--font-family);
+    font-size: 12px;
+    line-height: 1;
+    text-align: left;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    color: #444;
+
+}
+
+.modal-content form > div {
+    margin-bottom: 10px;
+}
+
+.modal-content label {
+    display: block;
+    margin-bottom: 1px;
+    font-weight: 100;
+    color: #444;
+}
+
+.modal-content input,
+.modal-content select {
+    width: 100%;
+    padding: 4px;
+    padding-right: 0px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 12px;
+    transition: border-color 0.3s ease;
+    font-family: var(--font-family);
+
+}
+
+.modal-content input:focus,
+.modal-content select:focus {
+    outline: none;
+    border-color: #4CAF50;
+    box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.1);
+}
+
+#continue-btn {
+    margin-top: 5px;
+    margin-left: -10px;
+    padding: 15px 15px;
+    background-color: #4CAF50;
+    color: white;
+    font-family: var(--font-family);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#continue-btn:hover {
+    background-color: #3f9243;
+}
