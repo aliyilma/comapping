@@ -1,17 +1,20 @@
 // --- MODAL FUNCTIONALITY ---
 
 let userInfo = {};
+let startTime, endTime;
 
 function handleSaveAndContinue() {
     const username = document.getElementById("username").value;
     const age = document.getElementById("age").value;
     const group = document.getElementById("group").value;
     const frequency = document.getElementById("frequency").value;
+    const tech = document.getElementById("tech").value;
 
-    if (username && age && group && frequency) {
-        userInfo = { username, age, group, frequency };
+    if (username && age && group && frequency && tech) {
+        userInfo = { username, age, group, frequency, tech };
         document.getElementById("user-modal").style.display = "none";
-        //alert("Kullanıcı bilgileri kaydedildi. Haritaya devam edebilirsiniz!");
+
+        startTime = new Date();
     } else {
         alert("Lütfen tüm alanları doldurun.");
     }
@@ -24,7 +27,7 @@ window.onload = () => {document.getElementById("user-modal").style.display = "bl
 
 const mapContainerId = 'map';
 const initialView = [41.016596, 28.975677];
-const initialZoom = 17;
+const initialZoom = 17.5;
 //const mapOptions = {maxBounds: [[41.01874865817629, 28.971567095902117], [41.01413366017337, 28.97923475870823]]};
 
 const map = L.map(mapContainerId).setView(initialView, initialZoom);
@@ -227,7 +230,7 @@ document.getElementById('continue-btn').onclick = handleSaveAndContinue;
 // --- DRAWING MANAGEMENT FUNCTIONS ---
 
 function handleFinishDrawing() {
-    if (window.confirm("Çalışmanı yüklemek istediğine emin misin?")) {
+    if (window.confirm("Matrix'i daha güzel hale getirmek istediğinize emin misiniz?")) {
         uploadGeoJSONData();
     }
 }
@@ -242,9 +245,10 @@ function collectDrawingFeatures() {
 }
 
 function createGeoJSONPayload(features) {
+    const duration = ((new Date() - startTime) / 1000).toFixed(2);
     return {
         type: "FeatureCollection",
-        properties: { ...userInfo },
+        properties: { ...userInfo, duration: `${duration}` },
         features: features
     };
 }
@@ -267,7 +271,7 @@ function uploadGeoJSONData() {
     });
 
     dropboxClient.filesUpload({ path: `/${fileName}`, contents: file })
-        .then(() => alert("Çalışmanız başarıyla yüklendi!"))
+        .then(() => alert("Oldu, sayenizde Matrix'i güncelledik!"))
         .catch(() => {
             const downloadLink = document.createElement("a");
             downloadLink.href = URL.createObjectURL(file);
@@ -278,7 +282,7 @@ function uploadGeoJSONData() {
                 location.href = 'mailto:yilmazali13@itu.edu.tr';
             }
         })
-        .finally(() => clearDrawing());
+        .finally(() => Object.values(drawingLayers).forEach(layerGroup => layerGroup.clearLayers()));
 }
 
 function undoLastDrawing() {
@@ -289,7 +293,7 @@ function undoLastDrawing() {
 }
 
 function clearDrawing() {
-    if (window.confirm("Çizimleri temizlemek istediğinize emin misiniz?")) {
+    if (window.confirm("Matrix'teki tüm varlığınızı temizlemek istediğinize emin misiniz?")) {
         Object.values(drawingLayers).forEach(layerGroup => layerGroup.clearLayers());
     }
 }
