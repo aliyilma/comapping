@@ -120,8 +120,8 @@ const createMarkerIcon = (iconUrl) => L.icon({
     shadowUrl: 'https://img.icons8.com/ios-filled/50/FFFFFF/filled-circle.png',
     iconSize: [18, 18],
     iconAnchor: [9, 9],
-    shadowSize: [30, 30],
-    shadowAnchor: [9, 18]
+    shadowSize: [24, 24],
+    shadowAnchor: [12, 12]
 });
 
 // Function to create draw controls with consistent options
