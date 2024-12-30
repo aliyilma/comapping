@@ -106,7 +106,8 @@ const drawingLayers = {
     culture: new L.FeatureGroup(),
     path: new L.FeatureGroup(),
     green: new L.FeatureGroup(),
-    square: new L.FeatureGroup()
+    square: new L.FeatureGroup(),
+    treeRow: new L.FeatureGroup()
 };
 
 // Add all drawing layers to the map
@@ -135,31 +136,31 @@ function createDrawControl(layerGroup, drawOptions) {
 const drawControls = {
     agac: createDrawControl(drawingLayers.agac, {
         polygon: false, polyline: false, circle: false, circlemarker: false, rectangle: false,
-        marker: { icon: createMarkerIcon('https://raw.githubusercontent.com/aliyilma/comapping/a00e318d660790e39ce5aab5bca2058ace01423b/simgeler/agac.png') }
+        marker: { icon: createMarkerIcon('https://img.icons8.com/stickers/48/deciduous-tree.png') }
     }),
     bench: createDrawControl(drawingLayers.bench, {
         polygon: false, polyline: false, circle: false, circlemarker: false, rectangle: false,
-        marker: { icon: createMarkerIcon('https://img.icons8.com/ios-glyphs/30/FD7E14/city-bench.png') }
+        marker: { icon: createMarkerIcon('https://img.icons8.com/stickers/48/city-bench.png') }
     }),
     statue: createDrawControl(drawingLayers.statue, {
         polygon: false, polyline: false, circle: false, circlemarker: false, rectangle: false,
-        marker: { icon: createMarkerIcon('https://img.icons8.com/ios-filled/50/FA5252/venus-de-milo--v2.png') }
+        marker: { icon: createMarkerIcon('https://img.icons8.com/stickers/48/statue.png') }
     }),
     cafe: createDrawControl(drawingLayers.cafe, {
         polygon: false, polyline: false, circle: false, circlemarker: false, rectangle: false,
-        marker: { icon: createMarkerIcon('https://img.icons8.com/parakeet/48/null/cafe.png') }
+        marker: { icon: createMarkerIcon('https://img.icons8.com/stickers/48/espresso-cup.png') }
     }),
     wc: createDrawControl(drawingLayers.wc, {
         polygon: false, polyline: false, circle: false, circlemarker: false, rectangle: false,
-        marker: { icon: createMarkerIcon('https://img.icons8.com/arcade/64/null/diarrhea.png') }
+        marker: { icon: createMarkerIcon('https://img.icons8.com/stickers/48/toilet-bowl.png') }
     }),
     sport: createDrawControl(drawingLayers.sport, {
         polygon: false, polyline: false, circle: false, circlemarker: false, rectangle: false,
-        marker: { icon: createMarkerIcon('https://img.icons8.com/color/48/null/basketball.png') }
+        marker: { icon: createMarkerIcon('https://img.icons8.com/stickers/48/basketball.png') }
     }),
     culture: createDrawControl(drawingLayers.culture, {
         polygon: false, polyline: false, circle: false, circlemarker: false, rectangle: false,
-        marker: { icon: createMarkerIcon('https://img.icons8.com/office/30/null/theatre-mask.png') }
+        marker: { icon: createMarkerIcon('https://img.icons8.com/stickers/48/theatre-mask.png') }
     }),
     path: createDrawControl(drawingLayers.path, {
         polygon: false, polyline: true, circle: false, circlemarker: false, rectangle: false,
@@ -188,11 +189,11 @@ map.on(L.Draw.Event.CREATED, function (e) {
         const iconUrl = layer.options.icon.options.iconUrl;
         if (iconUrl.includes("tree")) drawingLayers.agac.addLayer(layer);
         else if (iconUrl.includes("bench")) drawingLayers.bench.addLayer(layer);
-        else if (iconUrl.includes("venus")) drawingLayers.statue.addLayer(layer);
-        else if (iconUrl.includes("cafe")) drawingLayers.cafe.addLayer(layer);
-        else if (iconUrl.includes("diarrhea")) drawingLayers.wc.addLayer(layer);
+        else if (iconUrl.includes("statue")) drawingLayers.statue.addLayer(layer);
+        else if (iconUrl.includes("espresso")) drawingLayers.cafe.addLayer(layer);
+        else if (iconUrl.includes("toilet")) drawingLayers.wc.addLayer(layer);
         else if (iconUrl.includes("basketball")) drawingLayers.sport.addLayer(layer);
-        else if (iconUrl.includes("mask")) drawingLayers.culture.addLayer(layer);
+        else if (iconUrl.includes("theatre")) drawingLayers.culture.addLayer(layer);
     } else if (layerType === 'polyline') {
         drawingLayers.path.addLayer(layer);
     } else if (layerType === 'polygon') {
