@@ -121,7 +121,7 @@ const createMarkerIcon = (iconUrl) => L.icon({
     iconSize: [18, 18],
     iconAnchor: [9, 9],
     shadowSize: [24, 24],
-    shadowAnchor: [12, 12]
+    shadowAnchor: [9, 9]
 });
 
 // Function to create draw controls with consistent options
