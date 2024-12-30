@@ -117,11 +117,11 @@ let currentDrawingType = null;
 // Helper function to create marker icons
 const createMarkerIcon = (iconUrl) => L.icon({
     iconUrl: iconUrl,
-    shadowUrl: 'https://img.icons8.com/ios-filled/50/FFFFFF/filled-circle.png',
+    //shadowUrl: 'https://img.icons8.com/ios-filled/50/FFFFFF/filled-circle.png',
     iconSize: [18, 18],
     iconAnchor: [9, 9],
-    shadowSize: [24, 24],
-    shadowAnchor: [9, 9]
+    //shadowSize: [24, 24],
+    //shadowAnchor: [9, 9]
 });
 
 // Function to create draw controls with consistent options
@@ -135,7 +135,7 @@ function createDrawControl(layerGroup, drawOptions) {
 const drawControls = {
     agac: createDrawControl(drawingLayers.agac, {
         polygon: false, polyline: false, circle: false, circlemarker: false, rectangle: false,
-        marker: { icon: createMarkerIcon('https://img.icons8.com/ios-glyphs/30/40C057/deciduous-tree--v1.png') }
+        marker: { icon: createMarkerIcon('https://raw.githubusercontent.com/aliyilma/comapping/a00e318d660790e39ce5aab5bca2058ace01423b/simgeler/agac.png') }
     }),
     bench: createDrawControl(drawingLayers.bench, {
         polygon: false, polyline: false, circle: false, circlemarker: false, rectangle: false,
