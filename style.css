@@ -38,6 +38,7 @@ button {
     cursor: pointer;
     display: inline-flex;
     font-family: var(--font-family);
+    font-size: 12px;
     height: 24px;
     justify-content: center;
     line-height: 1;
@@ -53,7 +54,6 @@ button {
     touch-action: manipulation;
     white-space: nowrap;
     will-change: box-shadow, transform;
-    font-size: 12px;
     left: 10px;
     top: 10px;
     z-index: 500;
@@ -127,11 +127,26 @@ button:active {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     color: #444;
-
 }
 
-.modal-content form > div {
-    margin-bottom: 10px;
+.modal-content h2 {
+    margin-top: 0;
+}
+
+.modal-content p {
+    margin-bottom: 15px;
+}
+
+/* Modal form styles */
+#user-modal .modal-content form > div,
+#feedback-modal .modal-content form > div {
+    margin-bottom: 20px;
+}
+
+/* Feedback modal form styles - corrected selector */
+#feedback-modal .modal-content form #feedback-fields > div {
+    margin-bottom: 2px; /* Feedback modalında artırılmış bölüm boşluğu */
+    padding-bottom: 10px; /* Feedback modalında bölüm alt iç boşluğu eklendi */
 }
 
 .modal-content label {
@@ -141,8 +156,15 @@ button:active {
     color: #444;
 }
 
+/* Feedback modal label style - specificity increased */
+#feedback-modal .modal-content form > div label {
+    color: #444; /* Ensure label color is maintained in feedback modal */
+}
+
+
 .modal-content input,
-.modal-content select {
+.modal-content select,
+.modal-content textarea {
     width: 100%;
     padding: 4px;
     padding-right: 0px;
@@ -151,19 +173,23 @@ button:active {
     font-size: 12px;
     transition: border-color 0.3s ease;
     font-family: var(--font-family);
-
+    box-sizing: border-box;
+    min-height: 40px;
 }
 
 .modal-content input:focus,
-.modal-content select:focus {
+.modal-content select:focus,
+.modal-content textarea:focus {
     outline: none;
     border-color: #4CAF50;
     box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.1);
 }
 
-#continue-btn {
-    margin-top: 5px;
-    margin-left: -10px;
+/* Modal buttons */
+#continue-btn,
+#submit-feedback-btn {
+    margin-top: 15px;
+    margin-left: 0px;
     padding: 15px 15px;
     background-color: #4CAF50;
     color: white;
@@ -171,8 +197,11 @@ button:active {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    box-shadow: var(--button-shadow);
+    transition: background-color 0.3s ease;
 }
 
-#continue-btn:hover {
+#continue-btn:hover,
+#submit-feedback-btn:hover {
     background-color: #3f9243;
 }
