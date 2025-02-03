@@ -5,7 +5,7 @@
     <title>comapping</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <!-- CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.3/leaflet.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css">
@@ -43,18 +43,22 @@
         <div class="modal-content">
             <h2>Katılımcı</h2>
             <p>
-            Şu anda Sirkeci Garı'ndan Eminönü'ne kadar olan hattı keyfinize göre tasarlamak üzeresiniz. 
-            Bunu katılımcı planlama ve tasarım anlayışı ile harmanlanan bir mekânsal anket çalışması olarak düşünebilirsiniz.
+                Şu anda Sirkeci Garı'ndan Eminönü'ne kadar olan hattı keyfinize göre tasarlamak üzeresiniz.
+                Bunu katılımcı planlama ve tasarım anlayışı ile harmanlanan bir mekânsal anket çalışması olarak
+                düşünebilirsiniz.
             </p>
             <p>
-            Harita üzerinde bulunan yardımcı butonlar vasıtası ile fikirlerinizi haritaya ekleyebilir ve hayallerinizin gerçekleşmesini umabilirsiniz. 
-            Sizin gibi diğer ziyaretçiler de bu mekânsal anketi hayalleri ile dolduruyor ve sonuçları Matrix'te yer alan çok güvenli bir sunucuya PTT ile gönderiliyor.
+                Harita üzerinde bulunan yardımcı butonlar vasıtası ile fikirlerinizi haritaya ekleyebilir ve
+                hayallerinizin gerçekleşmesini umabilirsiniz.
+                Sizin gibi diğer ziyaretçiler de bu mekânsal anketi hayalleri ile dolduruyor ve sonuçları Matrix'te yer
+                alan çok güvenli bir sunucuya PTT ile gönderiliyor.
             </p>
             <p></p>
             <form id="user-form">
                 <div>
                     <label for="username">Rumuz (Anonim kalacak, söz)</label>
-                    <input type="text" id="username" name="username" placeholder="Adınızı giriniz" value="white_rabbit" required>
+                    <input type="text" id="username" name="username" placeholder="Adınızı giriniz" value="white_rabbit"
+                        required>
                 </div>
                 <div>
                     <label for="age">Yaş</label>
@@ -87,10 +91,42 @@
                         <option value="tam">Tam</option>
                     </select>
                 </div>
-                <button id="continue-btn" type="button" onclick="saveAndContinue()">Devam</button>
+                <!-- **YENİ: Yaşanılan Yer Sorgusu** -->
+                <div>
+                    <label for="district">Yaşadığınız İlçe</label>
+                    <select id="district" name="district">
+                        <option value="">Lütfen bir ilçe seçiniz</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="neighborhood">Yaşadığınız Mahalle</label>
+                    <select id="neighborhood" name="neighborhood" disabled>
+                        <option value="">Lütfen önce bir ilçe seçiniz</option>
+                    </select>
+                </div>
+                <!-- **MODAL SONU** -->
+                <button id="continue-btn" type="button" onclick="handleSaveAndContinue()">Devam</button>
             </form>
         </div>
     </div>
+
+    <!-- **YENİ: Geri Bildirim Modalı** -->
+    <div id="feedback-modal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <h2>👩🏻‍🎨 Tasarım Geri Bildirimi</h2>
+            <p>
+                <em>Tasarım araçlarını neden ve nasıl kullandığınıza dair geri bildirimlerinizi birkaç cümle ile
+                    belirtebilirsiniz.</em>
+            </p>
+            <form id="feedback-form">
+                <!-- Geri bildirim alanları buraya JavaScript ile eklenecek -->
+                <div id="feedback-fields"></div>
+                <button id="submit-feedback-btn" type="button" onclick="submitFeedback()">Geri Bildirimi Gönder ve
+                    Yükle</button>
+            </form>
+        </div>
+    </div>
+    <!-- **MODAL SONU** -->
 
     <!-- Map Container -->
     <main id="map"></main>
