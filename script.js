@@ -24,7 +24,9 @@ let userInfo = {
     toolUsages: [], // Poligon araçları için köşe zaman damgalarını içerecek şekilde güncellendi
     panEvents: [],
     district: null, // Başlangıçta ilçe yok
-    neighborhood: null // Başlangıçta mahalle yok
+    neighborhood: null, // Başlangıçta mahalle yok
+    userAgent: null,
+    screenSize: null
 };
 
 let startTime, endTime; // Oturum başlangıç ve bitiş zamanları
@@ -46,6 +48,9 @@ function handleSaveAndContinue() {
     const district = document.getElementById("district").value; // İlçe bilgisini al
     const neighborhood = document.getElementById("neighborhood").value; // Mahalle bilgisini al
 
+    const userAgent = navigator.userAgent;
+    const screenSize = `${window.screen.width}x${window.screen.height}`;    
+
     // Tüm alanların doldurulduğunu doğrula (ilçe ve mahalle de dahil)
     if (username && age && group && frequency && tech && district && neighborhood) {
         // Kullanıcı bilgilerini sakla
@@ -53,7 +58,9 @@ function handleSaveAndContinue() {
             username, age, group, frequency, tech, district, neighborhood, // İlçe ve mahalle bilgilerini ekledik
             zoomLevels: [],
             toolUsages: [],
-            panEvents: []
+            panEvents: [],
+            userAgent: userAgent,
+            screenSize: screenSize
         };
         document.getElementById("user-modal").style.display = "none"; // Modali gizle
 
@@ -421,7 +428,9 @@ function createGeoJSONPayload(features) {
             userInfo: {
                 ...userInfo, // Diğer kullanıcı bilgilerini koru
                 district: userInfo.district, // İlçe bilgisini ekle
-                neighborhood: userInfo.neighborhood // Mahalle bilgisini ekle
+                neighborhood: userInfo.neighborhood, // Mahalle bilgisini ekle
+                userAgent: userinfo.userAgent,
+                screenSize: userinfo.screenSize
             },
             userFeedback: {}
         }, // userFeedback başlangıçta boş obje olarak tanımlanır, submitFeedback ile doldurulur
