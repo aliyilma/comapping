@@ -19,27 +19,52 @@
             <button id="draw-agac">🌳 Ağaç</button>
             <button id="draw-bench">🪑 Bank</button>
             <button id="draw-statue">🗽 Anıt</button>
+        </div>
+        <div>
             <button id="draw-cafe">☕️ Cafe</button>
             <button id="draw-wc">🚽 WC</button>
             <button id="draw-sport">🏀 Spor</button>
-            <button id="draw-culture">🎭 Kültür/Sergi</button>
+            <button id="draw-culture">🎭 Kültür</button>
         </div>
-
+        <div style="height: 20px;"></div>
         <div>
             <button id="draw-path">🚶🏻‍♂️ Yaya yolu</button>
-            <button id="draw-green">✳️ Yeşil alan</button>
+            <button id="draw-green">🟩 Yeşil alan</button>
             <button id="draw-square">🟨 Meydan</button>
         </div>
-
+        <div style="height: 20px;"></div>
         <div>
             <button id="undo" class="bitir">❮❮ Geri al</button>
             <button id="reset" class="bitir">💫 Temizle</button>
+        </div>
+        <div>
             <button id="upload" class="bitir">📤 Bitir ve yükle</button>
         </div>
     </nav>
 
+    <div id="consent-modal" class="modal" style="display:none;"> <div class="modal-content">
+        <h2>Proje Açıklaması ve Bilgilendirilmiş Onam</h2>
+        <p>
+            Bu çalışma, katılımcı web haritalama süreçlerinde dijital araçların rolünü ve kullanıcıların karşılaştığı potansiyel bilişsel engelleri araştırmaktadır. Amacımız, katılımcıların web tabanlı bir harita arayüzü kullanarak mekânsal tasarım yaptıkları süreçteki etkileşimlerini ve deneyimlerini Bilişsel Yük Teorisi (CLT) çerçevesinde incelemektir. İstanbul'un tarihi merkezlerinden Sirkeci-Eminönü aksı için bir katılımcı dijital tasarım uygulaması gerçekleştirilmektedir.
+        </p>
+        <p>
+            Web tabanlı bir harita arayüzü kullanarak Sirkeci-Eminönü bölgesi için mekânsal tasarım önerileri geliştirmeniz istenmektedir. Arayüzdeki araçları kullanarak alan hakkındaki fikirlerinizi haritaya aktarıyor olacaksınız. Ayrıca, arayüzle olan etkileşimleriniz (yakınlaştırma, kaydırma, araç kullanımı vb.) ve görev sonrası dolduracağınız kısa bir anket ile deneyiminize dair veriler <strong>anonim olarak, kişisel bilgiler ele alınmaksızın</strong> toplanacaktır.
+        </p>
+        <hr> <h3>Bilgilendirilmiş Onam</h3>
+        <ul>
+            <li><strong>Gönüllülük:</strong> Bu çalışmaya katılımınız tamamen gönüllülük esasına dayanmaktadır. Katılmaya karar verdikten sonra bile, herhangi bir hakkınızı kaybetmeden veya bir cezaya maruz kalmadan istediğiniz zaman çalışmadan ayrılabilirsiniz.</li>
+            <li><strong>Gizlilik:</strong> Bu çalışmayla bağlantılı olarak elde edilen her bilgi sizinle özdeşleştirilmeden, anonim olarak gizli tutulacak ve yalnızca bilimsel amaçlarla kullanılacaktır. Toplanan tüm veriler, sınırlı erişime sahip güvenli ve şifreli bir veritabanında saklanacaktır.</li>
+            <li><strong>Olası Riskler ve Faydalar:</strong> Çalışmanın bilinen bir riski bulunmamaktadır. Çalışma, katılımcı planlama ve dijital katılım araçlarının geliştirilmesine katkıda bulunarak toplumsal fayda sağlamayı amaçlamaktadır.</li>
+            <li><strong>İletişim:</strong> Bu araştırma ile ilgili herhangi bir sorunuz veya endişeniz olursa lütfen aşağıdaki araştırmacı ile iletişime geçiniz: Araş. Gör. Ali YILMAZ (yilmazali13@itu.edu.tr)</li>
+        </ul>
+        <hr> <p><strong>Onay Beyanı:</strong> Yukarıda açıklanan prosedürleri anladım. Sorularım tatmin edici bir şekilde yanıtlandı. İstediğim zaman çalışmadan ayrılma hakkımın saklı olduğunu bilerek, bu çalışmaya gönüllü olarak katılmayı onaylıyorum.</p>
+
+        <button id="consent-agree-btn" type="button">Onaylıyorum</button>
+    </div>
+    </div>
+
     <!-- User Modal -->
-    <div id="user-modal" class="modal">
+    <div id="user-modal" class="modal" style="display:none;">
         <div class="modal-content">
             <h2>Katılımcı</h2>
             <p>
@@ -56,50 +81,68 @@
             <p></p>
             <form id="user-form">
                 <div>
-                    <label for="username">Rumuz (Anonim kalacak, söz)</label>
-                    <input type="text" id="username" name="username" placeholder="Adınızı giriniz" value="white_rabbit"
+                    <label for="username">Takma isim</label>
+                    <input type="text" id="username" name="username" placeholder="Rumuzunuzu giriniz" value="Vatandaş"
                         required>
                 </div>
                 <div>
                     <label for="age">Yaş</label>
-                    <input type="number" id="age" name="age" placeholder="Yaşınızı giriniz" value="25" required>
+                    <input type="number" id="age" name="age" placeholder="Yaşınızı giriniz" value="20" required>
                 </div>
                 <div>
-                    <label for="group">Kullanıcı grubu</label>
+                    <label for="group">Sirkeci-Eminönü ile ilişkiniz</label>
                     <select id="group" name="group">
                         <option value="ziyaretçiyim">Ziyaretçiyim</option>
+                        <option value="çalışıyorum">Çalışıyorum</option>
                         <option value="yaşıyorum">Yaşıyorum</option>
                     </select>
                 </div>
                 <div>
-                    <label for="frequency">Kullanım sıklığı</label>
+                    <label for="frequency">Ziyaret sıklığınız</label>
                     <select id="frequency" name="frequency">
-                        <option value="her gün">Her gün</option>
+                        <option value="günlük">Her gün</option>
                         <option value="haftalık">Haftada bir veya birkaç kez</option>
                         <option value="aylık">Ayda bir veya birkaç kez</option>
                         <option value="yıllık" selected>Yılda bir veya birkaç kez</option>
                         <option value="nadiren">Nadiren</option>
+                        <option value="hiç">Hiç ziyaret etmedim</option>
                     </select>
                 </div>
                 <div>
-                    <label for="tech">Teknoloji ile aranız</label>
-                    <select id="tech" name="tech">
-                        <option value="yok">Yok</option>
-                        <option value="eh">Eh</option>
-                        <option value="bazen" selected>Bazen</option>
-                        <option value="sıklıkla">Sıklıkla</option>
-                        <option value="tam">Tam</option>
+                    <label for="map-familiarity">Gündelik hayatınızda dijital harita kullanım sıklığınız (Google Haritalar, Yandex Haritalar vb.)</label>
+                    <select id="map-familiarity" name="map-familiarity">
+                        <option value="Her gün">Her gün</option>
+                        <option value="Sıklıkla">Sıklıkla</option>
+                        <option value="Bazen">Bazen</option>
+                        <option value="Nadiren">Nadiren</option>
+                        <option value="Hiç">Hiç</option>
                     </select>
                 </div>
-                <!-- **YENİ: Yaşanılan Yer Sorgusu** -->
                 <div>
-                    <label for="district">Yaşadığınız İlçe</label>
+                    <label for="gis-familiarity">Gündelik hayatınızda Coğrafi Bilgi Sistemlerini (GIS) kullanım sıklığınız (ArcGIS, QGIS vb.)</label>
+                    <select id="gis-familiarity" name="gis-familiarity">
+                        <option value="Her gün">Her gün</option>
+                        <option value="Sıklıkla">Sıklıkla</option>
+                        <option value="Bazen">Bazen</option>
+                        <option value="Nadiren">Nadiren</option>
+                        <option value="Hiç">Hiç</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="online-participation">Daha önce çevrimiçi katılım araçlarını kullandınız mı? (Kabataş'ı tasarla, Bütçe Senin, İstanbul Senin vb.)</label>
+                    <select id="online-participation" name="online-participation">
+                        <option value="Hayır">Hayır</option>
+                        <option value="Evet">Evet</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="district">Yaşadığınız ilçe</label>
                     <select id="district" name="district">
                         <option value="">Lütfen bir ilçe seçiniz</option>
                     </select>
                 </div>
                 <div>
-                    <label for="neighborhood">Yaşadığınız Mahalle</label>
+                    <label for="neighborhood">Yaşadığınız mahalle</label>
                     <select id="neighborhood" name="neighborhood" disabled>
                         <option value="">Lütfen önce bir ilçe seçiniz</option>
                     </select>
@@ -111,18 +154,61 @@
     </div>
 
     <!-- **YENİ: Geri Bildirim Modalı** -->
-    <div id="feedback-modal" class="modal" style="display:none;">
-        <div class="modal-content">
-            <h2>👩🏻‍🎨 Tasarım Geri Bildirimi</h2>
+    <div id="nasa-tlx-modal" class="modal" style="display:none;">
+        <div class="modal-content nasa-tlx-content"> <h2>🧠 İş Yükü Değerlendirmesi (NASA-TLX)</h2>
             <p>
-                <em>Tasarım araçlarını neden ve nasıl kullandığınıza dair geri bildirimlerinizi birkaç cümle ile
-                    belirtebilirsiniz.</em>
+                <em>Lütfen az önce tamamladığınız haritalama görevini (arayüzü kullanma, çizim yapma, haritada gezinme vb. dahil) düşündüğünüzde, aşağıdaki boyutlara göre algıladığınız iş yükünü 0 (Çok Düşük) ile 100 (Çok Yüksek) arasında derecelendiriniz.</em>
             </p>
-            <form id="feedback-form">
-                <!-- Geri bildirim alanları buraya JavaScript ile eklenecek -->
-                <div id="feedback-fields"></div>
-                <button id="submit-feedback-btn" type="button" onclick="submitFeedback()">Geri Bildirimi Gönder ve
-                    Yükle</button>
+            <form id="nasa-tlx-form">
+                <div class="nasa-dimension">
+                    <label for="mental-demand"><strong>Zihinsel Talep:</strong> Görev ne kadar zihinsel ve algısal aktivite gerektirdi (düşünme, karar verme, hatırlama vb.)?</label>
+                    <div class="slider-container">
+                        <input type="range" id="mental-demand" name="mental-demand" min="0" max="100" step="5" value="50">
+                        <span class="slider-value">50</span>
+                    </div>
+                </div>
+
+                <div class="nasa-dimension">
+                    <label for="physical-demand"><strong>Fiziksel Talep:</strong> Görev ne kadar fiziksel aktivite gerektirdi (tıklama, sürükleme, kaydırma vb.)?</label>
+                    <div class="slider-container">
+                        <input type="range" id="physical-demand" name="physical-demand" min="0" max="100" step="5" value="50">
+                         <span class="slider-value">50</span>
+                    </div>
+                </div>
+
+                <div class="nasa-dimension">
+                    <label for="temporal-demand"><strong>Zamana Bağlı Talep:</strong> Görevi yaparken ne kadar zaman baskısı hissettiniz?</label>
+                    <div class="slider-container">
+                        <input type="range" id="temporal-demand" name="temporal-demand" min="0" max="100" step="5" value="50">
+                         <span class="slider-value">50</span>
+                    </div>
+                </div>
+
+                <div class="nasa-dimension">
+                    <label for="performance"><strong>Performans:</strong> Görevi tamamlamada ne kadar başarılı olduğunuzu düşünüyorsunuz?</label>
+                    <div class="slider-container">
+                        <input type="range" id="performance" name="performance" min="0" max="100" step="5" value="50">
+                         <span class="slider-value">50</span>
+                    </div>
+                </div>
+
+                <div class="nasa-dimension">
+                    <label for="effort"><strong>Çaba:</strong> Performans seviyenize ulaşmak için ne kadar sıkı çalışmak zorunda kaldınız (zihinsel ve fiziksel)?</label>
+                    <div class="slider-container">
+                        <input type="range" id="effort" name="effort" min="0" max="100" step="5" value="50">
+                         <span class="slider-value">50</span>
+                    </div>
+                </div>
+
+                <div class="nasa-dimension">
+                    <label for="frustration"><strong>Engellenme:</strong> Görev sırasında ne kadar güvensiz, cesareti kırılmış, rahatsız veya stresli hissettiniz?</label>
+                    <div class="slider-container">
+                        <input type="range" id="frustration" name="frustration" min="0" max="100" step="5" value="50">
+                         <span class="slider-value">50</span>
+                    </div>
+                </div>
+
+                <button id="submit-nasa-tlx-btn" type="button">Anketi Gönder ve Yükle</button>
             </form>
         </div>
     </div>
@@ -141,6 +227,22 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.toolbar.js/0.3.0/leaflet.toolbar.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tooltip.js/1.3.3/tooltip.js"></script>
     <script src="script.js"></script>
+
+    <script>
+        document.querySelectorAll('.slider-container input[type="range"]').forEach(slider => {
+            const valueSpan = slider.nextElementSibling; // Span'ın slider'dan hemen sonra geldiğini varsayıyoruz
+            // Başlangıç değerini ayarla
+            if (valueSpan && valueSpan.classList.contains('slider-value')) {
+                 valueSpan.textContent = slider.value;
+            }
+            // Slider hareket ettikçe değeri güncelle
+            slider.addEventListener('input', (event) => {
+                 if (valueSpan && valueSpan.classList.contains('slider-value')) {
+                    valueSpan.textContent = event.target.value;
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>

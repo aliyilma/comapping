@@ -24,11 +24,18 @@ let userInfo = {
     toolUsages: [], // Poligon araçları için köşe zaman damgalarını içerecek şekilde güncellendi
     panEvents: [],
     district: null, // Başlangıçta ilçe yok
-    neighborhood: null // Başlangıçta mahalle yok
+    neighborhood: null,
+    userAgent: null, // Cihazın ham User-Agent bilgisini saklar
+    screenSize: null, // Başlangıçta mahalle yok
+    referer: null, // Başlangıçta referans yok
+    touchScreen: null, // Başlangıçta dokunmatik ekran yok
 };
 
+let activeDrawHandler = null; // Aktif çizim aracını tutacak değişken
 let startTime, endTime; // Oturum başlangıç ve bitiş zamanları
 let mahallelerData; // mahalleler.json dosyasından gelen veriyi saklar
+let drawHistory = []; // Çizim geçmişini saklamak için dizi
+let undoHistory = []; // Geri alma geçmişini saklamak için dizi
 
 // --- 2. MODAL İŞLEVSELLİĞİ ---
 
@@ -42,18 +49,30 @@ function handleSaveAndContinue() {
     const age = document.getElementById("age").value;
     const group = document.getElementById("group").value;
     const frequency = document.getElementById("frequency").value;
-    const tech = document.getElementById("tech").value;
     const district = document.getElementById("district").value; // İlçe bilgisini al
     const neighborhood = document.getElementById("neighborhood").value; // Mahalle bilgisini al
+    const mapFamiliarity = document.getElementById("map-familiarity").value; // YENİ: Harita aşinalığı bilgisini al
+    const GISFamiliarity = document.getElementById("gis-familiarity").value;
+    const onlineParticipation = document.getElementById("online-participation").value; // YENİ: Çevrimiçi katılım bilgisini al
+    
+    const userAgent = navigator.userAgent;
+    const screenSize = `${window.screen.width}x${window.screen.height}`;
+    const referrer = document.referrer; // Yönlendiren URL'yi al
+    const touchScreen = navigator.maxTouchPoints > 0; // Dokunmatik ekran var mı?
+
+    console.log("User Agent:", userAgent);
+    console.log("Screen Size:", screenSize);
+    console.log("Referrer URL:", referrer);
+    console.log("Touch Screen:", touchScreen);
 
     // Tüm alanların doldurulduğunu doğrula (ilçe ve mahalle de dahil)
-    if (username && age && group && frequency && tech && district && neighborhood) {
+    if (username && age && group && frequency && district && neighborhood && mapFamiliarity && GISFamiliarity && onlineParticipation) {
         // Kullanıcı bilgilerini sakla
         userInfo = {
-            username, age, group, frequency, tech, district, neighborhood, // İlçe ve mahalle bilgilerini ekledik
-            zoomLevels: [],
+            userAgent, screenSize, username, age, group, frequency,mapFamiliarity, GISFamiliarity, onlineParticipation, district, neighborhood,
             toolUsages: [],
-            panEvents: []
+            zoomLevels: [],
+            panEvents: [],
         };
         document.getElementById("user-modal").style.display = "none"; // Modali gizle
 
@@ -84,8 +103,16 @@ async function loadDistricts() {
 // Sayfa yüklendiğinde kullanıcı modalini göster ve ilçeleri yükle
 window.onload = () => {
     loadDistricts(); // İlçeleri yükle
-    document.getElementById("user-modal").style.display = "block";
+    document.getElementById("consent-modal").style.display = "block";
+    console.log("Sayfa yüklendi, onam modalı gösteriliyor.");
 };
+
+// Onam modalındaki butona tıklama olayı
+document.getElementById('consent-agree-btn').addEventListener('click', function() {
+    document.getElementById('consent-modal').style.display = 'none'; // Onam modalını gizle
+    document.getElementById('user-modal').style.display = 'block'; // Kullanıcı bilgi modalını göster
+    console.log("Onay verildi, kullanıcı bilgi modalı gösteriliyor.");
+});
 
 
 document.getElementById('district').addEventListener('change', function() {
@@ -232,94 +259,179 @@ Object.values(drawControls).forEach(control => map.addControl(control)); // Çiz
 
 /**
  * Harita üzerinde bir çizim oluşturulduğunda olay dinleyicisi.
- * Araç kullanımını zaman damgalarıyla kaydeder ve çizilen katmanı uygun FeatureGroup'a ekler.
+ * Araç kullanımını zaman damgalarıyla kaydeder, çizilen katmanı uygun FeatureGroup'a ekler
+ * ve seçili aracı aktif tutar.
  */
 map.on(L.Draw.Event.CREATED, function (e) {
     const layerType = e.layerType;
     const layer = e.layer;
     const creationDatetime = new Date().toISOString();
+    // 'currentDrawingType' global değişkeninden alınmalı, burada tekrar tanımlanmamalı
     const currentTool = currentDrawingType;
     const actionType = 'creation';
-    let vertexDatetimes = []; // Poligon köşelerinin zaman damgalarını saklamak için dizi
 
-    if (layerType === 'polygon') {
-        const latlngs = layer.getLatLngs()[0];
-        latlngs.forEach(() => { vertexDatetimes.push(new Date().toISOString()); }); // Her köşe için zaman damgası yakala
-        userInfo.toolUsages.push({ tool: currentTool, actionType: actionType, vertexDatetimes: vertexDatetimes });
-        console.log("Araç:", currentTool, "Eylem:", actionType, "Zaman:", vertexDatetimes); // İsteğe bağlı konsol günlüğü
-    } else if (layerType === 'polyline') { // Polyline için ayrı işlem
-        const latlngs = layer.getLatLngs(); // Polyline'ın LatLng dizisini al
-        let vertexDatetimes = []; // Nokta işaretleme zamanlarını saklamak için dizi
-        latlngs.forEach(() => { vertexDatetimes.push(new Date().toISOString()); }); // Her nokta için zaman damgası al
-        userInfo.toolUsages.push({ tool: currentTool, actionType: actionType, vertexDatetimes: vertexDatetimes });
-        console.log("Araç:", currentTool, "Eylem:", actionType, "Zaman:", vertexDatetimes); // İsteğe bağlı konsol günlüğü
-
-    } else { // İşaretleyici ve diğer poligon olmayanlar için (sadece genel oluşturma zamanını kaydet)
-        userInfo.toolUsages.push({ tool: currentTool, actionType: actionType, datetime: creationDatetime });
-        console.log("Araç:", currentTool, "Eylem:", actionType, "Zaman:", creationDatetime); // İsteğe bağlı konsol günlüğü
+    // Hata ayıklama: Eğer bir araç seçili değilken çizim yapılırsa logla ve çık
+    if (!currentTool) {
+        console.warn("Bir çizim aracı seçili değilken çizim oluşturuldu.", e);
+        return;
     }
 
+    // İşaretleyici ve diğer poligon olmayanlar için (sadece genel oluşturma zamanını kaydet)
+    // Poligon ve Polyline için köşe noktası zaman damgaları loglamasını isterseniz buraya ekleyebilirsiniz.
+    userInfo.toolUsages.push({ tool: currentTool, actionType: actionType, datetime: creationDatetime });
+    console.log("Araç:", currentTool, "Eylem:", actionType, "Zaman:", creationDatetime); // İsteğe bağlı konsol günlüğü
+
+    let featureAdded = false; // Katmanın eklenip eklenmediğini takip et
 
     // Katmanı araç türüne göre özellik grubuna ekle
     if (layerType === 'marker') {
-        const iconUrl = layer.options.icon.options.iconUrl;
-        const layerGroup =
-            iconUrl.includes("tree") ? drawingLayers.agac :
-                iconUrl.includes("bench") ? drawingLayers.bench :
-                    iconUrl.includes("statue") ? drawingLayers.statue :
-                        iconUrl.includes("espresso") ? drawingLayers.cafe :
-                            iconUrl.includes("toilet") ? drawingLayers.wc :
-                                iconUrl.includes("basketball") ? drawingLayers.sport :
-                                    iconUrl.includes("theatre") ? drawingLayers.culture : null;
-        if (layerGroup) layerGroup.addLayer(layer);
-    } else if (layerType === 'polyline') drawingLayers.path.addLayer(layer);
-    else if (layerType === 'polygon') {
-        const color = layer.options.color;
-        const layerGroup = color.includes("yellow") ? drawingLayers.square : color.includes("green") ? drawingLayers.green : null;
-        if (layerGroup) layerGroup.addLayer(layer);
+        // currentTool'a göre doğru katman grubunu bul
+        const targetLayerGroup = drawingLayers[currentTool];
+        if (targetLayerGroup) {
+            targetLayerGroup.addLayer(layer);
+            drawHistory.push({ type: currentTool, layer: layer });
+            featureAdded = true;
+        } else {
+             console.error("Marker için hedef katman grubu bulunamadı:", currentTool);
+        }
+    } else if (layerType === 'polyline' && currentTool === 'path') { // Sadece path aracı için polyline
+        drawingLayers.path.addLayer(layer);
+        drawHistory.push({ type: 'path', layer: layer });
+        featureAdded = true;
+    } else if (layerType === 'polygon') {
+        // currentTool'a göre doğru katman grubunu bul (green veya square)
+        const targetLayerGroup = drawingLayers[currentTool];
+        if (targetLayerGroup && (currentTool === 'green' || currentTool === 'square')) {
+            targetLayerGroup.addLayer(layer);
+            drawHistory.push({ type: currentTool, layer: layer });
+            featureAdded = true;
+        } else {
+            console.error("Polygon için hedef katman grubu bulunamadı veya tür uyumsuz:", currentTool);
+        }
+    } else {
+        console.warn("İşlenmeyen katman türü veya araç uyumsuzluğu:", layerType, currentTool);
+    }
+
+    // Eğer bir katman başarıyla eklendiyse ve bir çizim aracı hala aktifse (aktif handler mevcutsa),
+    // Leaflet.Draw'ın otomatik kapanmasını engellemek için aynı aracı tekrar etkinleştir.
+    if (featureAdded && currentDrawingType && activeDrawHandler) {
+        // setTimeout, Leaflet'in kendi iç işlemlerini tamamlamasına olanak tanıyabilir.
+        setTimeout(() => {
+            // Tekrar etkinleştirmeden önce hala geçerli bir handler olup olmadığını kontrol et
+            if (activeDrawHandler && typeof activeDrawHandler.enable === 'function') {
+                 try {
+                    activeDrawHandler.enable();
+                    console.log(currentDrawingType, "aracı aktif tutuluyor.");
+                 } catch (error) {
+                     console.error("Handler tekrar etkinleştirilirken hata oluştu:", error);
+                     // Hata durumunda aracı temizle
+                     activeDrawHandler = null;
+                     currentDrawingType = null;
+                     // İlgili butondan active-tool sınıfını kaldır
+                     const activeButton = document.querySelector('.buttongroup button.active-tool');
+                     if (activeButton) {
+                        activeButton.classList.remove('active-tool');
+                     }
+                 }
+            } else {
+                console.warn("Timeout sonrası aktif handler bulunamadı veya geçersiz.");
+                // Aracı temizle
+                activeDrawHandler = null;
+                currentDrawingType = null;
+                const activeButton = document.querySelector('.buttongroup button.active-tool');
+                if (activeButton) {
+                    activeButton.classList.remove('active-tool');
+                 }
+            }
+        }, 0); // Olay döngüsünün sonuna ertele
+    } else if (!featureAdded) {
+        console.warn("Katman eklenmediği için araç yeniden etkinleştirilmedi.");
     }
 });
 
 // --- 8. ÇİZİM ARACI ETKİNLEŞTİRME FONKSİYONU ---
 
 /**
- * Belirli bir tür için çizim aracını etkinleştirir.
- * currentDrawingType'ı ayarlar ve uygun Leaflet.draw işleyicisini etkinleştirir.
- * @param {string} drawType - Etkinleştirilecek çizim aracı türü (örneğin, 'agac', 'path').
+ * Belirli bir tür için çizim aracını etkinleştirir veya devre dışı bırakır.
+ * @param {string} drawType - Etkinleştirilecek/Devre dışı bırakılacak çizim aracı türü (örneğin, 'agac', 'path').
  */
-const enableDrawing = (drawType) => {
+const toggleDrawing = (drawType) => {
+    // Eğer tıklanan araç zaten aktifse, onu devre dışı bırak
+    if (currentDrawingType === drawType && activeDrawHandler) {
+        activeDrawHandler.disable();
+        activeDrawHandler = null;
+        currentDrawingType = null;
+        // Aktif butondan 'active-tool' sınıfını kaldır
+        document.getElementById(`draw-${drawType}`).classList.remove('active-tool');
+        console.log("Araç devre dışı bırakıldı:", drawType);
+        return; // Fonksiyondan çık
+    }
+
+    // Başka bir araç aktifse, onu önce devre dışı bırak
+    if (activeDrawHandler) {
+        activeDrawHandler.disable();
+        // Eski aktif butondan 'active-tool' sınıfını kaldır
+        if (currentDrawingType) {
+             document.getElementById(`draw-${currentDrawingType}`).classList.remove('active-tool');
+        }
+        activeDrawHandler = null;
+        currentDrawingType = null;
+    }
+
+    // Yeni aracı etkinleştir
     currentDrawingType = drawType;
-    drawControls[drawType]._toolbars.draw._modes.marker?.handler.enable(); // İşaretleyici işleyicisini etkinleştir eğer varsa
-    drawControls[drawType]._toolbars.draw._modes.polyline?.handler.enable(); // Çizgi işleyicisini etkinleştir eğer varsa
-    drawControls[drawType]._toolbars.draw._modes.polygon?.handler.enable(); // Poligon işleyicisini etkinleştir eğer varsa
-    console.log("Araç seçildi:", drawType, "Zaman:", new Date().toISOString()); // İsteğe bağlı konsol günlüğü
+    const drawControl = drawControls[drawType];
+    let handler = null;
+
+    // Uygun çizim modunu bul ve etkinleştir
+    if (drawControl._toolbars.draw._modes.marker) {
+        handler = drawControl._toolbars.draw._modes.marker.handler;
+    } else if (drawControl._toolbars.draw._modes.polyline) {
+        handler = drawControl._toolbars.draw._modes.polyline.handler;
+    } else if (drawControl._toolbars.draw._modes.polygon) {
+        handler = drawControl._toolbars.draw._modes.polygon.handler;
+    }
+
+    if (handler) {
+        handler.enable();
+        activeDrawHandler = handler; // Aktif handler'ı sakla
+        // Yeni aktif butona 'active-tool' sınıfını ekle
+        document.getElementById(`draw-${drawType}`).classList.add('active-tool');
+        console.log("Araç seçildi:", drawType, "Zaman:", new Date().toISOString());
+    } else {
+        console.error("Bu çizim türü için uygun handler bulunamadı:", drawType);
+        currentDrawingType = null; // Hata durumunda sıfırla
+    }
 };
 
 // --- 9. ÇİZİM ARAÇLARI VE EYLEMLERİ İÇİN DÜĞME OLAY DİNLEYİCİLERİ ---
 
-// Çizim araçlarını etkinleştirmek için HTML düğmelerine olay dinleyicileri ekle
-document.getElementById('draw-agac').onclick = () => enableDrawing('agac');
-document.getElementById('draw-bench').onclick = () => enableDrawing('bench');
-document.getElementById('draw-statue').onclick = () => enableDrawing('statue');
-document.getElementById('draw-cafe').onclick = () => enableDrawing('cafe');
-document.getElementById('draw-wc').onclick = () => enableDrawing('wc');
-document.getElementById('draw-sport').onclick = () => enableDrawing('sport');
-document.getElementById('draw-culture').onclick = () => enableDrawing('culture');
-document.getElementById('draw-path').onclick = () => enableDrawing('path');
-document.getElementById('draw-green').onclick = () => enableDrawing('green');
-document.getElementById('draw-square').onclick = () => enableDrawing('square');
+// Çizim araçlarını etkinleştirmek/devre dışı bırakmak için HTML düğmelerine olay dinleyicileri ekle
+document.getElementById('draw-agac').onclick = () => toggleDrawing('agac');
+document.getElementById('draw-bench').onclick = () => toggleDrawing('bench');
+document.getElementById('draw-statue').onclick = () => toggleDrawing('statue');
+document.getElementById('draw-cafe').onclick = () => toggleDrawing('cafe');
+document.getElementById('draw-wc').onclick = () => toggleDrawing('wc');
+document.getElementById('draw-sport').onclick = () => toggleDrawing('sport');
+document.getElementById('draw-culture').onclick = () => toggleDrawing('culture');
+document.getElementById('draw-path').onclick = () => toggleDrawing('path');
+document.getElementById('draw-green').onclick = () => toggleDrawing('green');
+document.getElementById('draw-square').onclick = () => toggleDrawing('square');
+
 document.getElementById('reset').onclick = clearDrawing;
 document.getElementById('undo').onclick = undoLastDrawing;
 document.getElementById('upload').onclick = handleFinishDrawing;
 document.getElementById('continue-btn').onclick = handleSaveAndContinue;
+document.getElementById('submit-nasa-tlx-btn').onclick = submitNasaTlx;
 
 // --- 10. ÇİZİM YÖNETİM FONKSİYONLARI ---
 
 let geoJSONPayloadForUpload = null; // Geçici olarak GeoJSON'u saklamak için değişken
+let nasaTlxData = {}; // NASA-TLX verilerini saklamak için
 
 /**
  * Çizimi bitirme eylemini yönetir.
- * Kullanıcıyla onaylar, endTime'ı kaydeder ve geri bildirim modalini görüntüler.
+ * Kullanıcıyla onaylar, endTime'ı kaydeder ve NASA-TLX modalını görüntüler.
  */
 function handleFinishDrawing() {
     if (window.confirm("Matrix'i daha güzel hale getirmek istediğinize emin misiniz?")) {
@@ -330,71 +442,44 @@ function handleFinishDrawing() {
         const features = collectDrawingFeatures();
         geoJSONPayloadForUpload = createGeoJSONPayload(features); // GeoJSON'u sakla, henüz yükleme yapma
 
-        populateFeedbackModal(); // Geri bildirim modalını doldur
-        document.getElementById('feedback-modal').style.display = 'block'; // Geri bildirim modalını göster
+        // Geri bildirim modalı yerine NASA-TLX modalını göster
+        document.getElementById('nasa-tlx-modal').style.display = 'block';
     }
 }
 
-/**
- * Kullanılan her çizim aracı için geri bildirim modalini metin alanlarıyla doldurur.
- */
-function populateFeedbackModal() {
-    const feedbackFieldsDiv = document.getElementById('feedback-fields');
-    feedbackFieldsDiv.innerHTML = ''; // Önceki içeriği temizle
 
-    const toolLabels = { // Araç isimleri için kullanıcı dostu etiketler
-        agac: "🌳 Ağaç",
-        bench: "🪑 Bank",
-        statue: "🗽 Anıt",
-        cafe: "☕️ Cafe",
-        wc: "🚽 WC",
-        sport: "🏀 Spor",
-        culture: "🎭 Kültür/Sergi",
-        path: "🚶🏻‍♂️ Yaya Yolu",
-        green: "✳️ Yeşil Alan",
-        square: "🟨 Meydan"
+/**
+ * NASA-TLX gönderimini yönetir, veriyi GeoJSON'a ekler ve veriyi yükler.
+ */
+function submitNasaTlx() { // Fonksiyon adı değiştirildi
+    // NASA-TLX formundan değerleri topla
+    nasaTlxData = {
+        mentalDemand: document.getElementById('mental-demand').value,
+        physicalDemand: document.getElementById('physical-demand').value,
+        temporalDemand: document.getElementById('temporal-demand').value,
+        performance: document.getElementById('performance').value,
+        effort: document.getElementById('effort').value,
+        frustration: document.getElementById('frustration').value
     };
 
-    // Kullanılan çizim araçlarını tespit et (en az bir çizim yapılmış olanları)
-    const usedTools = Object.keys(drawingLayers).filter(toolType => drawingLayers[toolType].getLayers().length > 0);
-
-    usedTools.forEach(toolType => {
-        const label = toolLabels[toolType] || toolType; // Etiket yoksa toolType'ı kullan
-        const feedbackFieldDiv = document.createElement('div');
-
-        const feedbackLabel = document.createElement('label');
-        feedbackLabel.setAttribute('for', `feedback-${toolType}`);
-        feedbackLabel.innerHTML = `<strong>${label}</strong> aracını neden ve nasıl kullandınız?`;
-        feedbackFieldDiv.appendChild(feedbackLabel);
-
-        const feedbackTextarea = document.createElement('textarea');
-        feedbackTextarea.id = `feedback-${toolType}`;
-        feedbackTextarea.name = `feedback-${toolType}`;
-        feedbackTextarea.placeholder = `Tasarım aracını kullanım amacınızı ve yönteminizi açıklayabilirsiniz.`;
-        feedbackFieldDiv.appendChild(feedbackTextarea);
-
-        feedbackFieldsDiv.appendChild(feedbackFieldDiv); // Ana div'e ekle
-    });
-}
-
-/**
- * Geri bildirim gönderimini yönetir, GeoJSON'a ekler ve veriyi yükler.
- */
-function submitFeedback() {
-    const userFeedback = {};
-    const feedbackFields = document.querySelectorAll('#feedback-form textarea');
-    feedbackFields.forEach(textarea => {
-        const toolType = textarea.id.replace('feedback-', '');
-        userFeedback[toolType] = textarea.value;
-    });
-
     if (geoJSONPayloadForUpload) {
-        geoJSONPayloadForUpload.properties.userFeedback = userFeedback; // Geri bildirimi GeoJSON'a ekle
-        uploadGeoJSONData(geoJSONPayloadForUpload); // Yükleme fonksiyonunu geri bildirimli GeoJSON ile çağır
+        // --- DEĞİŞİKLİK BAŞLANGICI ---
+        // Eski userFeedback yerine nasaTlx verisini GeoJSON'a ekle
+        geoJSONPayloadForUpload.properties.nasaTlx = nasaTlxData;
+        // Eski userFeedback satırını kaldır:
+        // geoJSONPayloadForUpload.properties.userFeedback = userFeedback;
+        // --- DEĞİŞİKLİK SONU ---
+        uploadGeoJSONData(geoJSONPayloadForUpload); // Yükleme fonksiyonunu güncellenmiş GeoJSON ile çağır
         geoJSONPayloadForUpload = null; // Yükleme sonrası temizle
+        nasaTlxData = {}; // NASA-TLX verilerini temizle
     }
 
-    document.getElementById('feedback-modal').style.display = 'none'; // Geri bildirim modalını kapat
+    // --- DEĞİŞİKLİK BAŞLANGICI ---
+    // NASA-TLX modalını kapat
+    document.getElementById('nasa-tlx-modal').style.display = 'none';
+    // Eski feedback modalını kapatan satırı kaldır:
+    // document.getElementById('feedback-modal').style.display = 'none';
+    // --- DEĞİŞİKLİK SONU ---
 }
 
 
@@ -410,7 +495,7 @@ function collectDrawingFeatures() {
 
 /**
  * Yüklenecek veya indirilecek GeoJSON yükünü oluşturur.
- * userInfo, userFeedback ve çizilen özellikleri içerir.
+ * userInfo, nasaTlxData (yeni) ve çizilen özellikleri içerir.
  * @param {Array<Object>} features - GeoJSON Özelliklerinin dizisi.
  * @returns {Object} - GeoJSON FeatureCollection nesnesi.
  */
@@ -420,11 +505,17 @@ function createGeoJSONPayload(features) {
         properties: {
             userInfo: {
                 ...userInfo, // Diğer kullanıcı bilgilerini koru
-                district: userInfo.district, // İlçe bilgisini ekle
-                neighborhood: userInfo.neighborhood // Mahalle bilgisini ekle
+                district: userInfo.district,
+                neighborhood: userInfo.neighborhood,
+                userAgent: userInfo.userAgent,
+                screenSize: userInfo.screenSize,
+                referrer: userInfo.referrer,
+                touchScreen: userInfo.touchScreen
             },
-            userFeedback: {}
-        }, // userFeedback başlangıçta boş obje olarak tanımlanır, submitFeedback ile doldurulur
+            nasaTlx: {},
+
+            undoHistory: undoHistory
+        },
         features: features
     };
 }
@@ -435,7 +526,7 @@ function createGeoJSONPayload(features) {
  */
 function generateFilename() {
     const timestamp = new Date().toLocaleString('tr-TR').replace(/[\/\s,:]/g, '-');
-    return `comapping_${userInfo.username}_${timestamp}.geojson`;
+    return `sirkeci_${timestamp}.geojson`;
 }
 
 /**
@@ -472,9 +563,18 @@ function uploadGeoJSONData(geoJSONPayload) {
  * Geçerli çizim türünün son çizilen özelliğini geri alır.
  */
 function undoLastDrawing() {
-    if (currentDrawingType && drawingLayers[currentDrawingType].getLayers().length > 0) {
-        const layers = drawingLayers[currentDrawingType].getLayers();
-        drawingLayers[currentDrawingType].removeLayer(layers[layers.length - 1]);
+    if (drawHistory.length > 0) {
+        const lastAction = drawHistory.pop();
+        const { type, layer } = lastAction;
+        if (drawingLayers[type]) {
+            drawingLayers[type].removeLayer(layer);
+            const undoTimestamp = new Date().toISOString();
+            // Undo işlemini kaydet
+            undoHistory.push({ tool: type, datetime: undoTimestamp });
+            console.log("Undo:", undoTimestamp);
+        }
+    } else {
+        alert("Geri alınacak işlem bulunamadı.");
     }
 }
 

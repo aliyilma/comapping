@@ -1,3 +1,4 @@
+/* style.css dosyasının içeriği */
 /* Import fonts */
 @import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
 
@@ -22,7 +23,7 @@
 
 .leaflet-control-container {
     position: absolute;
-    top: 96px;
+    top: 250px;
 }
 
 /* Button styles */
@@ -85,6 +86,20 @@ button:active {
     box-shadow: var(--button-shadow), #000000 0 -3px 0 inset;
     transform: translateY(-2px);
 }
+
+/* "Bitir ve Yükle" butonu için yeşil renk */
+#upload.bitir {
+    background-color: #4CAF50;
+    padding: 16px 20px;
+    font-size: 14px;
+    box-shadow: var(--button-shadow), #3f9243 0 -3px 0 inset; /* Daha koyu yeşil gölge */
+}
+
+#upload.bitir:hover {
+    box-shadow: var(--button-shadow), #3f9243 0 -3px 0 inset; /* Hover durumunda da gölgeyi koru */
+    transform: translateY(-2px);
+}
+
 
 /* Container styles */
 .image-txt-container {
@@ -187,7 +202,8 @@ button:active {
 
 /* Modal buttons */
 #continue-btn,
-#submit-feedback-btn {
+#submit-nasa-tlx-btn,
+#consent-agree-btn {
     margin-top: 15px;
     margin-left: 0px;
     padding: 15px 15px;
@@ -202,6 +218,153 @@ button:active {
 }
 
 #continue-btn:hover,
-#submit-feedback-btn:hover {
+#submit-nasa-tlx-btn:hover,
+#consent-agree-btn:hover {
     background-color: #3f9243;
+}
+
+/* style.css dosyasının SONUNA eklenecek BASİTLEŞTİRİLMİŞ NASA-TLX stil önerileri */
+
+/* NASA-TLX Modal İçeriği */
+.nasa-tlx-content {
+    width: 60%; /* Genişliği biraz ayarlayalım */
+    max-width: 650px;
+}
+
+.nasa-tlx-content h2 {
+    text-align: center; /* Başlığı ortala */
+    margin-bottom: 20px; /* Başlık altı boşluk */
+}
+
+.nasa-tlx-content p {
+    text-align: center; /* Açıklama metnini ortala */
+    margin-bottom: 25px; /* Açıklama altı boşluk */
+    line-height: 1.4; /* Satır yüksekliği */
+}
+
+/* Her bir NASA-TLX Boyutu */
+.nasa-dimension {
+    margin-bottom: 25px; /* Boyutlar (sorular) arası dikey boşluğu artır */
+}
+
+.nasa-dimension label {
+    display: block; /* Etiket tam satırı kaplasın */
+    /* font-weight: bold; /* Soru metnini kalın yap */
+    margin-bottom: 10px; /* Soru ile slider arası boşluk */
+}
+
+/* Slider ve Değer Konteyneri */
+.slider-container {
+    display: flex; /* Slider ve değeri yan yana getir */
+    align-items: center; /* Dikeyde ortala */
+    gap: 10px; /* Slider ile değer arasında hafif boşluk */
+}
+
+/* Slider Stili (Tarayıcı varsayılan görünümü kullanılır) */
+.nasa-dimension input[type="range"] {
+    flex-grow: 1; /* Slider'ın kalan alanı doldurmasını sağla */
+    margin: 0; /* Ekstra boşlukları kaldır */
+    padding: 0;
+    cursor: pointer;
+    min-height: auto; /* Genel input stilini ezmek için */
+    height: auto;     /* Genel input stilini ezmek için */
+}
+
+/* Slider Değer Göstergesi */
+.slider-value {
+    font-weight: bold; /* Değeri kalın yap */
+    font-size: 13px;
+    color: #333; /* Koyu gri renk */
+    min-width: 25px; /* Hafif bir minimum genişlik */
+    text-align: right; /* Sağa yasla */
+}
+
+/* Performans Notu */
+.nasa-dimension small {
+    display: block;
+    margin-top: 8px; /* Üstündeki slider'dan boşluk */
+    font-size: 11px;
+    color: #666; /* Biraz daha belirgin gri */
+}
+
+/* Consent Modal Specific Styles */
+#consent-modal .modal-content {
+    width: 65%; /* Diğer modallardan biraz daha geniş olabilir */
+    max-width: 700px; /* Çok geniş ekranlarda aşırı yayılmasını önler */
+    max-height: 80vh; /* Ekran yüksekliğinin %80'ini geçmesin */
+    overflow-y: auto; /* İçerik sığmazsa dikey kaydırma çubuğu çıkar */
+    text-align: left; /* Metin sola hizalı kalsın */
+}
+
+#consent-modal h2 {
+    text-align: center; /* Başlığı ortala */
+    margin-bottom: 15px;
+    color: var(--primary-color, #36395A); /* Ana renk değişkenini kullan */
+}
+
+#consent-modal h3 {
+    margin-top: 20px; /* Üstündeki içerikten biraz boşluk */
+    margin-bottom: 10px;
+    color: var(--primary-color, #36395A);
+    border-bottom: 1px solid #eee; /* Altına hafif bir çizgi */
+    padding-bottom: 5px;
+}
+
+#consent-modal p {
+    line-height: 1.5; /* Paragraf satır aralığını artır */
+    margin-bottom: 15px;
+    font-size: 13px; /* Gerekirse font boyutunu biraz büyütebilirsiniz */
+}
+
+#consent-modal ul {
+    list-style-type: disc; /* Standart madde imleri */
+    padding-left: 25px; /* Madde imleri için iç boşluk */
+    margin-bottom: 15px;
+}
+
+#consent-modal li {
+    margin-bottom: 8px; /* Maddeler arası boşluk */
+    line-height: 1.5;
+    font-size: 13px;
+}
+
+#consent-modal hr {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 20px 0; /* Üst ve alt boşluk */
+}
+
+#consent-modal p strong {
+    color: #333; /* Vurgulu metinler için renk */
+}
+
+/* Modal içeriğinin temizlenmesi için (Buton sağa yaslandığında gerekebilir) */
+#consent-modal .modal-content::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* style.css sonuna ekleyin */
+button.active-tool {
+    background-color: #a0d8a2; /* Örneğin açık yeşil */
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2), #D6D6E7 0 -3px 0 inset;
+}
+
+/* Buton grubuna arkaplan eklemek için */
+.buttongroup {
+    position: absolute; /* Haritaya göre konumlandırma */
+    top: 0px;          /* Üstten boşluk */
+    left: 0px;         /* Soldan boşluk */
+    z-index: 500;       /* Butonlarla aynı katmanda veya biraz altında olabilir (499 gibi) */
+    background-color: rgba(255, 255, 255, 0.25); /* Beyaz, %85 opaklıkta. Rengi (ilk 3 değer) ve opaklığı (son değer 0 ile 1 arası) değiştirebilirsiniz */
+    padding-right: 20px;      /* Zeminin içindeki butonlara boşluk */
+    padding-bottom: 20px;
+    border-radius: 8px; /* Köşeleri yuvarlatma */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* Hafif bir gölge efekti (isteğe bağlı) */
+    /* Mevcut height: 0; kuralını kaldırın veya üzerine yazın */
+    height: auto; /* İçeriğe göre yükseklik otomatik ayarlansın */
+
+    -webkit-backdrop-filter: blur(8px); /* Safari gibi Webkit tabanlı tarayıcılar için */
+    backdrop-filter: blur(8px); /* Standart özellik (bulanıklık miktarını px cinsinden ayarlayın) */
 }
