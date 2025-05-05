@@ -45,7 +45,7 @@ button {
     line-height: 1;
     list-style: none;
     overflow: hidden;
-    padding: 0 8px;
+    padding: 0 4px;
     position: relative;
     text-align: left;
     text-decoration: none;
@@ -90,9 +90,10 @@ button:active {
 /* "Bitir ve Yükle" butonu için yeşil renk */
 #upload.bitir {
     background-color: #4CAF50;
-    padding: 16px 20px;
-    font-size: 14px;
+    padding: 16px 12px;
+    font-size: 13px;
     box-shadow: var(--button-shadow), #3f9243 0 -3px 0 inset; /* Daha koyu yeşil gölge */
+    font-weight: bold; /* Kalın font */
 }
 
 #upload.bitir:hover {
@@ -348,7 +349,8 @@ button:active {
 /* style.css sonuna ekleyin */
 button.active-tool {
     background-color: #a0d8a2; /* Örneğin açık yeşil */
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2), #D6D6E7 0 -3px 0 inset;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5), #D6D6E7 0 -3px 0 inset;
+    font-weight: bold; /* Kalın font */
 }
 
 /* Buton grubuna arkaplan eklemek için */
@@ -357,7 +359,7 @@ button.active-tool {
     top: 0px;          /* Üstten boşluk */
     left: 0px;         /* Soldan boşluk */
     z-index: 500;       /* Butonlarla aynı katmanda veya biraz altında olabilir (499 gibi) */
-    background-color: rgba(255, 255, 255, 0.25); /* Beyaz, %85 opaklıkta. Rengi (ilk 3 değer) ve opaklığı (son değer 0 ile 1 arası) değiştirebilirsiniz */
+    background-color: rgba(0, 0, 0, 0.25); /* Beyaz, %85 opaklıkta. Rengi (ilk 3 değer) ve opaklığı (son değer 0 ile 1 arası) değiştirebilirsiniz */
     padding-right: 20px;      /* Zeminin içindeki butonlara boşluk */
     padding-bottom: 20px;
     border-radius: 8px; /* Köşeleri yuvarlatma */
@@ -367,4 +369,5 @@ button.active-tool {
 
     -webkit-backdrop-filter: blur(8px); /* Safari gibi Webkit tabanlı tarayıcılar için */
     backdrop-filter: blur(8px); /* Standart özellik (bulanıklık miktarını px cinsinden ayarlayın) */
+
 }

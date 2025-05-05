@@ -43,7 +43,7 @@
     </nav>
 
     <div id="consent-modal" class="modal" style="display:none;"> <div class="modal-content">
-        <h2>Proje Açıklaması ve Bilgilendirilmiş Onam</h2>
+        <h2>Açıklama ve Bilgilendirilme</h2>
         <p>
             Bu çalışma, katılımcı web haritalama süreçlerinde dijital araçların rolünü ve kullanıcıların karşılaştığı potansiyel bilişsel engelleri araştırmaktadır. Amacımız, katılımcıların web tabanlı bir harita arayüzü kullanarak mekânsal tasarım yaptıkları süreçteki etkileşimlerini ve deneyimlerini Bilişsel Yük Teorisi (CLT) çerçevesinde incelemektir. İstanbul'un tarihi merkezlerinden Sirkeci-Eminönü aksı için bir katılımcı dijital tasarım uygulaması gerçekleştirilmektedir.
         </p>
@@ -55,7 +55,7 @@
             <li><strong>Gönüllülük:</strong> Bu çalışmaya katılımınız tamamen gönüllülük esasına dayanmaktadır. Katılmaya karar verdikten sonra bile, herhangi bir hakkınızı kaybetmeden veya bir cezaya maruz kalmadan istediğiniz zaman çalışmadan ayrılabilirsiniz.</li>
             <li><strong>Gizlilik:</strong> Bu çalışmayla bağlantılı olarak elde edilen her bilgi sizinle özdeşleştirilmeden, anonim olarak gizli tutulacak ve yalnızca bilimsel amaçlarla kullanılacaktır. Toplanan tüm veriler, sınırlı erişime sahip güvenli ve şifreli bir veritabanında saklanacaktır.</li>
             <li><strong>Olası Riskler ve Faydalar:</strong> Çalışmanın bilinen bir riski bulunmamaktadır. Çalışma, katılımcı planlama ve dijital katılım araçlarının geliştirilmesine katkıda bulunarak toplumsal fayda sağlamayı amaçlamaktadır.</li>
-            <li><strong>İletişim:</strong> Bu araştırma ile ilgili herhangi bir sorunuz veya endişeniz olursa lütfen aşağıdaki araştırmacı ile iletişime geçiniz: Araş. Gör. Ali YILMAZ (yilmazali13@itu.edu.tr)</li>
+            <li><strong>İletişim:</strong> Bu araştırma ile ilgili herhangi bir sorunuz veya endişeniz olursa lütfen aşağıdaki araştırmacı ile iletişime geçiniz: <a href="mailto:yilmazali13@itu.edu.tr">Araş. Gör. Ali YILMAZ (yilmazali13@itu.edu.tr)</a></li>
         </ul>
         <hr> <p><strong>Onay Beyanı:</strong> Yukarıda açıklanan prosedürleri anladım. Sorularım tatmin edici bir şekilde yanıtlandı. İstediğim zaman çalışmadan ayrılma hakkımın saklı olduğunu bilerek, bu çalışmaya gönüllü olarak katılmayı onaylıyorum.</p>
 
@@ -82,67 +82,71 @@
             <form id="user-form">
                 <div>
                     <label for="username">Takma isim</label>
-                    <input type="text" id="username" name="username" placeholder="Rumuzunuzu giriniz" value="Vatandaş"
-                        required>
+                    <input type="text" id="username" name="username" placeholder="Vatandaş 2.0" required>
                 </div>
                 <div>
                     <label for="age">Yaş</label>
-                    <input type="number" id="age" name="age" placeholder="Yaşınızı giriniz" value="20" required>
+                    <input type="number" id="age" name="age" placeholder="20" required>
                 </div>
                 <div>
                     <label for="group">Sirkeci-Eminönü ile ilişkiniz</label>
                     <select id="group" name="group">
-                        <option value="ziyaretçiyim">Ziyaretçiyim</option>
-                        <option value="çalışıyorum">Çalışıyorum</option>
-                        <option value="yaşıyorum">Yaşıyorum</option>
+                        <option value="" selected disabled>Seçiniz</option>
+                        <option value="ziyaretçi">Ziyaretçiyim</option>
+                        <option value="çalışıyor">Çalışıyorum</option>
+                        <option value="yaşıyor">Yaşıyorum</option>
                     </select>
                 </div>
                 <div>
-                    <label for="frequency">Ziyaret sıklığınız</label>
+                    <label for="frequency"><strong>Ziyaret</strong> sıklığınız</label>
                     <select id="frequency" name="frequency">
+                        <option value="" selected disabled>Seçiniz</option>
                         <option value="günlük">Her gün</option>
                         <option value="haftalık">Haftada bir veya birkaç kez</option>
                         <option value="aylık">Ayda bir veya birkaç kez</option>
-                        <option value="yıllık" selected>Yılda bir veya birkaç kez</option>
+                        <option value="yıllık">Yılda bir veya birkaç kez</option>
                         <option value="nadiren">Nadiren</option>
                         <option value="hiç">Hiç ziyaret etmedim</option>
                     </select>
                 </div>
                 <div>
-                    <label for="map-familiarity">Gündelik hayatınızda dijital harita kullanım sıklığınız (Google Haritalar, Yandex Haritalar vb.)</label>
+                    <label for="map-familiarity">Gündelik hayatınızda <strong>dijital harita</strong> kullanım sıklığınız (Google Haritalar, Yandex Haritalar vb.)</label>
                     <select id="map-familiarity" name="map-familiarity">
-                        <option value="Her gün">Her gün</option>
-                        <option value="Sıklıkla">Sıklıkla</option>
-                        <option value="Bazen">Bazen</option>
-                        <option value="Nadiren">Nadiren</option>
-                        <option value="Hiç">Hiç</option>
+                        <option value="" selected disabled>Seçiniz</option>
+                        <option value="günlük">Her gün</option>
+                        <option value="sık">Sıklıkla</option>
+                        <option value="bazen">Bazen</option>
+                        <option value="nadiren">Nadiren</option>
+                        <option value="hiç">Hiç</option>
                     </select>
                 </div>
                 <div>
-                    <label for="gis-familiarity">Gündelik hayatınızda Coğrafi Bilgi Sistemlerini (GIS) kullanım sıklığınız (ArcGIS, QGIS vb.)</label>
+                    <label for="gis-familiarity">Gündelik veya mesleki hayatınızda <strong>Coğrafi Bilgi Sistemlerini (GIS)</strong> kullanım sıklığınız (ArcGIS, QGIS vb.)</label>
                     <select id="gis-familiarity" name="gis-familiarity">
-                        <option value="Her gün">Her gün</option>
-                        <option value="Sıklıkla">Sıklıkla</option>
-                        <option value="Bazen">Bazen</option>
-                        <option value="Nadiren">Nadiren</option>
-                        <option value="Hiç">Hiç</option>
+                        <option value="" selected disabled>Seçiniz</option>
+                        <option value="günlük">Her gün</option>
+                        <option value="sık">Sıklıkla</option>
+                        <option value="bazen">Bazen</option>
+                        <option value="nadiren">Nadiren</option>
+                        <option value="hiç">Hiç</option>
                     </select>
                 </div>
                 <div>
-                    <label for="online-participation">Daha önce çevrimiçi katılım araçlarını kullandınız mı? (Kabataş'ı tasarla, Bütçe Senin, İstanbul Senin vb.)</label>
+                    <label for="online-participation">Daha önce <strong>çevrimiçi katılım araçları</strong>nı kullandınız mı? (Kabataş'ı tasarla, Bütçe Senin, İstanbul Senin vb.)</label>
                     <select id="online-participation" name="online-participation">
-                        <option value="Hayır">Hayır</option>
-                        <option value="Evet">Evet</option>
+                        <option value="" selected disabled>Seçiniz</option>
+                        <option value="hayır">Hayır</option>
+                        <option value="evet">Evet</option>
                     </select>
                 </div>
                 <div>
-                    <label for="district">Yaşadığınız ilçe</label>
+                    <label for="district">Yaşadığınız <strong>ilçe</strong></label>
                     <select id="district" name="district">
-                        <option value="">Lütfen bir ilçe seçiniz</option>
+                        <option value="" selected disabled>Seçiniz</option>
                     </select>
                 </div>
                 <div>
-                    <label for="neighborhood">Yaşadığınız mahalle</label>
+                    <label for="neighborhood">Yaşadığınız <strong>mahalle</strong></label>
                     <select id="neighborhood" name="neighborhood" disabled>
                         <option value="">Lütfen önce bir ilçe seçiniz</option>
                     </select>
@@ -157,7 +161,7 @@
     <div id="nasa-tlx-modal" class="modal" style="display:none;">
         <div class="modal-content nasa-tlx-content"> <h2>🧠 İş Yükü Değerlendirmesi (NASA-TLX)</h2>
             <p>
-                <em>Lütfen az önce tamamladığınız haritalama görevini (arayüzü kullanma, çizim yapma, haritada gezinme vb. dahil) düşündüğünüzde, aşağıdaki boyutlara göre algıladığınız iş yükünü 0 (Çok Düşük) ile 100 (Çok Yüksek) arasında derecelendiriniz.</em>
+                <em>Lütfen az önce tamamladığınız haritalama görevini (arayüzü kullanma, çizim yapma, haritada gezinme vb. dahil) düşündüğünüzde, aşağıdaki boyutlara göre algıladığınız iş yükünü <strong>0 (Çok Düşük) ile 100 (Çok Yüksek)</strong> arasında derecelendiriniz.</em>
             </p>
             <form id="nasa-tlx-form">
                 <div class="nasa-dimension">
