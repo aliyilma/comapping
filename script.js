@@ -144,7 +144,7 @@ const map = L.map(mapContainerId).setView(initialView, initialZoom); // Leaflet 
 
 const tileLayerURL = 'https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}'; // Google Uydu karo katmanı için URL
 const tileLayerOptions = {
-    maxZoom: 20,
+    maxZoom: 21,
     minZoom: 17,
     attribution: 'Mapbox',
 };
@@ -189,26 +189,28 @@ map.on('moveend', function () {
  * GeoJSON katmanlarını eşzamansız olarak yükler ve haritaya ekler.
  * GeoJSON verilerini URL'lerden getirir ve stiller uygular.
  */
+// ...existing code...
 async function loadGeoJSONLayers() {
     const urls = {
-        sirkeci: 'https://raw.githubusercontent.com/aliyilma/comapping/refs/heads/main/sirkeci.geojson',
-        sirkeciGenis: 'https://raw.githubusercontent.com/aliyilma/comapping/refs/heads/main/sirkeci_genis.geojson'
+        sirkeci: 'https://raw.githubusercontent.com/aliyilma/comapping/refs/heads/main/sirkeci.geojson'
+        // sirkeciGenis kaldırıldı
     };
     const styles = {
-        sirkeci: { color: 'red', weight: 1.5, opacity: 1, fillOpacity: 0.2, fill: true },
-        sirkeciGenis: { color: 'yellow', weight: 1.5, opacity: 0.8, fillOpacity: 0.2, fill: true, dashArray: '2, 4' }
+        sirkeci: { color: 'black', weight: 1.5, opacity: 1, fillOpacity: 0.6, fill: true }
+        // sirkeciGenis stili kaldırıldı
     };
 
     try {
-        const [sirkeciGenis, sirkeci] = await Promise.all([
-            fetch(urls.sirkeciGenis).then(resp => resp.json()),
+        // Promise.all'dan sirkeciGenis fetch kaldırıldı
+        const [sirkeci] = await Promise.all([
             fetch(urls.sirkeci).then(resp => resp.json())
         ]);
 
-        const sirkeciGenisLayer = L.geoJson(sirkeciGenis, { style: styles.sirkeciGenis }).addTo(map);
+        // sirkeciGenisLayer oluşturma kaldırıldı
         const sirkeciLayer = L.geoJson(sirkeci, { style: styles.sirkeci }).addTo(map);
 
-        const overlayMaps = { "Sirkeci": sirkeciLayer, "Sirkeci Geniş Alan": sirkeciGenisLayer }; // Katman kontrolü için bindirme katmanları
+        // overlayMaps'ten sirkeciGenisLayer kaldırıldı
+        const overlayMaps = { "Sirkeci": sirkeciLayer }; // Katman kontrolü için bindirme katmanları
         L.control.layers(null, overlayMaps, { position: 'topright', collapsed: false }).addTo(map); // Katman kontrolü ekle
     } catch (error) {
         console.error("GeoJSON yüklenirken hata:", error);
@@ -495,26 +497,51 @@ function collectDrawingFeatures() {
 
 /**
  * Yüklenecek veya indirilecek GeoJSON yükünü oluşturur.
- * userInfo, nasaTlxData (yeni) ve çizilen özellikleri içerir.
+ * Belirtilen yeni yapıya göre userInfo, userEvents (yeni) ve nasaTlx içerir.
  * @param {Array<Object>} features - GeoJSON Özelliklerinin dizisi.
  * @returns {Object} - GeoJSON FeatureCollection nesnesi.
  */
 function createGeoJSONPayload(features) {
+
+    // Ana userInfo objesini (etkinlikler hariç) oluşturalım
+    const userInfoDetails = {
+        userAgent: userInfo.userAgent,
+        screenSize: userInfo.screenSize,
+        username: userInfo.username,
+        age: userInfo.age,
+        group: userInfo.group,
+        frequency: userInfo.frequency,
+        mapFamiliarity: userInfo.mapFamiliarity,
+        GISFamiliarity: userInfo.GISFamiliarity,
+        onlineParticipation: userInfo.onlineParticipation,
+        district: userInfo.district,
+        neighborhood: userInfo.neighborhood,
+        referrer: userInfo.referrer,       // Bu alan eklenmemişti, ekledim.
+        touchScreen: userInfo.touchScreen   // Bu alan eklenmemişti, ekledim.
+    };
+
+    // User Events objesini oluşturalım
+    const userEvents = {
+        timeWindow: {
+            startTime: userInfo.startTime, // userInfo objesinden alınıyor
+            endTime: userInfo.endTime,     // userInfo objesinden alınıyor
+            duration: userInfo.duration    // userInfo objesinden alınıyor
+        },
+        toolUsages: userInfo.toolUsages,   // userInfo objesinden alınıyor
+        undoHistory: undoHistory,         // Global undoHistory dizisinden alınıyor
+        zoomLevels: userInfo.zoomLevels,   // userInfo objesinden alınıyor
+        panEvents: userInfo.panEvents     // userInfo objesinden alınıyor
+    };
+
     return {
         type: "FeatureCollection",
         properties: {
-            userInfo: {
-                ...userInfo, // Diğer kullanıcı bilgilerini koru
-                district: userInfo.district,
-                neighborhood: userInfo.neighborhood,
-                userAgent: userInfo.userAgent,
-                screenSize: userInfo.screenSize,
-                referrer: userInfo.referrer,
-                touchScreen: userInfo.touchScreen
-            },
-            nasaTlx: {},
-
-            undoHistory: undoHistory
+            userInfo: userInfoDetails, // Yeniden yapılandırılmış kullanıcı detayları
+            userEvents: userEvents,     // Yeni userEvents objesi
+            nasaTlx: nasaTlxData        // Global nasaTlxData objesinden alınıyor
+            // İsterseniz buraya creationTimestamp ve appVersion gibi ek meta verileri de ekleyebilirsiniz.
+            // creationTimestamp: new Date().toISOString(),
+            // appVersion: "v0.3"
         },
         features: features
     };
