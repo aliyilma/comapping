@@ -140,7 +140,7 @@ const mapContainerId = 'map'; // Harita için HTML konteyner ID'si
 const initialView = [41.016596, 28.975677]; // Başlangıç harita merkezi koordinatları (enlem, boylam)
 const initialZoom = 17.5; // Başlangıç harita yakınlaştırma düzeyi
 
-const map = L.map(mapContainerId).setView(initialView, initialZoom); // Leaflet harita örneği oluştur
+const map = L.map(mapContainerId, {zoomSnap: 0.5, zoomDelta: 0.5}).setView(initialView, initialZoom); // Leaflet harita örneği oluştur
 
 const tileLayerURL = 'https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}'; // Google Uydu karo katmanı için URL
 const tileLayerOptions = {
