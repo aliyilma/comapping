@@ -196,7 +196,7 @@ async function loadGeoJSONLayers() {
         // sirkeciGenis kaldırıldı
     };
     const styles = {
-        sirkeci: { color: 'black', weight: 1.5, opacity: 1, fillOpacity: 0.6, fill: true }
+        sirkeci: { color: 'black', weight: 2, opacity: 1, fillOpacity: 0.6, fill: true }
         // sirkeciGenis stili kaldırıldı
     };
 
