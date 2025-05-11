@@ -618,6 +618,6 @@ function clearDrawing() {
 
 // Duyarlılık için pencere yeniden boyutlandırıldığında harita konteyner boyutunu ayarla
 $(window).on("resize", function () {
-    $("#map").height($(window).height() - 20).width($(window).width() - 15);
+    $("#map").height($(window).height() - 10).width($(window).width() - 8);
     map.invalidateSize(); // Leaflet harita boyutunu güncelle
 }).trigger("resize"); // Sayfa yüklendiğinde yeniden boyutlandırma olayını tetikle
