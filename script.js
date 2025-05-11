@@ -573,7 +573,7 @@ function uploadGeoJSONData(geoJSONPayload) {
     });
 
     dropboxClient.filesUpload({ path: `/${fileName}`, contents: file, mode: 'overwrite' })
-        .then(() => alert("Oldu, sayenizde Matrix'i güncelledik!"))
+        .then(() => alert("Oldu, sayenizde burayı güzelleştirdik!"))
         .catch(() => {
             const downloadLink = document.createElement("a");
             downloadLink.href = URL.createObjectURL(file);
