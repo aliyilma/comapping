@@ -81,11 +81,11 @@
             <p></p>
             <form id="user-form">
                 <div>
-                    <label for="username">Takma isim</label>
+                    <label for="username"><strong>Takma isminiz</strong></label>
                     <input type="text" id="username" name="username" placeholder="Vatandaş 2.0" required>
                 </div>
                 <div>
-                    <label for="age">Yaş</label>
+                    <label for="age"><strong>Yaşınız</strong></label>
                     <input type="number" id="age" name="age" placeholder="20" required>
                 </div>
                 <div>
@@ -159,13 +159,13 @@
 
     <!-- **YENİ: Geri Bildirim Modalı** -->
     <div id="nasa-tlx-modal" class="modal" style="display:none;">
-        <div class="modal-content nasa-tlx-content"> <h2>🧠 İş Yükü Değerlendirmesi (NASA-TLX)</h2>
+        <div class="modal-content nasa-tlx-content"> <h2>🧠 İş Yükü Değerlendirmesi</h2>
             <p>
                 <em>Lütfen az önce tamamladığınız haritalama görevini (arayüzü kullanma, çizim yapma, haritada gezinme vb. dahil) düşündüğünüzde, aşağıdaki boyutlara göre algıladığınız iş yükünü <strong>0 (Çok Düşük) ile 100 (Çok Yüksek)</strong> arasında derecelendiriniz.</em>
             </p>
             <form id="nasa-tlx-form">
                 <div class="nasa-dimension">
-                    <label for="mental-demand"><strong>Zihinsel Talep:</strong> Görev ne kadar zihinsel ve algısal aktivite gerektirdi (düşünme, karar verme, hatırlama vb.)?</label>
+                    <label for="mental-demand"><strong>Zihinsel Talep:</strong> Görev ne kadar zihinsel ve algısal aktivite gerektirdi? (düşünme, karar verme, hatırlama vb.)</label>
                     <div class="slider-container">
                         <input type="range" id="mental-demand" name="mental-demand" min="0" max="100" step="5" value="50">
                         <span class="slider-value">50</span>
@@ -173,7 +173,7 @@
                 </div>
 
                 <div class="nasa-dimension">
-                    <label for="physical-demand"><strong>Fiziksel Talep:</strong> Görev ne kadar fiziksel aktivite gerektirdi (tıklama, sürükleme, kaydırma vb.)?</label>
+                    <label for="physical-demand"><strong>Fiziksel Talep:</strong> Görev ne kadar fiziksel aktivite gerektirdi? (tıklama, sürükleme, kaydırma vb.)</label>
                     <div class="slider-container">
                         <input type="range" id="physical-demand" name="physical-demand" min="0" max="100" step="5" value="50">
                          <span class="slider-value">50</span>
@@ -197,7 +197,7 @@
                 </div>
 
                 <div class="nasa-dimension">
-                    <label for="effort"><strong>Çaba:</strong> Performans seviyenize ulaşmak için ne kadar sıkı çalışmak zorunda kaldınız (zihinsel ve fiziksel)?</label>
+                    <label for="effort"><strong>Çaba:</strong> Performans seviyenize ulaşmak için ne kadar sıkı çalışmak zorunda kaldınız? (zihinsel ve fiziksel)</label>
                     <div class="slider-container">
                         <input type="range" id="effort" name="effort" min="0" max="100" step="5" value="50">
                          <span class="slider-value">50</span>
