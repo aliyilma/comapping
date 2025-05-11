@@ -2,7 +2,7 @@
 <html lang="tr">
 
 <head>
-    <title>Participatory Mapping</title>
+    <title>Katılımcı Kentsel Tasarım</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -28,9 +28,9 @@
         </div>
         <div style="height: 20px;"></div>
         <div>
-            <button id="draw-path">🚶🏻‍♂️ Yaya yolu</button>
+            <button id="draw-path">🚶🏻‍♂️Yaya yolu</button>
+            <button id="draw-square">🟨 Yaya alanı</button>
             <button id="draw-green">🟩 Yeşil alan</button>
-            <button id="draw-square">🟨 Meydan</button>
         </div>
         <div style="height: 20px;"></div>
         <div>
@@ -44,20 +44,19 @@
 
     <div id="consent-modal" class="modal" style="display:none;"> <div class="modal-content">
         <h2>Açıklama ve Bilgilendirilme</h2>
+        <p><em>Araştırmacılar: Araş. Gör. Ali Yılmaz, Prof. Dr. Turgay Kerem Koramaz</em></p>
         <p>
-            Bu çalışma, katılımcı web haritalama süreçlerinde dijital araçların rolünü ve kullanıcıların karşılaştığı potansiyel bilişsel engelleri araştırmaktadır. Amacımız, katılımcıların web tabanlı bir harita arayüzü kullanarak mekânsal tasarım yaptıkları süreçteki etkileşimlerini ve deneyimlerini Bilişsel Yük Teorisi (CLT) çerçevesinde incelemektir. İstanbul'un tarihi merkezlerinden Sirkeci-Eminönü aksı için bir katılımcı dijital tasarım uygulaması gerçekleştirilmektedir.
+            Bu çalışma, katılımcı web haritalama süreçlerinde dijital araçların rolünü ve kullanıcıların karşılaştığı potansiyel bilişsel engelleri araştırmaktadır. Amaç, katılımcıların web tabanlı harita arayüzü kullanarak mekânsal tasarım yaptıkları süreçteki etkileşimlerini ve deneyimlerini Bilişsel Yük Teorisi çerçevesinde incelemektir. İstanbul'un tarihi merkezlerinden Sirkeci-Eminönü aksı için bir katılımcı dijital tasarım uygulaması gerçekleştirilmektedir.
         </p>
         <p>
-            Web tabanlı bir harita arayüzü kullanarak Sirkeci-Eminönü bölgesi için mekânsal tasarım önerileri geliştirmeniz istenmektedir. Arayüzdeki araçları kullanarak alan hakkındaki fikirlerinizi haritaya aktarıyor olacaksınız. Ayrıca, arayüzle olan etkileşimleriniz (yakınlaştırma, kaydırma, araç kullanımı vb.) ve görev sonrası dolduracağınız kısa bir anket ile deneyiminize dair veriler <strong>anonim olarak, kişisel bilgiler ele alınmaksızın</strong> toplanacaktır.
+            Web tabanlı bir harita arayüzü kullanarak ilgili alan için mekânsal tasarım önerileri geliştirmeniz istenmektedir. Arayüzdeki araçları kullanarak alan hakkındaki fikirlerinizi haritaya aktarıyor olacaksınız. Ayrıca, arayüzle olan etkileşimleriniz (yakınlaştırma, kaydırma, araç kullanımı vb.) ve görev sonrası dolduracağınız kısa bir anket ile deneyiminize dair veriler <strong>anonim olarak, kişisel bilgiler ele alınmaksızın</strong> toplanacaktır.
         </p>
-        <hr> <h3>Bilgilendirilmiş Onam</h3>
-        <ul>
-            <li><strong>Gönüllülük:</strong> Bu çalışmaya katılımınız tamamen gönüllülük esasına dayanmaktadır. Katılmaya karar verdikten sonra bile, herhangi bir hakkınızı kaybetmeden veya bir cezaya maruz kalmadan istediğiniz zaman çalışmadan ayrılabilirsiniz.</li>
-            <li><strong>Gizlilik:</strong> Bu çalışmayla bağlantılı olarak elde edilen her bilgi sizinle özdeşleştirilmeden, anonim olarak gizli tutulacak ve yalnızca bilimsel amaçlarla kullanılacaktır. Toplanan tüm veriler, sınırlı erişime sahip güvenli ve şifreli bir veritabanında saklanacaktır.</li>
-            <li><strong>Olası Riskler ve Faydalar:</strong> Çalışmanın bilinen bir riski bulunmamaktadır. Çalışma, katılımcı planlama ve dijital katılım araçlarının geliştirilmesine katkıda bulunarak toplumsal fayda sağlamayı amaçlamaktadır.</li>
-            <li><strong>İletişim:</strong> Bu araştırma ile ilgili herhangi bir sorunuz veya endişeniz olursa lütfen aşağıdaki araştırmacı ile iletişime geçiniz: <a href="mailto:yilmazali13@itu.edu.tr">Araş. Gör. Ali YILMAZ (yilmazali13@itu.edu.tr)</a></li>
-        </ul>
-        <hr> <p><strong>Onay Beyanı:</strong> Yukarıda açıklanan prosedürleri anladım. Sorularım tatmin edici bir şekilde yanıtlandı. İstediğim zaman çalışmadan ayrılma hakkımın saklı olduğunu bilerek, bu çalışmaya gönüllü olarak katılmayı onaylıyorum.</p>
+        <h3>Bilgilendirilmiş Onam</h3>
+        <p><strong>Gönüllülük:</strong> Bu çalışmaya katılımınız tamamen gönüllülük esasına dayanmaktadır. Katılmaya karar verdikten sonra bile, herhangi bir hakkınızı kaybetmeden veya bir cezaya maruz kalmadan istediğiniz zaman çalışmadan ayrılabilirsiniz.</p>
+        <p><strong>Gizlilik:</strong> Bu çalışmayla bağlantılı olarak elde edilen her bilgi sizinle özdeşleştirilmeden, anonim olarak gizli tutulacak ve yalnızca bilimsel amaçlarla kullanılacaktır. Toplanan tüm veriler, sınırlı erişime sahip güvenli ve şifreli bir veritabanında saklanacaktır.</p>
+        <p><strong>Olası Riskler ve Faydalar:</strong> Çalışmanın bilinen bir riski bulunmamaktadır. Çalışma, katılımcı planlama ve dijital katılım araçlarının geliştirilmesine katkıda bulunarak toplumsal fayda sağlamayı amaçlamaktadır.</p>
+        <p><strong>İletişim:</strong> Bu araştırma ile ilgili herhangi bir sorunuz veya endişeniz olursa ilgili araştırmacı ile iletişime geçebilirsiniz: <a href="mailto:yilmazali13@itu.edu.tr">Araş. Gör. Ali YILMAZ (yilmazali13@itu.edu.tr)</a></p>
+        <p><strong>Onay Beyanı:</strong> Yukarıda açıklanan prosedürleri anladım. Sorularım tatmin edici bir şekilde yanıtlandı. İstediğim zaman çalışmadan ayrılma hakkımın saklı olduğunu bilerek, bu çalışmaya gönüllü olarak katılmayı onaylıyorum.</p>
 
         <button id="consent-agree-btn" type="button">Onaylıyorum</button>
     </div>
@@ -69,8 +68,7 @@
             <h2>Katılımcı</h2>
             <p>
                 Şu anda Sirkeci Garı'ndan Eminönü'ne kadar olan hattı keyfinize göre tasarlamak üzeresiniz.
-                Bunu katılımcı planlama ve tasarım anlayışı ile harmanlanan bir mekânsal anket çalışması olarak
-                düşünebilirsiniz.
+                Bunu katılımcı planlama ve tasarım anlayışı ile harmanlanan bir mekânsal anket çalışması olarak düşünebilirsiniz.
             </p>
             <p>
                 Harita üzerinde bulunan yardımcı butonlar vasıtası ile fikirlerinizi haritaya ekleyebilir ve

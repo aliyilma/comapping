@@ -196,7 +196,8 @@ async function loadGeoJSONLayers() {
         // sirkeciGenis kaldırıldı
     };
     const styles = {
-        sirkeci: { color: 'black', weight: 2, opacity: 1, fillOpacity: 0.6, fill: true }
+        sirkeci: { color: 'red', weight: 2, opacity: 1, dashArray: '10, 5',
+            fillColor: 'black', fillOpacity: 0.6, fill: true }
         // sirkeciGenis stili kaldırıldı
     };
 
@@ -573,7 +574,7 @@ function uploadGeoJSONData(geoJSONPayload) {
     });
 
     dropboxClient.filesUpload({ path: `/${fileName}`, contents: file, mode: 'overwrite' })
-        .then(() => alert("Oldu, sayenizde burayı güzelleştirdik!"))
+        .then(() => alert("İşte bu kadar, sayenizde burayı güzelleştirdik! Sayfayı kapatabilirsiniz, gerisi bizde."))
         .catch(() => {
             const downloadLink = document.createElement("a");
             downloadLink.href = URL.createObjectURL(file);
@@ -583,7 +584,10 @@ function uploadGeoJSONData(geoJSONPayload) {
                 location.href = 'mailto:yilmazali13@itu.edu.tr';
             }
         })
-        .finally(() => Object.values(drawingLayers).forEach(layerGroup => layerGroup.clearLayers()));
+        .finally(() => {
+            Object.values(drawingLayers).forEach(layerGroup => layerGroup.clearLayers());
+            location.reload();
+        });
 }
 
 /**
