@@ -1,7 +1,3 @@
-// --- User Interaction Data Tracking and Map Drawing ---
-// Bu script, kullanıcı girdilerini, harita etkileşimlerini, çizim işlevlerini ve bir web haritalama uygulaması için veri dışa aktarımını yönetir.
-// Harita gösterimi için Leaflet ve çizim özellikleri için Leaflet.draw kullanır.
-
 // --- 1. GLOBAL DEĞİŞKENLER ---
 
 /**

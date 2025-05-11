@@ -376,5 +376,56 @@ button.active-tool {
 
     -webkit-backdrop-filter: blur(8px); /* Safari gibi Webkit tabanlı tarayıcılar için */
     backdrop-filter: blur(8px); /* Standart özellik (bulanıklık miktarını px cinsinden ayarlayın) */
+}
 
+/* ...existing code... */
+
+/* Telefon ekranları için modal tam ekran stilleri */
+@media screen and (max-width: 800px) {
+    .modal-content,
+    #consent-modal .modal-content,
+    .modal-content.nasa-tlx-content {
+        width: 95vw; /* Tam ekran genişliği */
+        height: 100vh; /* Tam ekran yüksekliği */
+        max-width: none; /* Varsa max-width kısıtlamasını kaldır */
+        max-height: none; /* Varsa max-height kısıtlamasını kaldır (örn: 90vh) */
+        margin: 5; /* Kenar boşluklarını sıfırla */
+        border-radius: 0; /* Köşe yuvarlaklığını sıfırla */
+        border: none; /* Kenarlığı kaldır (isteğe bağlı) */
+        padding: 20px; /* İç boşluk, içeriğin kenarlara yapışmaması için */
+        box-sizing: border-box; /* padding ve border değerlerinin width/height içine dahil edilmesini sağlar */
+        overflow-y: auto; /* İçerik taşarsa dikey kaydırma çubuğu */
+    }
+
+    /* Modal içindeki başlıkların mobil uyumunu artırmak için */
+    .modal-content h2 {
+        /* font-size: 1.3rem; /* Başlık font boyutunu ayarla */
+        margin-top: 0; /* Gerekirse üst boşluğu azalt */
+    }
+
+    /* Modal içindeki metin ve form elemanlarının mobil uyumunu artırmak için */
+    .modal-content p,
+    .modal-content label,
+    .modal-content li,
+    .modal-content input,
+    .modal-content select,
+    .modal-content textarea {
+        font-size: 0.95rem; /* Font boyutunu ayarla */
+    }
+
+    .modal-content input,
+    .modal-content select,
+    .modal-content textarea {
+        min-height: 40px; /* Girdi alanlarının minimum yüksekliğini ayarla */
+    }
+
+    /* Modal butonlarının mobil uyumunu artırmak için */
+    #continue-btn,
+    #submit-nasa-tlx-btn,
+    #consent-agree-btn {
+        /*padding: 12px 15px; /* Buton iç boşluğunu ayarla */
+        /*font-size: 1rem; /* Buton font boyutunu ayarla */
+        width: 50%; /* Butonları tam genişlik yap (isteğe bağlı) */
+        box-sizing: border-box; /* Tam genişlik ve padding ile uyum için */
+    }
 }
