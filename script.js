@@ -145,7 +145,7 @@ const map = L.map(mapContainerId, {zoomSnap: 0.5, zoomDelta: 0.5}).setView(initi
 const tileLayerURL = 'https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}'; // Google Uydu karo katmanı için URL
 const tileLayerOptions = {
     maxZoom: 21,
-    minZoom: 17,
+    minZoom: 16,
     attribution: 'Mapbox',
 };
 
@@ -436,7 +436,7 @@ let nasaTlxData = {}; // NASA-TLX verilerini saklamak için
  * Kullanıcıyla onaylar, endTime'ı kaydeder ve NASA-TLX modalını görüntüler.
  */
 function handleFinishDrawing() {
-    if (window.confirm("Matrix'i daha güzel hale getirmek istediğinize emin misiniz?")) {
+    if (window.confirm("Alanı daha güzel hale getirmek üzeresiniz. Yollayalım mı?")) {
         endTime = new Date();
         userInfo.endTime = endTime.toISOString();
         userInfo.duration = ((endTime - startTime) / 1000).toFixed(2);
