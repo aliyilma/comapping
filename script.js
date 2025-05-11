@@ -137,7 +137,7 @@ document.getElementById('district').addEventListener('change', function() {
 // --- 3. HARİTA BAŞLATMA ---
 
 const mapContainerId = 'map'; // Harita için HTML konteyner ID'si
-const initialView = [41.016596, 28.975677]; // Başlangıç harita merkezi koordinatları (enlem, boylam)
+const initialView = [41.016677, 28.974282]; // Başlangıç harita merkezi koordinatları (enlem, boylam)
 const initialZoom = 17.5; // Başlangıç harita yakınlaştırma düzeyi
 
 const map = L.map(mapContainerId, {zoomSnap: 0.5, zoomDelta: 0.5}).setView(initialView, initialZoom); // Leaflet harita örneği oluştur
