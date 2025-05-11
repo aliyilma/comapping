@@ -2,6 +2,13 @@
 /* Import fonts */
 @import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
 
+body {
+    background-color: black;
+    margin: 0; /* Tarayıcının varsayılan body margin'lerini sıfırlamak iyi bir pratiktir */
+    padding: 0; /* Tarayıcının varsayılan body padding'lerini sıfırlamak iyi bir pratiktir */
+    /* Mevcut diğer body stilleriniz varsa onları koruyun */
+}
+
 /* Base styles */
 :root {
     --font-family: "Quicksand";
