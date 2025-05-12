@@ -1,39 +1,80 @@
-/* style.css dosyasının içeriği */
-/* Import fonts */
+/* style.css - Yeniden Düzenlenmiş */
+
+/* -------------------------------------------------------------------------- */
+/* TEMEL STİLLER VE DEĞİŞKENLER (BASE STYLES & VARIABLES)                     */
+/* -------------------------------------------------------------------------- */
+
+/* Font İçe Aktarma */
 @import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
 
-body {
-    background-color: black;
-    margin: 0; /* Tarayıcının varsayılan body margin'lerini sıfırlamak iyi bir pratiktir */
-    padding: 0; /* Tarayıcının varsayılan body padding'lerini sıfırlamak iyi bir pratiktir */
-    /* Mevcut diğer body stilleriniz varsa onları koruyun */
-}
-
-/* Base styles */
+/* Kök Değişkenler */
 :root {
-    --font-family: "Quicksand";
+    --font-family: "Quicksand", sans-serif; /* Yedek font eklendi */
+    --font-size: 11px; /* Genel yazı boyutu */
     --button-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px;
     --primary-color: #36395A;
     --button-bg: #FCFCFD;
 }
 
-/* Map container */
+/* Body Stilleri */
+body {
+    background-color: black;
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-family); /* Genel font ailesi body'ye uygulanabilir */
+}
+
+/* -------------------------------------------------------------------------- */
+/* SAYFA YAPISI VE GENEL KONTEYNERLAR (LAYOUT & GENERAL CONTAINERS)          */
+/* -------------------------------------------------------------------------- */
+
+/* Harita Konteyneri */
 #map {
     width: 100%;
+    height: 100vh; /* Genellikle haritanın tüm ekranı kaplaması istenir */
     z-index: 400;
 }
 
-/* Leaflet controls */
+/* Buton Grubu */
+.buttongroup {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 500;
+    background-color: rgba(0, 0, 0, 0.25);
+    padding-right: 20px;
+    padding-bottom: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    height: auto; /* height: 0 kaldırıldı */
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+}
+
+/* Resim ve Metin Konteyneri */
+.image-txt-container {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    font-family: var(--font-family); /* Zaten body'de var, gerekirse spesifik olarak kalabilir */
+    font-size: var(--font-size); /* Zaten body'de var, gerekirse spesifik olarak kalabilir */
+}
+
+/* Leaflet Kontrolleri */
 .leaflet-draw-toolbar {
     display: none;
 }
 
 .leaflet-control-container {
     position: absolute;
-    top: 250px;
+    top: 275px; /* Bu değer projenize göre ayarlanabilir */
 }
 
-/* Button styles */
+/* -------------------------------------------------------------------------- */
+/* BİLEŞEN STİLLERİ (COMPONENT STYLES)                                       */
+/* -------------------------------------------------------------------------- */
+
+/* === Genel Buton Stilleri === */
 button {
     align-items: center;
     appearance: none;
@@ -46,13 +87,13 @@ button {
     cursor: pointer;
     display: inline-flex;
     font-family: var(--font-family);
-    font-size: 12px;
+    font-size: var(--font-size);
     height: 24px;
     justify-content: center;
     line-height: 1;
     list-style: none;
     overflow: hidden;
-    padding: 0 4px;
+    padding: 0 4px; /* padding-left ve padding-right olarak ayrılabilir */
     position: relative;
     text-align: left;
     text-decoration: none;
@@ -62,9 +103,9 @@ button {
     touch-action: manipulation;
     white-space: nowrap;
     will-change: box-shadow, transform;
-    left: 10px;
-    top: 10px;
-    z-index: 500;
+    left: 10px; /* .buttongroup içindeyse bu gereksiz olabilir */
+    top: 10px;  /* .buttongroup içindeyse bu gereksiz olabilir */
+    z-index: 500; /* .buttongroup ile aynı */
     margin-bottom: 5px;
 }
 
@@ -82,49 +123,72 @@ button:active {
     transform: translateY(2px);
 }
 
-/* Special button styles */
-.bitir {
+/* === Özel Buton Stilleri === */
+button.bitir { /* Daha genel bir class ismi */
     background-color: #565151;
     color: #ffffff;
     box-shadow: var(--button-shadow), #000000 0 -3px 0 inset;
 }
 
-.bitir:hover {
+button.bitir:hover {
     box-shadow: var(--button-shadow), #000000 0 -3px 0 inset;
-    transform: translateY(-2px);
+    transform: translateY(-2px); /* Genel button:hover ile aynı, kaldırılabilir */
 }
 
-/* "Bitir ve Yükle" butonu için yeşil renk */
-#upload.bitir {
+button#upload.bitir { /* ID ile spesifiklik artırılmış */
     background-color: #4CAF50;
     padding: 16px 12px;
     font-size: 13px;
-    box-shadow: var(--button-shadow), #3f9243 0 -3px 0 inset; /* Daha koyu yeşil gölge */
-    font-weight: bold; /* Kalın font */
+    box-shadow: var(--button-shadow), #3f9243 0 -3px 0 inset;
+    font-weight: bold;
 }
 
-#upload.bitir:hover {
-    box-shadow: var(--button-shadow), #3f9243 0 -3px 0 inset; /* Hover durumunda da gölgeyi koru */
-    transform: translateY(-2px);
+button#upload.bitir:hover {
+    box-shadow: var(--button-shadow), #3f9243 0 -3px 0 inset;
+    transform: translateY(-2px); /* Genel button:hover ile aynı, kaldırılabilir */
+}
+
+button.active-tool {
+    background-color: #a0d8a2;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5), #D6D6E7 0 -3px 0 inset;
+    font-weight: bold;
+}
+
+/* === Modal İçi Butonlar === */
+/* Bu butonlar zaten genel button stilini miras alır, sadece farklılıklar belirtilir. */
+#continue-btn,
+#submit-nasa-tlx-btn,
+#consent-agree-btn {
+    margin-top: 15px;
+    margin-left: -10px; /* Genel button'da left: 10px vardı, burada sıfırlanmış */
+    margin-bottom: 25px;
+    padding: 15px 15px;
+    background-color: #4CAF50;
+    color: white;
+    /* font-family: var(--font-family); zaten genel butondan geliyor */
+    border: none; /* border-width:0 zaten genel butondan geliyor */
+    border-radius: 5px; /* Genel butondan farklı */
+    /* cursor: pointer; zaten genel butondan geliyor */
+    box-shadow: var(--button-shadow); /* Genel butondan farklı olabilir, kontrol edin */
+    transition: background-color 0.3s ease; /* Genel butondan farklı */
+    font-size: 12px; /* Genel buton ile aynı, isteğe bağlı */
+}
+
+#continue-btn:hover,
+#submit-nasa-tlx-btn:hover,
+#consent-agree-btn:hover {
+    background-color: #3f9243;
+    transform: none; /* Genel button:hover'daki transform'u ezer (isteniyorsa) */
 }
 
 
-/* Container styles */
-.image-txt-container {
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    font-family: var(--font-family);
-    font-size: 12px;
-}
+/* -------------------------------------------------------------------------- */
+/* MODAL STİLLERİ (MODAL STYLES)                                             */
+/* -------------------------------------------------------------------------- */
 
-.buttongroup {
-    height: 0;
-}
-
-/* Modal styles */
+/* === Genel Modal Kapsayıcı (Overlay) === */
 .modal {
-    display: flex;
+    display: flex; /* none; olarak başlar ve JS ile flex yapılır */
     position: fixed;
     align-items: center;
     justify-content: center;
@@ -133,299 +197,258 @@ button:active {
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto;
+    overflow: auto; /* Genellikle modal içeriği scroll olur, bu overlay için gereksiz olabilir */
     background-color: rgba(0, 0, 0, 0.8);
 }
 
+/* === Genel Modal İçeriği === */
 .modal-content {
     background-color: #fefefe;
-    margin: 15px auto;
+    margin: auto; /* Yatay ve dikey ortalama için */
     padding: 20px;
     border: 1px solid #888;
     width: 50%;
+    max-height: 90%; /* vh birimi kullanıldı */
+    overflow-y: auto;
     font-family: var(--font-family);
-    font-size: 12px;
-    line-height: 1;
+    font-size: var(--font-size); /* Genel yazı boyutu */
+    line-height: 1.1; /* Okunabilirlik için genel bir satır yüksekliği */
     text-align: left;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     color: #444;
+    position: relative; /* transform için gerekli */
+    /* top: 50%; transform: translateY(-50%); flexbox ile zaten ortalandığı için gereksiz */
 }
 
 .modal-content h2 {
     margin-top: 0;
+    /*margin-bottom: 15px; /* Standart alt boşluk */
+    /*font-size: 1.2em; /* Ana font boyutuna göre ölçeklenir (12px * 1.5 = 18px) */
+    color: var(--primary-color); /* Başlıklar için ana renk kullanılabilir */
 }
 
-.modal-content p {
-    margin-bottom: 15px;
+.modal-content p,
+.modal-content label, /* Etiketler için de 12px */
+.modal-content li {   /* Liste elemanları için de 12px */
+    margin-bottom: 10px; /* Standart alt boşluk */
+    font-size: var(--font-size); /* Genel yazı boyutu */
+    line-height: 1.1; /* Paragraflar için biraz daha fazla satır yüksekliği */
 }
 
-/* Modal form styles */
-#user-modal .modal-content form > div,
-#feedback-modal .modal-content form > div {
-    margin-bottom: 20px;
-}
 
-/* Feedback modal form styles - corrected selector */
-#feedback-modal .modal-content form #feedback-fields > div {
-    margin-bottom: 2px; /* Feedback modalında artırılmış bölüm boşluğu */
-    padding-bottom: 10px; /* Feedback modalında bölüm alt iç boşluğu eklendi */
+/* === Modal Form Elemanları === */
+.modal-content form > div { /* Genel form bölüm aralığı */
+    margin-bottom: 10px;
 }
 
 .modal-content label {
     display: block;
-    margin-bottom: 1px;
-    font-weight: 100;
-    color: #444;
+    margin-bottom: 2px; /* Etiket ve input arası boşluk */
+    font-weight: normal; /* font-weight: 100 yerine normal daha standart */
+    /* color: #444; zaten .modal-content'ten miras alır */
 }
-
-/* Feedback modal label style - specificity increased */
-#feedback-modal .modal-content form > div label {
-    color: #444; /* Ensure label color is maintained in feedback modal */
-}
-
 
 .modal-content input,
 .modal-content select,
 .modal-content textarea {
     width: 100%;
-    padding: 4px;
-    padding-right: 0px;
+    padding: 8px; /* İç boşluk artırıldı */
     border: 1px solid #ddd;
     border-radius: 4px;
-    font-size: 12px;
+    font-size: var(--font-size); /* Genel yazı boyutu */
     transition: border-color 0.3s ease;
     font-family: var(--font-family);
     box-sizing: border-box;
-    min-height: 40px;
+    min-height: 20px;
 }
 
 .modal-content input:focus,
 .modal-content select:focus,
 .modal-content textarea:focus {
     outline: none;
-    border-color: #4CAF50;
+    border-color: #4CAF50; /* Yeşil tema rengi */
     box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.1);
 }
 
-/* Modal buttons */
-#continue-btn,
-#submit-nasa-tlx-btn,
-#consent-agree-btn {
-    margin-top: 15px;
-    margin-left: 0px;
-    padding: 15px 15px;
-    background-color: #4CAF50;
-    color: white;
-    font-family: var(--font-family);
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    box-shadow: var(--button-shadow);
-    transition: background-color 0.3s ease;
+/* === User Modal (Kullanıcı Modalı) === */
+/* #user-modal .modal-content form > div { margin-bottom: 20px; } -> Genel kural ile birleştirildi */
+/* Eğer #user-modal için özel stil yoksa, bu bölüm kaldırılabilir. */
+
+
+/* === Feedback Modal (Geri Bildirim Modalı) === */
+/* #feedback-modal .modal-content form > div { margin-bottom: 20px; } -> Genel kural ile birleştirildi */
+#feedback-modal .modal-content form #feedback-fields > div {
+    margin-bottom: 2px;
+    padding-bottom: 10px;
+}
+/* #feedback-modal .modal-content form > div label { color: #444; } -> Miras alır, gereksiz. */
+
+
+/* === NASA-TLX Modal === */
+.nasa-tlx-content { /* .modal-content'e eklenen bir class olarak düşünülmeli */
+    width: 50%;
+    /*max-width: 650px;
 }
 
-#continue-btn:hover,
-#submit-nasa-tlx-btn:hover,
-#consent-agree-btn:hover {
-    background-color: #3f9243;
+.nasa-tlx-content h2 { /* .modal-content h2 stillerini ezer veya tamamlar */
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-/* style.css dosyasının SONUNA eklenecek BASİTLEŞTİRİLMİŞ NASA-TLX stil önerileri */
-
-/* NASA-TLX Modal İçeriği */
-.nasa-tlx-content {
-    width: 60%; /* Genişliği biraz ayarlayalım */
-    max-width: 650px;
+.nasa-tlx-content p { /* .modal-content p stillerini ezer veya tamamlar */
+    text-align: center;
+    margin-bottom: 25px;
+    /* line-height: 1.4; .modal-content p'den miras alır */
+    font-size: var(--font-size); /* Ana kuralı pekiştirir */
 }
 
-.nasa-tlx-content h2 {
-    text-align: center; /* Başlığı ortala */
-    margin-bottom: 20px; /* Başlık altı boşluk */
-}
-
-.nasa-tlx-content p {
-    text-align: center; /* Açıklama metnini ortala */
-    margin-bottom: 25px; /* Açıklama altı boşluk */
-    line-height: 1.4; /* Satır yüksekliği */
-}
-
-/* Her bir NASA-TLX Boyutu */
 .nasa-dimension {
-    margin-bottom: 25px; /* Boyutlar (sorular) arası dikey boşluğu artır */
+    margin-bottom: 25px;
 }
 
-.nasa-dimension label {
-    display: block; /* Etiket tam satırı kaplasın */
-    /* font-weight: bold; /* Soru metnini kalın yap */
-    margin-bottom: 10px; /* Soru ile slider arası boşluk */
+.nasa-dimension label { /* .modal-content label stillerini ezer veya tamamlar */
+    display: block;
+    /* font-weight: bold;  Kullanıcı tercihine göre eklenebilir */
+    margin-bottom: 10px;
+    font-size: var(--font-size); /* Genel yazı boyutu */
 }
 
-/* Slider ve Değer Konteyneri */
 .slider-container {
-    display: flex; /* Slider ve değeri yan yana getir */
-    align-items: center; /* Dikeyde ortala */
-    gap: 10px; /* Slider ile değer arasında hafif boşluk */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
 }
 
-/* Slider Stili (Tarayıcı varsayılan görünümü kullanılır) */
-.nasa-dimension input[type="range"] {
-    flex-grow: 1; /* Slider'ın kalan alanı doldurmasını sağla */
-    margin: 0; /* Ekstra boşlukları kaldır */
-    padding: 0;
+.nasa-dimension input[type="range"] { /* .modal-content input stillerini ezer */
+    /*flex-grow: 1;*/
+    width: 50%;
+    margin: 0;
+    padding: 0; /* Genel input padding'ini ezer */
     cursor: pointer;
-    min-height: auto; /* Genel input stilini ezmek için */
-    height: auto;     /* Genel input stilini ezmek için */
+    min-height: auto; /* Genel input min-height'ını ezer */
+    height: auto;     /* Genel input height'ını ezer */
 }
 
-/* Slider Değer Göstergesi */
 .slider-value {
-    font-weight: bold; /* Değeri kalın yap */
-    font-size: 13px;
-    color: #333; /* Koyu gri renk */
-    min-width: 25px; /* Hafif bir minimum genişlik */
-    text-align: right; /* Sağa yasla */
+    font-weight: bold;
+    font-size: 13px; /* Modal içi genel 12px'ten biraz büyük, tasarım gereği olabilir */
+    color: #333;
+    min-width: 25px;
+    text-align: right;
 }
 
-/* Performans Notu */
 .nasa-dimension small {
     display: block;
-    margin-top: 8px; /* Üstündeki slider'dan boşluk */
-    font-size: 11px;
-    color: #666; /* Biraz daha belirgin gri */
+    margin-top: 8px;
+    font-size: var(--font-size); /* Genel yazı boyutu */
+    color: #666;
 }
 
-/* Consent Modal Specific Styles */
-#consent-modal .modal-content {
-    width: 65%; /* Diğer modallardan biraz daha geniş olabilir */
-    max-width: 700px; /* Çok geniş ekranlarda aşırı yayılmasını önler */
-    max-height: 80vh; /* Ekran yüksekliğinin %80'ini geçmesin */
-    overflow-y: auto; /* İçerik sığmazsa dikey kaydırma çubuğu çıkar */
-    text-align: left; /* Metin sola hizalı kalsın */
+/* === Consent Modal (Onay Modalı) === */
+#consent-modal .modal-content { /* .modal-content'e eklenen bir ID ile özelleştirme */
+    width: 50%;
+    max-width: 700px;
+    max-height: 95vh; /* Genel .modal-content max-height'ını ezer */
+    /* text-align: left; .modal-content'ten miras alır */
 }
 
-#consent-modal h2 {
-    text-align: center; /* Başlığı ortala */
+#consent-modal .modal-content h2 { /* .modal-content h2 stillerini ezer */
+    text-align: center;
     margin-bottom: 15px;
-    color: var(--primary-color, #36395A); /* Ana renk değişkenini kullan */
+    /* color: var(--primary-color); .modal-content h2'den miras alır */
 }
 
-#consent-modal h3 {
-    margin-top: 20px; /* Üstündeki içerikten biraz boşluk */
+#consent-modal .modal-content h3 {
+    margin-top: 20px;
     margin-bottom: 10px;
-    color: var(--primary-color, #36395A);
-    border-bottom: 1px solid #eee; /* Altına hafif bir çizgi */
+    color: var(--primary-color);
+    border-bottom: 1px solid #eee;
     padding-bottom: 5px;
+    font-size: 1.1em; /* 12px * 1.25 = 15px */
 }
 
-#consent-modal p {
-    line-height: 1.5; /* Paragraf satır aralığını artır */
+#consent-modal .modal-content p { /* .modal-content p stillerini ezer veya tamamlar */
+    /* line-height: 1.5; .modal-content p'den miras alır */
     margin-bottom: 15px;
-    font-size: 13px; /* Gerekirse font boyutunu biraz büyütebilirsiniz */
+    font-size: var(--font-size); /* Ana kuralı pekiştirir */
 }
 
-#consent-modal ul {
-    list-style-type: disc; /* Standart madde imleri */
-    padding-left: 25px; /* Madde imleri için iç boşluk */
+#consent-modal .modal-content ul {
+    list-style-type: disc;
+    padding-left: 25px;
     margin-bottom: 15px;
 }
 
-#consent-modal li {
-    margin-bottom: 8px; /* Maddeler arası boşluk */
-    line-height: 1.5;
-    font-size: 13px;
+#consent-modal .modal-content li { /* .modal-content li stillerini ezer veya tamamlar */
+    margin-bottom: 8px;
+    /* line-height: 1.5; .modal-content li'den miras alır */
+    font-size: var(--font-size); /* Genel yazı boyutu */
 }
 
-#consent-modal hr {
+#consent-modal .modal-content hr {
     border: none;
     border-top: 1px solid #ddd;
-    margin: 20px 0; /* Üst ve alt boşluk */
+    margin: 20px 0;
 }
 
-#consent-modal p strong {
-    color: #333; /* Vurgulu metinler için renk */
+#consent-modal .modal-content p strong {
+    color: #333; /* Daha koyu renk */
+    font-weight: bold; /* strong zaten bold yapar, renk için eklendi */
 }
 
-/* Modal içeriğinin temizlenmesi için (Buton sağa yaslandığında gerekebilir) */
-#consent-modal .modal-content::after {
+#consent-modal .modal-content::after { /* Float temizleme (eğer içeride float kullanılıyorsa) */
     content: "";
     clear: both;
     display: table;
 }
 
-/* style.css sonuna ekleyin */
-button.active-tool {
-    background-color: #a0d8a2; /* Örneğin açık yeşil */
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5), #D6D6E7 0 -3px 0 inset;
-    font-weight: bold; /* Kalın font */
-}
+/* -------------------------------------------------------------------------- */
+/* DUYARLILIK AYARLARI (RESPONSIVE STYLES)                                   */
+/* -------------------------------------------------------------------------- */
 
-/* Buton grubuna arkaplan eklemek için */
-.buttongroup {
-    position: absolute; /* Haritaya göre konumlandırma */
-    top: 0px;          /* Üstten boşluk */
-    left: 0px;         /* Soldan boşluk */
-    z-index: 500;       /* Butonlarla aynı katmanda veya biraz altında olabilir (499 gibi) */
-    background-color: rgba(0, 0, 0, 0.25); /* Beyaz, %85 opaklıkta. Rengi (ilk 3 değer) ve opaklığı (son değer 0 ile 1 arası) değiştirebilirsiniz */
-    padding-right: 20px;      /* Zeminin içindeki butonlara boşluk */
-    padding-bottom: 20px;
-    border-radius: 8px; /* Köşeleri yuvarlatma */
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* Hafif bir gölge efekti (isteğe bağlı) */
-    /* Mevcut height: 0; kuralını kaldırın veya üzerine yazın */
-    height: auto; /* İçeriğe göre yükseklik otomatik ayarlansın */
-
-    -webkit-backdrop-filter: blur(8px); /* Safari gibi Webkit tabanlı tarayıcılar için */
-    backdrop-filter: blur(8px); /* Standart özellik (bulanıklık miktarını px cinsinden ayarlayın) */
-}
-
-/* ...existing code... */
-
-/* Telefon ekranları için modal tam ekran stilleri */
 @media screen and (max-width: 800px) {
     .modal-content,
-    #consent-modal .modal-content,
-    .modal-content.nasa-tlx-content {
-        width: 95vw; /* Tam ekran genişliği */
-        height: 100vh; /* Tam ekran yüksekliği */
-        max-width: none; /* Varsa max-width kısıtlamasını kaldır */
-        max-height: none; /* Varsa max-height kısıtlamasını kaldır (örn: 90vh) */
-        margin: 5; /* Kenar boşluklarını sıfırla */
-        border-radius: 0; /* Köşe yuvarlaklığını sıfırla */
-        border: none; /* Kenarlığı kaldır (isteğe bağlı) */
-        padding: 20px; /* İç boşluk, içeriğin kenarlara yapışmaması için */
-        box-sizing: border-box; /* padding ve border değerlerinin width/height içine dahil edilmesini sağlar */
-        overflow-y: auto; /* İçerik taşarsa dikey kaydırma çubuğu */
+    #consent-modal .modal-content, /* ID specific olduğu için burada da belirtmek iyi olur */
+    .modal-content.nasa-tlx-content { /* Class specific olduğu için burada da belirtmek iyi olur */
+        width: 95vw;
+        min-height: 100vh; /* height yerine min-height daha esnek olabilir */
+        max-width: none;
+        max-height: none;
+        margin: 0; /* Kenar boşlukları sıfırlandı */
+        border-radius: 0;
+        border: none;
+        /* padding: 20px; .modal-content'ten miras alır */
+        box-sizing: border-box;
+        /* overflow-y: auto; .modal-content'ten miras alır */
+        /* transform: translateY(-50%) ve top:50% kaldırıldığı için burada da gerek yok */
     }
 
-    /* Modal içindeki başlıkların mobil uyumunu artırmak için */
     .modal-content h2 {
-        /* font-size: 1.3rem; /* Başlık font boyutunu ayarla */
-        margin-top: 0; /* Gerekirse üst boşluğu azalt */
-    }
-
-    /* Modal içindeki metin ve form elemanlarının mobil uyumunu artırmak için */
-    .modal-content p,
-    .modal-content label,
-    .modal-content li,
-    .modal-content input,
-    .modal-content select,
-    .modal-content textarea {
-        font-size: 0.95rem; /* Font boyutunu ayarla */
+        /* font-size: 1.3rem; Yorum satırı kaldırıldı, em birimi daha tutarlı */
+        /*font-size: 1.2em; /* Mobil için biraz daha küçük başlık (12px * 1.4 = 16.8px) */
+        margin-top: 0;
     }
 
     .modal-content input,
     .modal-content select,
     .modal-content textarea {
-        min-height: 40px; /* Girdi alanlarının minimum yüksekliğini ayarla */
+        font-size: var(--font-size); /* Genel yazı boyutu */
+        min-height: 44px; /* Dokunma alanını artırmak için biraz daha yüksek */
     }
 
-    /* Modal butonlarının mobil uyumunu artırmak için */
     #continue-btn,
     #submit-nasa-tlx-btn,
     #consent-agree-btn {
-        /*padding: 12px 15px; /* Buton iç boşluğunu ayarla */
-        /*font-size: 1rem; /* Buton font boyutunu ayarla */
-        width: 50%; /* Butonları tam genişlik yap (isteğe bağlı) */
-        box-sizing: border-box; /* Tam genişlik ve padding ile uyum için */
+        /* padding: 12px 15px; Yorum satırı kaldırıldı */
+        /*padding: 12px; /* Daha dengeli padding */
+        /*font-size: var(--font-size); /* Genel yazı boyutu */
+        /*width: auto; /* Tam genişlik yerine içeriğe göre genişlik */
+        /*min-width: 120px; /* Minimum genişlik */
+        /*display: block; /* Butonların alt alta gelmesi için */
+        /*margin-left: auto;
+        /*margin-right: auto;
+        /* box-sizing: border-box; zaten genel butondan geliyor */
     }
 }
