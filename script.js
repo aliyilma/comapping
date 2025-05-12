@@ -275,10 +275,26 @@ map.on(L.Draw.Event.CREATED, function (e) {
         return;
     }
 
+    // Vertex sayısını hesapla
+    let vertexCount = 0;
+    if (layerType === 'marker') {
+        vertexCount = 1;
+    } else if (layerType === 'polyline') {
+        vertexCount = layer.getLatLngs().length;
+    } else if (layerType === 'polygon') {
+        // Poligonun dış halkasının köşe sayısını al
+        vertexCount = layer.getLatLngs()[0].length;
+    }
+
     // İşaretleyici ve diğer poligon olmayanlar için (sadece genel oluşturma zamanını kaydet)
     // Poligon ve Polyline için köşe noktası zaman damgaları loglamasını isterseniz buraya ekleyebilirsiniz.
-    userInfo.toolUsages.push({ tool: currentTool, actionType: actionType, datetime: creationDatetime });
-    console.log("Araç:", currentTool, "Eylem:", actionType, "Zaman:", creationDatetime); // İsteğe bağlı konsol günlüğü
+    userInfo.toolUsages.push({
+        tool: currentTool,
+        actionType: actionType,
+        datetime: creationDatetime,
+        vertexCount: vertexCount // Vertex sayısını ekle
+    });
+    console.log("Araç:", currentTool, "Eylem:", actionType, "Zaman:", creationDatetime, "Vertex:", vertexCount); // İsteğe bağlı konsol günlüğü
 
     let featureAdded = false; // Katmanın eklenip eklenmediğini takip et
 
@@ -288,21 +304,21 @@ map.on(L.Draw.Event.CREATED, function (e) {
         const targetLayerGroup = drawingLayers[currentTool];
         if (targetLayerGroup) {
             targetLayerGroup.addLayer(layer);
-            drawHistory.push({ type: currentTool, layer: layer });
+            drawHistory.push({ type: currentTool, layer: layer, vertexCount: vertexCount }); // Vertex sayısını geçmişe ekle
             featureAdded = true;
         } else {
              console.error("Marker için hedef katman grubu bulunamadı:", currentTool);
         }
     } else if (layerType === 'polyline' && currentTool === 'path') { // Sadece path aracı için polyline
         drawingLayers.path.addLayer(layer);
-        drawHistory.push({ type: 'path', layer: layer });
+        drawHistory.push({ type: 'path', layer: layer, vertexCount: vertexCount }); // Vertex sayısını geçmişe ekle
         featureAdded = true;
     } else if (layerType === 'polygon') {
         // currentTool'a göre doğru katman grubunu bul (green veya square)
         const targetLayerGroup = drawingLayers[currentTool];
         if (targetLayerGroup && (currentTool === 'green' || currentTool === 'square')) {
             targetLayerGroup.addLayer(layer);
-            drawHistory.push({ type: currentTool, layer: layer });
+            drawHistory.push({ type: currentTool, layer: layer, vertexCount: vertexCount }); // Vertex sayısını geçmişe ekle
             featureAdded = true;
         } else {
             console.error("Polygon için hedef katman grubu bulunamadı veya tür uyumsuz:", currentTool);
@@ -592,13 +608,17 @@ function uploadGeoJSONData(geoJSONPayload) {
 function undoLastDrawing() {
     if (drawHistory.length > 0) {
         const lastAction = drawHistory.pop();
-        const { type, layer } = lastAction;
+        const { type, layer, vertexCount } = lastAction; // vertexCount'u geçmişten al
         if (drawingLayers[type]) {
             drawingLayers[type].removeLayer(layer);
             const undoTimestamp = new Date().toISOString();
             // Undo işlemini kaydet
-            undoHistory.push({ tool: type, datetime: undoTimestamp });
-            console.log("Undo:", undoTimestamp);
+            undoHistory.push({
+                tool: type,
+                datetime: undoTimestamp,
+                vertexCount: vertexCount // Geri alınan vertex sayısını ekle
+            });
+            console.log("Undo:", undoTimestamp, "Vertex Count:", vertexCount);
         }
     } else {
         alert("Geri alınacak işlem bulunamadı.");
