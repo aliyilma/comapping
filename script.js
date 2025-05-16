@@ -231,7 +231,7 @@ Object.values(drawingLayers).forEach(layerGroup => map.addLayer(layerGroup)); //
 let currentDrawingType = null; // Şu anda etkin olan çizim aracı türü
 
 // Çizim araçları için işaretleyici simgeleri oluşturmak için yardımcı fonksiyon
-const createMarkerIcon = (iconUrl) => L.icon({ iconUrl: iconUrl, iconSize: [18, 18], iconAnchor: [9, 9] });
+//const createMarkerIcon = (iconUrl) => L.icon({ iconUrl: iconUrl, iconSize: [18, 18], iconAnchor: [9, 9] });
 
 // Her çizim türü için tutarlı seçeneklerle çizim kontrolleri oluşturma fonksiyonu
 function createDrawControl(layerGroup, drawOptions) {
@@ -240,13 +240,76 @@ function createDrawControl(layerGroup, drawOptions) {
 
 // Her özellik türü için çizim kontrollerini tanımla
 const drawControls = {
-    agac: createDrawControl(drawingLayers.agac, { marker: { icon: createMarkerIcon('https://img.icons8.com/stickers/48/deciduous-tree.png') }, polygon: false, polyline: false, circle: false, circlemarker: false, rectangle: false }),
-    bench: createDrawControl(drawingLayers.bench, { marker: { icon: createMarkerIcon('https://img.icons8.com/stickers/48/city-bench.png') }, polygon: false, polyline: false, circle: false, circlemarker: false, rectangle: false }),
-    statue: createDrawControl(drawingLayers.statue, { marker: { icon: createMarkerIcon('https://img.icons8.com/stickers/48/statue.png') }, polygon: false, polyline: false, circle: false, circlemarker: false, rectangle: false }),
-    cafe: createDrawControl(drawingLayers.cafe, { marker: { icon: createMarkerIcon('https://img.icons8.com/stickers/48/espresso-cup.png') }, polygon: false, polyline: false, circle: false, circlemarker: false, rectangle: false }),
-    wc: createDrawControl(drawingLayers.wc, { marker: { icon: createMarkerIcon('https://img.icons8.com/stickers/48/toilet-bowl.png') }, polygon: false, polyline: false, circle: false, circlemarker: false, rectangle: false }),
-    sport: createDrawControl(drawingLayers.sport, { marker: { icon: createMarkerIcon('https://img.icons8.com/stickers/48/basketball.png') }, polygon: false, polyline: false, circle: false, circlemarker: false, rectangle: false }),
-    culture: createDrawControl(drawingLayers.culture, { marker: { icon: createMarkerIcon('https://img.icons8.com/stickers/48/theatre-mask.png') }, polygon: false, polyline: false, circle: false, circlemarker: false, rectangle: false }),
+    agac: createDrawControl(drawingLayers.agac, {
+        marker: {
+            icon: L.icon({
+                iconUrl: 'https://img.icons8.com/stickers/48/deciduous-tree.png',
+                iconSize: [20, 20], // Ağaç için örnek boyut
+                iconAnchor: [10, 20] // Ağaç için örnek anchor
+            })
+        },
+        polygon: false, polyline: false, circle: false, circlemarker: false, rectangle: false
+    }),
+    bench: createDrawControl(drawingLayers.bench, {
+        marker: {
+            icon: L.icon({
+                iconUrl: 'https://img.icons8.com/stickers/48/city-bench.png',
+                iconSize: [16, 16], // Bank için örnek boyut
+                iconAnchor: [8, 8] // Bank için örnek anchor
+            })
+        },
+        polygon: false, polyline: false, circle: false, circlemarker: false, rectangle: false
+    }),
+    statue: createDrawControl(drawingLayers.statue, {
+        marker: {
+            icon: L.icon({
+                iconUrl: 'https://img.icons8.com/stickers/48/statue.png',
+                iconSize: [24, 24], // Anıt için örnek boyut
+                iconAnchor: [12, 24] // Anıt için örnek anchor
+            })
+        },
+        polygon: false, polyline: false, circle: false, circlemarker: false, rectangle: false
+    }),
+    cafe: createDrawControl(drawingLayers.cafe, {
+        marker: {
+            icon: L.icon({
+                iconUrl: 'https://img.icons8.com/stickers/48/espresso-cup.png',
+                iconSize: [32, 32], // Cafe için varsayılan veya yeni bir boyut
+                iconAnchor: [16, 16]   // Cafe için anchor
+            })
+        },
+        polygon: false, polyline: false, circle: false, circlemarker: false, rectangle: false
+    }),
+    wc: createDrawControl(drawingLayers.wc, {
+        marker: {
+            icon: L.icon({
+                iconUrl: 'https://img.icons8.com/stickers/48/toilet-bowl.png',
+                iconSize: [24, 24], // WC için örnek boyut
+                iconAnchor: [12, 12] // WC için örnek anchor (boyuta göre ayarlayın)
+            })
+        },
+        polygon: false, polyline: false, circle: false, circlemarker: false, rectangle: false
+    }),
+    sport: createDrawControl(drawingLayers.sport, {
+        marker: {
+            icon: L.icon({
+                iconUrl: 'https://img.icons8.com/stickers/48/basketball.png',
+                iconSize: [32, 32], // Spor için örnek boyut
+                iconAnchor: [16, 16] // Spor için örnek anchor (boyuta göre ayarlayın)
+            })
+        },
+        polygon: false, polyline: false, circle: false, circlemarker: false, rectangle: false
+    }),
+    culture: createDrawControl(drawingLayers.culture, {
+        marker: {
+            icon: L.icon({
+                iconUrl: 'https://img.icons8.com/stickers/48/theatre-mask.png',
+                iconSize: [32, 32], // Kültür için örnek boyut
+                iconAnchor: [16, 16] // Kültür için örnek anchor (boyuta göre ayarlayın)
+            })
+        },
+        polygon: false, polyline: false, circle: false, circlemarker: false, rectangle: false
+    }),
     path: createDrawControl(drawingLayers.path, { polyline: { shapeOptions: { color: 'orange', weight: 2, opacity: 1, lineCap: "square" } }, polygon: false, marker: false, circle: false, circlemarker: false, rectangle: false }),
     green: createDrawControl(drawingLayers.green, { polygon: { shapeOptions: { color: 'green', weight: 2, opacity: 1, fillOpacity: 0.5, fill: true } }, polyline: false, marker: false, circle: false, circlemarker: false, rectangle: false }),
     square: createDrawControl(drawingLayers.square, { polygon: { shapeOptions: { color: 'yellow', weight: 2, opacity: 1, fillOpacity: 0.5, fill: true } }, polyline: false, marker: false, circle: false, circlemarker: false, rectangle: false })
