@@ -1,0 +1,3001 @@
+{
+  "type": "FeatureCollection",
+  "properties": {
+    "userInfo": {
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.3.1 Safari/605.1.15",
+      "screenSize": "820x1180",
+      "username": "Ekokekosu",
+      "age": "27",
+      "group": "ziyaretçi",
+      "frequency": "nadiren",
+      "mapFamiliarity": "sık",
+      "GISFamiliarity": "hiç",
+      "onlineParticipation": "hayır",
+      "district": "PENDİK",
+      "neighborhood": "YENİ"
+    },
+    "userEvents": {
+      "timeWindow": {
+        "startTime": "2025-05-17T17:33:11.772Z",
+        "endTime": "2025-05-17T17:41:43.446Z",
+        "duration": "511.67"
+      },
+      "toolUsages": [
+        {
+          "tool": "bench",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:33:45.257Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "bench",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:33:48.160Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "bench",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:33:57.174Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "bench",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:33:57.855Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "bench",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:33:59.019Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "bench",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:33:59.638Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "bench",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:34:00.742Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "bench",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:34:01.258Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "bench",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:34:03.924Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "bench",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:34:04.695Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "bench",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:34:06.494Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "bench",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:34:06.604Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "bench",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:34:09.741Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "bench",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:34:10.541Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "bench",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:34:11.339Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "bench",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:34:12.373Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "bench",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:34:12.924Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "bench",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:34:13.423Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "bench",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:34:13.940Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "bench",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:34:14.423Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "bench",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:34:15.626Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "bench",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:34:17.042Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "agac",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:34:20.506Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "agac",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:34:22.710Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "agac",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:34:24.141Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "agac",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:34:26.209Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "agac",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:34:27.276Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "agac",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:34:29.356Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "agac",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:34:31.121Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "agac",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:34:32.072Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "wc",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:34:36.511Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "wc",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:34:38.659Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "wc",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:34:40.188Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "wc",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:34:40.892Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "path",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:34:46.929Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "path",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:35:14.613Z",
+          "vertexCount": 4
+        },
+        {
+          "tool": "agac",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:35:26.219Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "agac",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:35:27.353Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "agac",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:35:29.352Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "wc",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:35:40.987Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "wc",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:35:41.453Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "wc",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:35:42.353Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "wc",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:35:42.784Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "path",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:35:53.260Z",
+          "vertexCount": 2
+        },
+        {
+          "tool": "bench",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:36:11.433Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "bench",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:36:11.815Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "bench",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:36:12.230Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "bench",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:36:13.001Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "bench",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:36:13.480Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "bench",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:36:14.029Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "bench",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:36:15.282Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "bench",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:36:16.266Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "bench",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:36:17.247Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "agac",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:36:20.282Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "agac",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:36:23.017Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "agac",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:36:24.380Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "wc",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:36:27.263Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "wc",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:36:27.629Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "wc",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:36:28.697Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "wc",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:36:29.044Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "cafe",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:36:39.103Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "cafe",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:36:41.701Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "bench",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:37:18.846Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "bench",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:37:19.293Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "bench",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:37:19.875Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "bench",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:37:20.874Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "bench",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:37:21.410Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "bench",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:37:23.044Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "bench",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:37:23.629Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "bench",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:37:29.428Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "bench",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:37:30.009Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "bench",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:37:30.595Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "bench",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:37:31.141Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "bench",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:37:31.676Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "wc",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:37:39.691Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "wc",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:37:40.242Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "wc",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:37:41.444Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "wc",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:37:41.957Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "wc",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:38:16.391Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "wc",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:38:18.006Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "square",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:38:25.964Z",
+          "vertexCount": 4
+        },
+        {
+          "tool": "square",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:38:51.644Z",
+          "vertexCount": 7
+        },
+        {
+          "tool": "square",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:39:18.376Z",
+          "vertexCount": 5
+        },
+        {
+          "tool": "square",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:39:27.925Z",
+          "vertexCount": 4
+        },
+        {
+          "tool": "square",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:40:10.409Z",
+          "vertexCount": 15
+        },
+        {
+          "tool": "green",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:40:31.591Z",
+          "vertexCount": 5
+        },
+        {
+          "tool": "green",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:40:40.136Z",
+          "vertexCount": 4
+        },
+        {
+          "tool": "green",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:40:56.336Z",
+          "vertexCount": 4
+        },
+        {
+          "tool": "cafe",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:41:17.010Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "cafe",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:41:22.356Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "cafe",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:41:23.974Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "cafe",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:41:24.088Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "bench",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:41:28.491Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "bench",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:41:29.190Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "bench",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:41:29.668Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "bench",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:41:30.123Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "bench",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:41:32.156Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "bench",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:41:33.870Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "wc",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:41:36.207Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "wc",
+          "actionType": "creation",
+          "datetime": "2025-05-17T17:41:36.655Z",
+          "vertexCount": 1
+        }
+      ],
+      "undoHistory": [
+        {
+          "tool": "bench",
+          "datetime": "2025-05-17T17:33:49.961Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "bench",
+          "datetime": "2025-05-17T17:33:55.411Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "bench",
+          "datetime": "2025-05-17T17:34:08.197Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "path",
+          "datetime": "2025-05-17T17:35:03.933Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "wc",
+          "datetime": "2025-05-17T17:35:04.579Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "wc",
+          "datetime": "2025-05-17T17:35:05.428Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "wc",
+          "datetime": "2025-05-17T17:35:06.346Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "wc",
+          "datetime": "2025-05-17T17:35:07.262Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "agac",
+          "datetime": "2025-05-17T17:35:07.778Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "agac",
+          "datetime": "2025-05-17T17:35:08.312Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "agac",
+          "datetime": "2025-05-17T17:35:08.845Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "agac",
+          "datetime": "2025-05-17T17:35:12.594Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "agac",
+          "datetime": "2025-05-17T17:35:13.077Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "path",
+          "datetime": "2025-05-17T17:35:22.776Z",
+          "vertexCount": 4
+        },
+        {
+          "tool": "wc",
+          "datetime": "2025-05-17T17:37:53.632Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "wc",
+          "datetime": "2025-05-17T17:38:09.061Z",
+          "vertexCount": 1
+        }
+      ],
+      "zoomLevels": [
+        {
+          "zoomLevel": 19,
+          "datetime": "2025-05-17T17:33:40.109Z"
+        },
+        {
+          "zoomLevel": 21,
+          "datetime": "2025-05-17T17:33:51.630Z"
+        },
+        {
+          "zoomLevel": 21,
+          "datetime": "2025-05-17T17:33:54.311Z"
+        },
+        {
+          "zoomLevel": 20.5,
+          "datetime": "2025-05-17T17:35:16.861Z"
+        },
+        {
+          "zoomLevel": 19.5,
+          "datetime": "2025-05-17T17:35:36.663Z"
+        },
+        {
+          "zoomLevel": 18.5,
+          "datetime": "2025-05-17T17:39:44.279Z"
+        },
+        {
+          "zoomLevel": 18,
+          "datetime": "2025-05-17T17:39:57.673Z"
+        },
+        {
+          "zoomLevel": 17.5,
+          "datetime": "2025-05-17T17:39:59.332Z"
+        },
+        {
+          "zoomLevel": 18.5,
+          "datetime": "2025-05-17T17:40:17.921Z"
+        },
+        {
+          "zoomLevel": 18,
+          "datetime": "2025-05-17T17:40:19.186Z"
+        }
+      ],
+      "panEvents": [
+        {
+          "distance": "115.51",
+          "datetime": "2025-05-17T17:33:13.626Z"
+        },
+        {
+          "distance": "0.32",
+          "datetime": "2025-05-17T17:33:13.959Z"
+        },
+        {
+          "distance": "0.32",
+          "datetime": "2025-05-17T17:33:14.038Z"
+        },
+        {
+          "distance": "158.55",
+          "datetime": "2025-05-17T17:33:30.479Z"
+        },
+        {
+          "distance": "137.54",
+          "datetime": "2025-05-17T17:33:31.735Z"
+        },
+        {
+          "distance": "100.92",
+          "datetime": "2025-05-17T17:33:33.319Z"
+        },
+        {
+          "distance": "62.73",
+          "datetime": "2025-05-17T17:33:40.110Z"
+        },
+        {
+          "distance": "0.50",
+          "datetime": "2025-05-17T17:33:41.621Z"
+        },
+        {
+          "distance": "0.50",
+          "datetime": "2025-05-17T17:33:42.203Z"
+        },
+        {
+          "distance": "0.71",
+          "datetime": "2025-05-17T17:33:44.706Z"
+        },
+        {
+          "distance": "0.50",
+          "datetime": "2025-05-17T17:33:45.037Z"
+        },
+        {
+          "distance": "0.50",
+          "datetime": "2025-05-17T17:33:45.788Z"
+        },
+        {
+          "distance": "0.50",
+          "datetime": "2025-05-17T17:33:47.006Z"
+        },
+        {
+          "distance": "46.83",
+          "datetime": "2025-05-17T17:33:51.631Z"
+        },
+        {
+          "distance": "1.56",
+          "datetime": "2025-05-17T17:33:54.312Z"
+        },
+        {
+          "distance": "0.13",
+          "datetime": "2025-05-17T17:33:58.426Z"
+        },
+        {
+          "distance": "0.13",
+          "datetime": "2025-05-17T17:34:00.144Z"
+        },
+        {
+          "distance": "0.13",
+          "datetime": "2025-05-17T17:34:01.813Z"
+        },
+        {
+          "distance": "0.13",
+          "datetime": "2025-05-17T17:34:02.344Z"
+        },
+        {
+          "distance": "0.13",
+          "datetime": "2025-05-17T17:34:02.878Z"
+        },
+        {
+          "distance": "0.17",
+          "datetime": "2025-05-17T17:34:03.343Z"
+        },
+        {
+          "distance": "0.13",
+          "datetime": "2025-05-17T17:34:05.344Z"
+        },
+        {
+          "distance": "0.17",
+          "datetime": "2025-05-17T17:34:05.910Z"
+        },
+        {
+          "distance": "0.13",
+          "datetime": "2025-05-17T17:34:14.962Z"
+        },
+        {
+          "distance": "0.13",
+          "datetime": "2025-05-17T17:34:16.346Z"
+        },
+        {
+          "distance": "0.16",
+          "datetime": "2025-05-17T17:34:21.328Z"
+        },
+        {
+          "distance": "0.18",
+          "datetime": "2025-05-17T17:34:22.011Z"
+        },
+        {
+          "distance": "0.17",
+          "datetime": "2025-05-17T17:34:23.561Z"
+        },
+        {
+          "distance": "0.13",
+          "datetime": "2025-05-17T17:34:24.962Z"
+        },
+        {
+          "distance": "0.18",
+          "datetime": "2025-05-17T17:34:25.445Z"
+        },
+        {
+          "distance": "0.20",
+          "datetime": "2025-05-17T17:34:28.744Z"
+        },
+        {
+          "distance": "0.13",
+          "datetime": "2025-05-17T17:34:30.510Z"
+        },
+        {
+          "distance": "0.13",
+          "datetime": "2025-05-17T17:34:35.878Z"
+        },
+        {
+          "distance": "0.36",
+          "datetime": "2025-05-17T17:34:47.808Z"
+        },
+        {
+          "distance": "1.57",
+          "datetime": "2025-05-17T17:34:48.808Z"
+        },
+        {
+          "distance": "8.43",
+          "datetime": "2025-05-17T17:34:54.741Z"
+        },
+        {
+          "distance": "0.03",
+          "datetime": "2025-05-17T17:34:55.384Z"
+        },
+        {
+          "distance": "0.03",
+          "datetime": "2025-05-17T17:34:55.465Z"
+        },
+        {
+          "distance": "0.13",
+          "datetime": "2025-05-17T17:35:14.324Z"
+        },
+        {
+          "distance": "0.28",
+          "datetime": "2025-05-17T17:35:14.806Z"
+        },
+        {
+          "distance": "1.96",
+          "datetime": "2025-05-17T17:35:16.862Z"
+        },
+        {
+          "distance": "0.46",
+          "datetime": "2025-05-17T17:35:28.007Z"
+        },
+        {
+          "distance": "0.25",
+          "datetime": "2025-05-17T17:35:28.841Z"
+        },
+        {
+          "distance": "10.58",
+          "datetime": "2025-05-17T17:35:31.338Z"
+        },
+        {
+          "distance": "0.04",
+          "datetime": "2025-05-17T17:35:31.995Z"
+        },
+        {
+          "distance": "0.04",
+          "datetime": "2025-05-17T17:35:32.078Z"
+        },
+        {
+          "distance": "20.05",
+          "datetime": "2025-05-17T17:35:36.663Z"
+        },
+        {
+          "distance": "0.36",
+          "datetime": "2025-05-17T17:35:51.524Z"
+        },
+        {
+          "distance": "43.61",
+          "datetime": "2025-05-17T17:35:56.195Z"
+        },
+        {
+          "distance": "0.86",
+          "datetime": "2025-05-17T17:35:56.971Z"
+        },
+        {
+          "distance": "0.36",
+          "datetime": "2025-05-17T17:35:58.554Z"
+        },
+        {
+          "distance": "0.50",
+          "datetime": "2025-05-17T17:36:01.535Z"
+        },
+        {
+          "distance": "0.66",
+          "datetime": "2025-05-17T17:36:02.003Z"
+        },
+        {
+          "distance": "0.36",
+          "datetime": "2025-05-17T17:36:02.570Z"
+        },
+        {
+          "distance": "48.89",
+          "datetime": "2025-05-17T17:36:03.722Z"
+        },
+        {
+          "distance": "0.80",
+          "datetime": "2025-05-17T17:36:04.204Z"
+        },
+        {
+          "distance": "0.45",
+          "datetime": "2025-05-17T17:36:04.752Z"
+        },
+        {
+          "distance": "0.80",
+          "datetime": "2025-05-17T17:36:05.135Z"
+        },
+        {
+          "distance": "0.36",
+          "datetime": "2025-05-17T17:36:07.418Z"
+        },
+        {
+          "distance": "57.00",
+          "datetime": "2025-05-17T17:36:09.179Z"
+        },
+        {
+          "distance": "28.23",
+          "datetime": "2025-05-17T17:36:10.918Z"
+        },
+        {
+          "distance": "0.36",
+          "datetime": "2025-05-17T17:36:12.958Z"
+        },
+        {
+          "distance": "28.97",
+          "datetime": "2025-05-17T17:36:14.914Z"
+        },
+        {
+          "distance": "0.36",
+          "datetime": "2025-05-17T17:36:15.687Z"
+        },
+        {
+          "distance": "0.36",
+          "datetime": "2025-05-17T17:36:16.753Z"
+        },
+        {
+          "distance": "0.97",
+          "datetime": "2025-05-17T17:36:19.586Z"
+        },
+        {
+          "distance": "0.66",
+          "datetime": "2025-05-17T17:36:20.923Z"
+        },
+        {
+          "distance": "0.57",
+          "datetime": "2025-05-17T17:36:21.587Z"
+        },
+        {
+          "distance": "0.36",
+          "datetime": "2025-05-17T17:36:22.070Z"
+        },
+        {
+          "distance": "0.36",
+          "datetime": "2025-05-17T17:36:22.536Z"
+        },
+        {
+          "distance": "7.65",
+          "datetime": "2025-05-17T17:36:35.266Z"
+        },
+        {
+          "distance": "57.52",
+          "datetime": "2025-05-17T17:36:36.040Z"
+        },
+        {
+          "distance": "38.95",
+          "datetime": "2025-05-17T17:36:36.824Z"
+        },
+        {
+          "distance": "0.50",
+          "datetime": "2025-05-17T17:36:37.384Z"
+        },
+        {
+          "distance": "0.36",
+          "datetime": "2025-05-17T17:36:37.936Z"
+        },
+        {
+          "distance": "58.78",
+          "datetime": "2025-05-17T17:36:40.932Z"
+        },
+        {
+          "distance": "81.37",
+          "datetime": "2025-05-17T17:36:43.107Z"
+        },
+        {
+          "distance": "56.12",
+          "datetime": "2025-05-17T17:36:44.090Z"
+        },
+        {
+          "distance": "45.19",
+          "datetime": "2025-05-17T17:36:46.239Z"
+        },
+        {
+          "distance": "53.18",
+          "datetime": "2025-05-17T17:36:50.985Z"
+        },
+        {
+          "distance": "52.86",
+          "datetime": "2025-05-17T17:36:52.367Z"
+        },
+        {
+          "distance": "53.40",
+          "datetime": "2025-05-17T17:36:53.423Z"
+        },
+        {
+          "distance": "20.63",
+          "datetime": "2025-05-17T17:36:54.364Z"
+        },
+        {
+          "distance": "14.16",
+          "datetime": "2025-05-17T17:36:55.964Z"
+        },
+        {
+          "distance": "0.08",
+          "datetime": "2025-05-17T17:36:56.786Z"
+        },
+        {
+          "distance": "0.08",
+          "datetime": "2025-05-17T17:36:56.871Z"
+        },
+        {
+          "distance": "73.09",
+          "datetime": "2025-05-17T17:37:07.996Z"
+        },
+        {
+          "distance": "58.13",
+          "datetime": "2025-05-17T17:37:08.680Z"
+        },
+        {
+          "distance": "52.97",
+          "datetime": "2025-05-17T17:37:09.593Z"
+        },
+        {
+          "distance": "50.42",
+          "datetime": "2025-05-17T17:37:10.539Z"
+        },
+        {
+          "distance": "47.13",
+          "datetime": "2025-05-17T17:37:11.067Z"
+        },
+        {
+          "distance": "46.47",
+          "datetime": "2025-05-17T17:37:12.150Z"
+        },
+        {
+          "distance": "43.62",
+          "datetime": "2025-05-17T17:37:12.895Z"
+        },
+        {
+          "distance": "33.52",
+          "datetime": "2025-05-17T17:37:13.904Z"
+        },
+        {
+          "distance": "41.45",
+          "datetime": "2025-05-17T17:37:14.791Z"
+        },
+        {
+          "distance": "37.25",
+          "datetime": "2025-05-17T17:37:15.589Z"
+        },
+        {
+          "distance": "36.37",
+          "datetime": "2025-05-17T17:37:16.283Z"
+        },
+        {
+          "distance": "0.50",
+          "datetime": "2025-05-17T17:37:18.803Z"
+        },
+        {
+          "distance": "0.50",
+          "datetime": "2025-05-17T17:37:21.932Z"
+        },
+        {
+          "distance": "0.36",
+          "datetime": "2025-05-17T17:37:22.498Z"
+        },
+        {
+          "distance": "0.36",
+          "datetime": "2025-05-17T17:37:23.587Z"
+        },
+        {
+          "distance": "0.36",
+          "datetime": "2025-05-17T17:37:24.112Z"
+        },
+        {
+          "distance": "0.66",
+          "datetime": "2025-05-17T17:37:24.699Z"
+        },
+        {
+          "distance": "52.71",
+          "datetime": "2025-05-17T17:37:25.597Z"
+        },
+        {
+          "distance": "1.21",
+          "datetime": "2025-05-17T17:37:26.178Z"
+        },
+        {
+          "distance": "0.36",
+          "datetime": "2025-05-17T17:37:26.614Z"
+        },
+        {
+          "distance": "0.48",
+          "datetime": "2025-05-17T17:37:27.115Z"
+        },
+        {
+          "distance": "0.68",
+          "datetime": "2025-05-17T17:37:28.933Z"
+        },
+        {
+          "distance": "0.50",
+          "datetime": "2025-05-17T17:37:37.548Z"
+        },
+        {
+          "distance": "0.36",
+          "datetime": "2025-05-17T17:37:38.081Z"
+        },
+        {
+          "distance": "0.36",
+          "datetime": "2025-05-17T17:37:38.564Z"
+        },
+        {
+          "distance": "0.50",
+          "datetime": "2025-05-17T17:37:39.014Z"
+        },
+        {
+          "distance": "3.09",
+          "datetime": "2025-05-17T17:37:44.648Z"
+        },
+        {
+          "distance": "0.36",
+          "datetime": "2025-05-17T17:37:48.910Z"
+        },
+        {
+          "distance": "0.48",
+          "datetime": "2025-05-17T17:37:51.261Z"
+        },
+        {
+          "distance": "0.50",
+          "datetime": "2025-05-17T17:37:57.977Z"
+        },
+        {
+          "distance": "0.95",
+          "datetime": "2025-05-17T17:37:59.177Z"
+        },
+        {
+          "distance": "0.93",
+          "datetime": "2025-05-17T17:38:00.195Z"
+        },
+        {
+          "distance": "0.36",
+          "datetime": "2025-05-17T17:38:07.448Z"
+        },
+        {
+          "distance": "0.57",
+          "datetime": "2025-05-17T17:38:15.460Z"
+        },
+        {
+          "distance": "0.50",
+          "datetime": "2025-05-17T17:38:15.912Z"
+        },
+        {
+          "distance": "0.45",
+          "datetime": "2025-05-17T17:38:16.910Z"
+        },
+        {
+          "distance": "0.36",
+          "datetime": "2025-05-17T17:38:17.560Z"
+        },
+        {
+          "distance": "0.50",
+          "datetime": "2025-05-17T17:38:21.459Z"
+        },
+        {
+          "distance": "0.80",
+          "datetime": "2025-05-17T17:38:22.159Z"
+        },
+        {
+          "distance": "0.36",
+          "datetime": "2025-05-17T17:38:22.826Z"
+        },
+        {
+          "distance": "10.37",
+          "datetime": "2025-05-17T17:38:28.291Z"
+        },
+        {
+          "distance": "0.50",
+          "datetime": "2025-05-17T17:38:30.104Z"
+        },
+        {
+          "distance": "0.36",
+          "datetime": "2025-05-17T17:38:34.291Z"
+        },
+        {
+          "distance": "0.36",
+          "datetime": "2025-05-17T17:38:35.291Z"
+        },
+        {
+          "distance": "44.47",
+          "datetime": "2025-05-17T17:38:38.973Z"
+        },
+        {
+          "distance": "0.36",
+          "datetime": "2025-05-17T17:38:39.540Z"
+        },
+        {
+          "distance": "0.36",
+          "datetime": "2025-05-17T17:38:41.758Z"
+        },
+        {
+          "distance": "0.95",
+          "datetime": "2025-05-17T17:38:50.073Z"
+        },
+        {
+          "distance": "22.59",
+          "datetime": "2025-05-17T17:38:53.038Z"
+        },
+        {
+          "distance": "51.33",
+          "datetime": "2025-05-17T17:38:54.006Z"
+        },
+        {
+          "distance": "0.66",
+          "datetime": "2025-05-17T17:38:56.338Z"
+        },
+        {
+          "distance": "0.36",
+          "datetime": "2025-05-17T17:38:57.988Z"
+        },
+        {
+          "distance": "44.33",
+          "datetime": "2025-05-17T17:38:58.967Z"
+        },
+        {
+          "distance": "10.34",
+          "datetime": "2025-05-17T17:39:00.753Z"
+        },
+        {
+          "distance": "0.36",
+          "datetime": "2025-05-17T17:39:02.872Z"
+        },
+        {
+          "distance": "78.41",
+          "datetime": "2025-05-17T17:39:05.717Z"
+        },
+        {
+          "distance": "39.25",
+          "datetime": "2025-05-17T17:39:06.912Z"
+        },
+        {
+          "distance": "35.01",
+          "datetime": "2025-05-17T17:39:08.158Z"
+        },
+        {
+          "distance": "31.93",
+          "datetime": "2025-05-17T17:39:08.775Z"
+        },
+        {
+          "distance": "13.27",
+          "datetime": "2025-05-17T17:39:09.507Z"
+        },
+        {
+          "distance": "44.42",
+          "datetime": "2025-05-17T17:39:10.286Z"
+        },
+        {
+          "distance": "37.72",
+          "datetime": "2025-05-17T17:39:10.677Z"
+        },
+        {
+          "distance": "64.04",
+          "datetime": "2025-05-17T17:39:11.270Z"
+        },
+        {
+          "distance": "8.90",
+          "datetime": "2025-05-17T17:39:12.030Z"
+        },
+        {
+          "distance": "0.36",
+          "datetime": "2025-05-17T17:39:14.320Z"
+        },
+        {
+          "distance": "0.48",
+          "datetime": "2025-05-17T17:39:15.038Z"
+        },
+        {
+          "distance": "0.45",
+          "datetime": "2025-05-17T17:39:15.770Z"
+        },
+        {
+          "distance": "0.64",
+          "datetime": "2025-05-17T17:39:16.454Z"
+        },
+        {
+          "distance": "0.97",
+          "datetime": "2025-05-17T17:39:17.521Z"
+        },
+        {
+          "distance": "45.11",
+          "datetime": "2025-05-17T17:39:20.721Z"
+        },
+        {
+          "distance": "60.81",
+          "datetime": "2025-05-17T17:39:22.536Z"
+        },
+        {
+          "distance": "0.50",
+          "datetime": "2025-05-17T17:39:24.237Z"
+        },
+        {
+          "distance": "0.36",
+          "datetime": "2025-05-17T17:39:25.737Z"
+        },
+        {
+          "distance": "0.36",
+          "datetime": "2025-05-17T17:39:26.871Z"
+        },
+        {
+          "distance": "71.85",
+          "datetime": "2025-05-17T17:39:32.267Z"
+        },
+        {
+          "distance": "75.93",
+          "datetime": "2025-05-17T17:39:34.253Z"
+        },
+        {
+          "distance": "0.48",
+          "datetime": "2025-05-17T17:39:38.286Z"
+        },
+        {
+          "distance": "0.36",
+          "datetime": "2025-05-17T17:39:38.952Z"
+        },
+        {
+          "distance": "0.64",
+          "datetime": "2025-05-17T17:39:39.520Z"
+        },
+        {
+          "distance": "20.39",
+          "datetime": "2025-05-17T17:39:44.280Z"
+        },
+        {
+          "distance": "0.71",
+          "datetime": "2025-05-17T17:39:46.152Z"
+        },
+        {
+          "distance": "15.39",
+          "datetime": "2025-05-17T17:39:48.202Z"
+        },
+        {
+          "distance": "17.27",
+          "datetime": "2025-05-17T17:39:57.674Z"
+        },
+        {
+          "distance": "51.66",
+          "datetime": "2025-05-17T17:39:59.333Z"
+        },
+        {
+          "distance": "1.80",
+          "datetime": "2025-05-17T17:40:04.435Z"
+        },
+        {
+          "distance": "2.01",
+          "datetime": "2025-05-17T17:40:06.234Z"
+        },
+        {
+          "distance": "2.01",
+          "datetime": "2025-05-17T17:40:08.867Z"
+        },
+        {
+          "distance": "2.29",
+          "datetime": "2025-05-17T17:40:09.034Z"
+        },
+        {
+          "distance": "1.42",
+          "datetime": "2025-05-17T17:40:09.684Z"
+        },
+        {
+          "distance": "1.42",
+          "datetime": "2025-05-17T17:40:09.817Z"
+        },
+        {
+          "distance": "1.42",
+          "datetime": "2025-05-17T17:40:10.017Z"
+        },
+        {
+          "distance": "1.42",
+          "datetime": "2025-05-17T17:40:10.137Z"
+        },
+        {
+          "distance": "15.50",
+          "datetime": "2025-05-17T17:40:10.749Z"
+        },
+        {
+          "distance": "2.62",
+          "datetime": "2025-05-17T17:40:11.817Z"
+        },
+        {
+          "distance": "2.85",
+          "datetime": "2025-05-17T17:40:12.734Z"
+        },
+        {
+          "distance": "150.32",
+          "datetime": "2025-05-17T17:40:13.518Z"
+        },
+        {
+          "distance": "39.19",
+          "datetime": "2025-05-17T17:40:17.922Z"
+        },
+        {
+          "distance": "34.84",
+          "datetime": "2025-05-17T17:40:19.186Z"
+        },
+        {
+          "distance": "64.53",
+          "datetime": "2025-05-17T17:40:20.432Z"
+        },
+        {
+          "distance": "47.73",
+          "datetime": "2025-05-17T17:40:21.170Z"
+        },
+        {
+          "distance": "1.01",
+          "datetime": "2025-05-17T17:40:23.550Z"
+        },
+        {
+          "distance": "1.01",
+          "datetime": "2025-05-17T17:40:24.449Z"
+        },
+        {
+          "distance": "1.42",
+          "datetime": "2025-05-17T17:40:26.065Z"
+        },
+        {
+          "distance": "239.27",
+          "datetime": "2025-05-17T17:40:33.883Z"
+        },
+        {
+          "distance": "135.29",
+          "datetime": "2025-05-17T17:40:35.314Z"
+        },
+        {
+          "distance": "2.70",
+          "datetime": "2025-05-17T17:40:37.380Z"
+        },
+        {
+          "distance": "1.80",
+          "datetime": "2025-05-17T17:40:37.915Z"
+        },
+        {
+          "distance": "1.01",
+          "datetime": "2025-05-17T17:40:39.182Z"
+        },
+        {
+          "distance": "100.47",
+          "datetime": "2025-05-17T17:40:42.063Z"
+        },
+        {
+          "distance": "87.78",
+          "datetime": "2025-05-17T17:40:42.614Z"
+        },
+        {
+          "distance": "88.48",
+          "datetime": "2025-05-17T17:40:43.235Z"
+        },
+        {
+          "distance": "119.21",
+          "datetime": "2025-05-17T17:40:43.712Z"
+        },
+        {
+          "distance": "90.66",
+          "datetime": "2025-05-17T17:40:44.689Z"
+        },
+        {
+          "distance": "64.62",
+          "datetime": "2025-05-17T17:40:45.413Z"
+        },
+        {
+          "distance": "38.39",
+          "datetime": "2025-05-17T17:40:46.138Z"
+        },
+        {
+          "distance": "1.27",
+          "datetime": "2025-05-17T17:40:51.047Z"
+        },
+        {
+          "distance": "1.35",
+          "datetime": "2025-05-17T17:40:54.113Z"
+        },
+        {
+          "distance": "1.27",
+          "datetime": "2025-05-17T17:40:55.063Z"
+        },
+        {
+          "distance": "46.70",
+          "datetime": "2025-05-17T17:40:57.578Z"
+        },
+        {
+          "distance": "194.86",
+          "datetime": "2025-05-17T17:40:58.496Z"
+        },
+        {
+          "distance": "100.79",
+          "datetime": "2025-05-17T17:40:59.432Z"
+        },
+        {
+          "distance": "133.33",
+          "datetime": "2025-05-17T17:41:01.630Z"
+        },
+        {
+          "distance": "106.05",
+          "datetime": "2025-05-17T17:41:03.978Z"
+        },
+        {
+          "distance": "104.85",
+          "datetime": "2025-05-17T17:41:04.594Z"
+        },
+        {
+          "distance": "73.33",
+          "datetime": "2025-05-17T17:41:06.092Z"
+        },
+        {
+          "distance": "79.77",
+          "datetime": "2025-05-17T17:41:06.519Z"
+        },
+        {
+          "distance": "55.30",
+          "datetime": "2025-05-17T17:41:07.244Z"
+        },
+        {
+          "distance": "2.25",
+          "datetime": "2025-05-17T17:41:15.710Z"
+        },
+        {
+          "distance": "1.27",
+          "datetime": "2025-05-17T17:41:16.195Z"
+        },
+        {
+          "distance": "1.42",
+          "datetime": "2025-05-17T17:41:16.828Z"
+        },
+        {
+          "distance": "194.53",
+          "datetime": "2025-05-17T17:41:18.960Z"
+        },
+        {
+          "distance": "1.42",
+          "datetime": "2025-05-17T17:41:20.278Z"
+        },
+        {
+          "distance": "4.97",
+          "datetime": "2025-05-17T17:41:20.810Z"
+        },
+        {
+          "distance": "0.98",
+          "datetime": "2025-05-17T17:41:20.846Z"
+        },
+        {
+          "distance": "2.25",
+          "datetime": "2025-05-17T17:41:23.562Z"
+        },
+        {
+          "distance": "1.27",
+          "datetime": "2025-05-17T17:41:27.210Z"
+        },
+        {
+          "distance": "1.86",
+          "datetime": "2025-05-17T17:41:27.677Z"
+        },
+        {
+          "distance": "1.91",
+          "datetime": "2025-05-17T17:41:30.878Z"
+        },
+        {
+          "distance": "1.01",
+          "datetime": "2025-05-17T17:41:31.194Z"
+        },
+        {
+          "distance": "1.80",
+          "datetime": "2025-05-17T17:41:31.679Z"
+        },
+        {
+          "distance": "1.27",
+          "datetime": "2025-05-17T17:41:32.945Z"
+        },
+        {
+          "distance": "1.35",
+          "datetime": "2025-05-17T17:41:33.411Z"
+        },
+        {
+          "distance": "1.35",
+          "datetime": "2025-05-17T17:41:35.961Z"
+        }
+      ]
+    },
+    "nasaTlx": {
+      "mentalDemand": "50",
+      "physicalDemand": "50",
+      "temporalDemand": "50",
+      "performance": "50",
+      "effort": "50",
+      "frustration": "50"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "agac"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.97535,
+          41.017403
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "agac"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.975388,
+          41.017393
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "agac"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.975431,
+          41.017369
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "agac"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.975586,
+          41.017318
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "agac"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.975721,
+          41.017268
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "agac"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.97581,
+          41.017225
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "agac"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.974258,
+          41.017829
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "agac"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.97456,
+          41.017711
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "agac"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.974782,
+          41.017612
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "bench"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.975366,
+          41.0174
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "bench"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.975385,
+          41.017396
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "bench"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.975403,
+          41.017389
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "bench"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.97542,
+          41.01738
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "bench"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.975444,
+          41.017373
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "bench"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.975467,
+          41.017364
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "bench"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.975496,
+          41.017352
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "bench"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.975516,
+          41.017344
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "bench"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.975534,
+          41.017337
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "bench"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.975557,
+          41.017327
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "bench"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.975581,
+          41.017317
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "bench"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.975611,
+          41.017307
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "bench"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.97563,
+          41.017299
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "bench"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.975657,
+          41.017288
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "bench"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.975683,
+          41.017278
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "bench"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.975714,
+          41.017268
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "bench"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.975746,
+          41.017256
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "bench"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.975772,
+          41.017244
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "bench"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.975792,
+          41.017237
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "bench"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.974861,
+          41.017589
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "bench"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.97482,
+          41.017612
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "bench"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.974761,
+          41.017642
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "bench"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.974681,
+          41.017668
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "bench"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.974611,
+          41.017701
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "bench"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.974499,
+          41.017735
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "bench"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.974416,
+          41.017765
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "bench"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.9743,
+          41.017821
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "bench"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.974211,
+          41.017852
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "bench"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.973835,
+          41.018004
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "bench"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.973742,
+          41.018053
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "bench"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.9736,
+          41.018094
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "bench"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.973469,
+          41.018153
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "bench"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.973354,
+          41.01819
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "bench"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.973134,
+          41.018209
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "bench"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.972997,
+          41.018117
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "bench"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.972233,
+          41.018098
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "bench"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.972297,
+          41.01812
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "bench"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.97239,
+          41.018133
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "bench"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.972474,
+          41.018141
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "bench"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.972547,
+          41.018153
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "bench"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.97703,
+          41.016
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "bench"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.977384,
+          41.015968
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "bench"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.977915,
+          41.015907
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "bench"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.978194,
+          41.015883
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "bench"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.978113,
+          41.015507
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "bench"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.976611,
+          41.015608
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "cafe"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.975631,
+          41.017203
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "cafe"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.974583,
+          41.017586
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "cafe"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.972991,
+          41.017696
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "cafe"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.976939,
+          41.015822
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "cafe"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.978044,
+          41.015717
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "cafe"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.978065,
+          41.015729
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "wc"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.975317,
+          41.017327
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "wc"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.975336,
+          41.017346
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "wc"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.975461,
+          41.017263
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "wc"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.975493,
+          41.017288
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "wc"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.974245,
+          41.017719
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "wc"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.974272,
+          41.017749
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "wc"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.974442,
+          41.017642
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "wc"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.974474,
+          41.017668
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "wc"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.972327,
+          41.01805
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "wc"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.972307,
+          41.018037
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "wc"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.972542,
+          41.018088
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "wc"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.97251,
+          41.018074
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "wc"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.977502,
+          41.015753
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "wc"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.977443,
+          41.015733
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "path"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            28.976069,
+            41.016872
+          ],
+          [
+            28.975134,
+            41.017291
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "green"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              28.976644,
+              41.016162
+            ],
+            [
+              28.978361,
+              41.015972
+            ],
+            [
+              28.978264,
+              41.015466
+            ],
+            [
+              28.976462,
+              41.015543
+            ],
+            [
+              28.978243,
+              41.01545
+            ],
+            [
+              28.976644,
+              41.016162
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "green"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              28.977626,
+              41.01583
+            ],
+            [
+              28.976693,
+              41.016138
+            ],
+            [
+              28.976473,
+              41.015543
+            ],
+            [
+              28.978162,
+              41.015462
+            ],
+            [
+              28.977626,
+              41.01583
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "green"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              28.972197,
+              41.017874
+            ],
+            [
+              28.973683,
+              41.017891
+            ],
+            [
+              28.973522,
+              41.017563
+            ],
+            [
+              28.972235,
+              41.017534
+            ],
+            [
+              28.972197,
+              41.017874
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "square"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              28.972219,
+              41.017938
+            ],
+            [
+              28.972176,
+              41.018123
+            ],
+            [
+              28.972578,
+              41.018179
+            ],
+            [
+              28.972657,
+              41.018007
+            ],
+            [
+              28.972219,
+              41.017938
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "square"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              28.973441,
+              41.018025
+            ],
+            [
+              28.973088,
+              41.018061
+            ],
+            [
+              28.97306,
+              41.018242
+            ],
+            [
+              28.973873,
+              41.018003
+            ],
+            [
+              28.973816,
+              41.017918
+            ],
+            [
+              28.973816,
+              41.017915
+            ],
+            [
+              28.973082,
+              41.018064
+            ],
+            [
+              28.973441,
+              41.018025
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "square"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              28.973721,
+              41.017857
+            ],
+            [
+              28.973598,
+              41.017645
+            ],
+            [
+              28.973957,
+              41.017588
+            ],
+            [
+              28.974044,
+              41.017695
+            ],
+            [
+              28.973598,
+              41.017639
+            ],
+            [
+              28.973721,
+              41.017857
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "square"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              28.973712,
+              41.017851
+            ],
+            [
+              28.974,
+              41.017696
+            ],
+            [
+              28.973606,
+              41.017648
+            ],
+            [
+              28.974,
+              41.017688
+            ],
+            [
+              28.973712,
+              41.017851
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "square"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              28.973638,
+              41.017669
+            ],
+            [
+              28.973737,
+              41.017852
+            ],
+            [
+              28.973934,
+              41.017721
+            ],
+            [
+              28.973934,
+              41.017709
+            ],
+            [
+              28.973972,
+              41.017709
+            ],
+            [
+              28.973881,
+              41.017726
+            ],
+            [
+              28.973767,
+              41.017852
+            ],
+            [
+              28.973759,
+              41.017818
+            ],
+            [
+              28.973759,
+              41.017709
+            ],
+            [
+              28.973767,
+              41.017652
+            ],
+            [
+              28.973866,
+              41.017686
+            ],
+            [
+              28.973866,
+              41.017703
+            ],
+            [
+              28.97382,
+              41.017686
+            ],
+            [
+              28.973797,
+              41.017692
+            ],
+            [
+              28.973797,
+              41.017692
+            ],
+            [
+              28.973638,
+              41.017669
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

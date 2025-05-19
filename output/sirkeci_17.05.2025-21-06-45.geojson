@@ -1,0 +1,192 @@
+{
+  "type": "FeatureCollection",
+  "properties": {
+    "userInfo": {
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36",
+      "screenSize": "1440x900",
+      "username": "Sigmund",
+      "age": "39",
+      "group": "ziyaretçi",
+      "frequency": "yıllık",
+      "mapFamiliarity": "sık",
+      "GISFamiliarity": "bazen",
+      "onlineParticipation": "hayır",
+      "district": "TUZLA",
+      "neighborhood": "İSTASYON"
+    },
+    "userEvents": {
+      "timeWindow": {
+        "startTime": "2025-05-17T18:02:55.031Z",
+        "endTime": "2025-05-17T18:05:49.295Z",
+        "duration": "174.26"
+      },
+      "toolUsages": [
+        {
+          "tool": "culture",
+          "actionType": "creation",
+          "datetime": "2025-05-17T18:03:40.404Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "bench",
+          "actionType": "creation",
+          "datetime": "2025-05-17T18:04:00.704Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "wc",
+          "actionType": "creation",
+          "datetime": "2025-05-17T18:04:14.855Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "sport",
+          "actionType": "creation",
+          "datetime": "2025-05-17T18:04:55.139Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "agac",
+          "actionType": "creation",
+          "datetime": "2025-05-17T18:05:05.591Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "agac",
+          "actionType": "creation",
+          "datetime": "2025-05-17T18:05:09.241Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "agac",
+          "actionType": "creation",
+          "datetime": "2025-05-17T18:05:12.192Z",
+          "vertexCount": 1
+        },
+        {
+          "tool": "agac",
+          "actionType": "creation",
+          "datetime": "2025-05-17T18:05:15.891Z",
+          "vertexCount": 1
+        }
+      ],
+      "undoHistory": [],
+      "zoomLevels": [],
+      "panEvents": []
+    },
+    "nasaTlx": {
+      "mentalDemand": "70",
+      "physicalDemand": "25",
+      "temporalDemand": "25",
+      "performance": "50",
+      "effort": "40",
+      "frustration": "80"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "agac"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.972675,
+          41.018161
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "agac"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.972978,
+          41.018213
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "agac"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.973957,
+          41.017932
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "agac"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.975208,
+          41.017457
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "bench"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.975117,
+          41.017446
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "wc"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.974101,
+          41.017887
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "sport"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.975019,
+          41.017492
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "type": "culture"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          28.972872,
+          41.018161
+        ]
+      }
+    }
+  ]
+}
