@@ -62,17 +62,42 @@
     </div>
     </div>
 
-    <!-- User Modal -->
-    <div id="user-modal" class="modal" style="display:none;">
+    <div id="workflow-modal" class="modal" style="display:none;">
         <div class="modal-content">
-            <h2>Katılımcı</h2>
-            <p>
-                Şu anda Sirkeci Garı'ndan Eminönü'ne kadar olan hattı keyfinize göre tasarlamak üzeresiniz.
+            <h2>Çalışma Akışı</h2>
+            <p> Şu anda Sirkeci Garı'ndan Eminönü'ne kadar olan hattı keyfinize göre tasarlamak üzeresiniz.
                 Bunu katılımcı planlama ve tasarım anlayışı ile harmanlanan bir mekânsal anket çalışması olarak düşünebilirsiniz.
-                Harita üzerinde bulunan yardımcı butonlar vasıtası ile fikirlerinizi haritaya ekleyebilir ve
+                Harita üzerinde bulunan yardımcı araçlar vasıtası ile fikirlerinizi haritaya ekleyebilir ve
                 hayallerinizin gerçekleşmesini umabilirsiniz.
                 Sizin gibi diğer ziyaretçiler de bu mekânsal anketi hayalleri ile dolduruyor ve sonuçları Matrix'te yer
                 alan çok güvenli bir sunucuya PTT ile gönderiliyor.
+                Çalışmayı üç ana adımda kurguladık:</p>
+
+            <h4>1. Katılımcı Profili 👩🏻‍💻 (~2 dk)</h4>
+            <p>Katılımcı profili bilgileri belirtmeniz istenmektedir. Bilgiler anonim olarak işlenmektedir.</p>
+
+            <h4>2. Katılımcı Kentsel Tasarım Uygulaması 👩🏻‍🎨 (~5-15 dk)</h4>
+            <p>Alana dair tasarım önerilerinizi harita üzerinde işaretlemeniz beklenmektedir. Nokta (<strong>ağaç, bank, anıt, cafe, WC, spor, kültür/sergi</strong>), çizgi (<strong>yaya yolu</strong>) ve alan (<strong>yaya alanı/meydan, yeşil alan</strong>) araçlarını kullanarak alana ilişkin tasarım önerilerinizi işaretleyebilirsiniz. Çizimlerinizi <strong>geri al</strong>abilir veya başa dönmek isterseniz <strong>temizle</strong>yebilirsiniz.</p>
+            <p>Bu kısımda dilediğiniz kadar vakit harcayabilir, mümkün olduğunca detaylı tasarım önerileri kurgulayabilirsiniz. Tasarımınız hazır olduğunda <strong>Bitir ve yükle</strong> butonunu kullanarak son aşamaya geçebilirsiniz.</p>
+            
+            <img src="https://raw.githubusercontent.com/aliyilma/pmapping/refs/heads/main/resimler/ornek.jpg" alt="Açıklama" width=400>
+
+
+            <h4>3. Değerlendirme 🧠 (~2 dk)</h4>
+            <p>Tamamladığınız haritalama görevine ilişkin iş yükü görüşünüzü 6 adet parametre ile 0-100 arasında puanlayarak değerlendirmeniz beklenmektedir. Ardından <strong>Anketi Gönder ve Yükle</strong> butonu ile çalışmayı tamamlayabilirsiniz.</p>
+
+            <p>Katılımınız için teşekkür ederiz.</p>
+            <button id="workflow-continue-btn" type="button" class="bitir">Devam</button>
+
+        </div>
+    </div>
+
+    <!-- User Modal -->
+    <div id="user-modal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <h2>1. Katılımcı Profili 👩🏻‍💻</h2>
+            <p>
+
             </p>
             <p></p>
             <form id="user-form">
@@ -155,10 +180,10 @@
 
     <!-- **YENİ: Geri Bildirim Modalı** -->
     <div id="nasa-tlx-modal" class="modal" style="display:none;">
-        <div class="modal-content nasa-tlx-content"> <h2>🧠 İş Yükü Değerlendirmesi</h2>
-            <p>
-                <em>Lütfen az önce tamamladığınız haritalama görevini (arayüzü kullanma, çizim yapma, haritada gezinme vb. dahil) düşündüğünüzde, aşağıdaki boyutlara göre algıladığınız iş yükünü <strong>0 (Çok Düşük) ile 100 (Çok Yüksek)</strong> arasında derecelendiriniz.</em>
+        <div class="modal-content nasa-tlx-content"> <h2>3. Değerlendirme 🧠</h2>
+            <p>Lütfen az önce tamamladığınız haritalama görevini (arayüzü kullanma, çizim yapma, haritada gezinme vb. dahil) düşündüğünüzde, aşağıdaki boyutlara göre algıladığınız iş yükünü <strong>0 (Çok Düşük) ile 100 (Çok Yüksek)</strong> arasında derecelendiriniz.
             </p>
+            <p></p>
             <form id="nasa-tlx-form">
                 <div class="nasa-dimension">
                     <label for="mental-demand"><strong>Zihinsel Talep:</strong> Görev ne kadar zihinsel ve algısal aktivite gerektirdi? (düşünme, karar verme, hatırlama vb.)</label>

@@ -109,8 +109,15 @@ window.onload = () => {
 // Onam modalındaki butona tıklama olayı
 document.getElementById('consent-agree-btn').addEventListener('click', function() {
     document.getElementById('consent-modal').style.display = 'none'; // Onam modalını gizle
+    document.getElementById('workflow-modal').style.display = 'block'; // YENİ: Çalışma Akışı modalını göster
+    console.log("Onay verildi, çalışma akışı modalı gösteriliyor.");
+});
+
+// YENİ: Çalışma Akışı modalındaki devam butonuna tıklama olayı
+document.getElementById('workflow-continue-btn').addEventListener('click', function() {
+    document.getElementById('workflow-modal').style.display = 'none'; // Çalışma Akışı modalını gizle
     document.getElementById('user-modal').style.display = 'block'; // Kullanıcı bilgi modalını göster
-    console.log("Onay verildi, kullanıcı bilgi modalı gösteriliyor.");
+    console.log("Çalışma akışı anlaşıldı, kullanıcı bilgi modalı gösteriliyor.");
 });
 
 

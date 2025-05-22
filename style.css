@@ -158,7 +158,8 @@ button.active-tool {
 /* Bu butonlar zaten genel button stilini miras alır, sadece farklılıklar belirtilir. */
 #continue-btn,
 #submit-nasa-tlx-btn,
-#consent-agree-btn {
+#consent-agree-btn,
+#workflow-continue-btn {
     margin-top: 15px;
     margin-left: -10px; /* Genel button'da left: 10px vardı, burada sıfırlanmış */
     margin-bottom: 25px;
@@ -176,7 +177,8 @@ button.active-tool {
 
 #continue-btn:hover,
 #submit-nasa-tlx-btn:hover,
-#consent-agree-btn:hover {
+#consent-agree-btn:hover,
+#workflow-continue-btn:hover {
     background-color: #3f9243;
     transform: none; /* Genel button:hover'daki transform'u ezer (isteniyorsa) */
 }
@@ -291,17 +293,7 @@ button.active-tool {
     /*max-width: 650px;
 }
 
-.nasa-tlx-content h2 { /* .modal-content h2 stillerini ezer veya tamamlar */
-    text-align: center;
-    margin-bottom: 20px;
-}
 
-.nasa-tlx-content p { /* .modal-content p stillerini ezer veya tamamlar */
-    text-align: center;
-    margin-bottom: 25px;
-    /* line-height: 1.4; .modal-content p'den miras alır */
-    font-size: var(--font-size); /* Ana kuralı pekiştirir */
-}
 
 .nasa-dimension {
     margin-bottom: 25px;
@@ -438,17 +430,4 @@ button.active-tool {
         min-height: 44px; /* Dokunma alanını artırmak için biraz daha yüksek */
     }
 
-    #continue-btn,
-    #submit-nasa-tlx-btn,
-    #consent-agree-btn {
-        /* padding: 12px 15px; Yorum satırı kaldırıldı */
-        /*padding: 12px; /* Daha dengeli padding */
-        /*font-size: var(--font-size); /* Genel yazı boyutu */
-        /*width: auto; /* Tam genişlik yerine içeriğe göre genişlik */
-        /*min-width: 120px; /* Minimum genişlik */
-        /*display: block; /* Butonların alt alta gelmesi için */
-        /*margin-left: auto;
-        /*margin-right: auto;
-        /* box-sizing: border-box; zaten genel butondan geliyor */
-    }
 }
